@@ -69,10 +69,10 @@
                             <constraint firstItem="ncA-fA-3Pw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3ZM-3v-lzI"/>
                             <constraint firstItem="6eN-ee-x8L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AKT-FV-zIm"/>
                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EVo-vh-gED"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncA-fA-3Pw" secondAttribute="trailing" id="Lhu-Oi-oT0"/>
+                            <constraint firstAttribute="trailing" secondItem="ncA-fA-3Pw" secondAttribute="trailing" id="Lhu-Oi-oT0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6eN-ee-x8L" secondAttribute="trailing" constant="20" id="M0z-nE-Pdx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6eN-ee-x8L" secondAttribute="bottom" constant="40" id="RiA-3z-nvq"/>
-                            <constraint firstItem="ncA-fA-3Pw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SWz-5d-LFn"/>
+                            <constraint firstItem="ncA-fA-3Pw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SWz-5d-LFn"/>
                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="duu-a7-Kpi"/>
                             <constraint firstAttribute="bottom" secondItem="ncA-fA-3Pw" secondAttribute="bottom" id="gQ4-7E-bxH"/>
                             <constraint firstItem="Yik-C9-mZD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="meu-Fg-wdh"/>

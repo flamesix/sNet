@@ -107,6 +107,9 @@
                             <constraint firstItem="S64-pU-dP2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ouN-HE-u5A"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="S64-pU-dP2" id="reX-Q6-0Wh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

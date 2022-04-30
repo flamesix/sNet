@@ -58,6 +58,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Войти">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="enterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nr5-Ew-6sG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -110,7 +113,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Gwr-Mb-Keg"/>
                     <connections>
+                        <outlet property="loginTextField" destination="wxo-up-u8E" id="J0a-Dw-FfH"/>
                         <outlet property="scrollView" destination="S64-pU-dP2" id="bJ6-gp-CN1"/>
+                        <segue destination="Vy3-Oe-Znj" kind="show" identifier="LoginSegue" id="cIE-iY-Qvr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -188,6 +193,7 @@
         <scene sceneID="bhi-1r-fkJ">
             <objects>
                 <tabBarController id="Vy3-Oe-Znj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cUA-Vy-0Iy"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ICx-dg-gMh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

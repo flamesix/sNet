@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var loginTextField: UITextField!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +55,12 @@ class LoginViewController: UIViewController {
     }
     
     
-
+    @IBAction func enterButtonPressed(_ sender: UIButton) {
+        guard let login = loginTextField.text,
+              login != "" else {return showLoginAlert(message: "Login is empty")}
+        performSegue(withIdentifier: "LoginSegue", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

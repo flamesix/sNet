@@ -24,8 +24,8 @@ extension UIViewController {
     
     /// Login is incorret Alert
     func showLoginAlert(message: String) {
-        let alert = UIAlertController(title: "Login",
-                                      message: "Login is incorrect",
+        let alert = UIAlertController(title: "Error",
+                                      message: message,
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "OK",
                                    style: .default,

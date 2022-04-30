@@ -1,22 +1,24 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  sNet
 //
-//  Created by Юрий Гриневич on 28.04.2022.
+//  Created by Юрий Гриневич on 30.04.2022.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class LoginViewController: UIViewController {
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.setupHideKeyboardOnTap()
         registerForKeyboardNotifications()
     }
-
+    
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector:
                                                 #selector(keyboardWasShown(_:)),
@@ -50,21 +52,16 @@ class ViewController: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
     }
     
-}
-
-
-// MARK: - Extension HideKeyboard
-extension UIViewController {
-    /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
-    func setupHideKeyboardOnTap() {
-        self.view.addGestureRecognizer(self.endEditingRecognizer())
-        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
-    }
     
-    /// Dismisses the keyboard from self.view
-    private func endEditingRecognizer() -> UIGestureRecognizer {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
-        tap.cancelsTouchesInView = false
-        return tap
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
+
 }

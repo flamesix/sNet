@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06970C281D1A02007C50E8 /* LoginViewController.swift */; };
 		5B06970F281D1A1A007C50E8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */; };
+		5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */; };
+		5B069713281E5DFE007C50E8 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069712281E5DFE007C50E8 /* Friends.swift */; };
+		5B069715281E60A1007C50E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069714281E60A1007C50E8 /* Constants.swift */; };
+		5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069716281E647D007C50E8 /* GroupsTableViewController.swift */; };
 		5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */; };
 		5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */; };
 		5BC8FBDE281A688700CC9A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC8FBDC281A688700CC9A70 /* Main.storyboard */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		5B06970C281D1A02007C50E8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		5B069712281E5DFE007C50E8 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		5B069714281E60A1007C50E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5B069716281E647D007C50E8 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		5BC8FBD3281A688700CC9A70 /* sNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +73,10 @@
 				5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */,
 				5B06970C281D1A02007C50E8 /* LoginViewController.swift */,
 				5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */,
+				5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */,
+				5B069716281E647D007C50E8 /* GroupsTableViewController.swift */,
+				5B069714281E60A1007C50E8 /* Constants.swift */,
+				5B069712281E5DFE007C50E8 /* Friends.swift */,
 				5BC8FBDC281A688700CC9A70 /* Main.storyboard */,
 				5BC8FBDF281A688800CC9A70 /* Assets.xcassets */,
 				5BC8FBE1281A688800CC9A70 /* LaunchScreen.storyboard */,
@@ -146,9 +158,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */,
+				5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */,
+				5B069713281E5DFE007C50E8 /* Friends.swift in Sources */,
 				5B06970F281D1A1A007C50E8 /* UIViewControllerExtensions.swift in Sources */,
 				5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */,
+				5B069715281E60A1007C50E8 /* Constants.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,
+				5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

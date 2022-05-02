@@ -11,8 +11,8 @@ class FriendsTableViewController: UITableViewController {
     
     
     let friends: [Friends] = [
-        Friends(name: "John", lastName: "Dow", age: 25),
-        Friends(name: "Bob", lastName: "Johnson", age: 34)
+        Friends(icon: "🥸", name: "John", lastName: "Dow", age: 25),
+        Friends(icon: "🤡", name: "Bob", lastName: "Johnson", age: 34)
     ]
     
 
@@ -38,15 +38,10 @@ class FriendsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.friendCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.friendCell, for: indexPath) as! FriendsTableViewCell
 
         let friend = friends[indexPath.row]
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = friend.name + " " + friend.lastName
-      
-        cell.contentConfiguration = content
-        
+        cell.updateFriendsTable(with: friend)
 
         return cell
     }
@@ -88,14 +83,14 @@ class FriendsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
+/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
+    
+*/
 }

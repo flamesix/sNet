@@ -8,6 +8,7 @@
 import Foundation
 
 struct Friends {
+    var icon: String
     var name: String
     var lastName: String
     var age: Int?

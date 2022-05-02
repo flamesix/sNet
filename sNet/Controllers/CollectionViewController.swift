@@ -10,15 +10,34 @@ import UIKit
 private let reuseIdentifier = PropertyKeys.photoCollection
 
 class CollectionViewController: UICollectionViewController {
+    
+    let friends: [Friends] = [
+        Friends(icon: "🥸", name: "John", lastName: "Dow", age: 25),
+        Friends(icon: "🤡", name: "Bob", lastName: "Johnson", age: 34)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .absolute(70)),
+            subitem: item,
+            count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+       // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -37,19 +56,24 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        if section == 0 {
+        return friends.count
+        } else {
+            return 0
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
     
-        // Configure the cell
+        let friend = friends[indexPath.item]
+        cell.updatePhoto(with: friend)
+        
     
         return cell
     }

@@ -10,6 +10,7 @@ import Foundation
 enum Constants {
     case friendCell
     case groupCell
+    case searchGroup
     
     var value: String {
         switch self {
@@ -17,6 +18,8 @@ enum Constants {
             return "friendCell"
         case .groupCell:
             return "groupCell"
+        case .searchGroup:
+            return "searchGroup"
         }
     }
 }

@@ -29,29 +29,28 @@ class FriendsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return friends.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.friendCell.value, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.friendCell, for: indexPath)
 
         let friend = friends[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         content.text = friend.name + " " + friend.lastName
-      //  content.secondaryText = String(friend.age)
+      
         cell.contentConfiguration = content
         
 
         return cell
     }
+    
     
 
     /*

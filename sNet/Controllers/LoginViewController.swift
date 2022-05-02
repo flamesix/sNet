@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginTextField.text = "User"
 
         self.setupHideKeyboardOnTap()
         registerForKeyboardNotifications()

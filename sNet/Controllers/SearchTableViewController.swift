@@ -1,13 +1,20 @@
 //
-//  GroupsTableViewController.swift
+//  SearchTableViewController.swift
 //  sNet
 //
-//  Created by Юрий Гриневич on 01.05.2022.
+//  Created by Юрий Гриневич on 02.05.2022.
 //
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController {
+    
+    @IBOutlet weak var searchField: UISearchBar!
+    
+    let searchGroups: [Groups] = [
+    Groups(name: "iOS"),
+    Groups(name: "Android")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,7 @@ class GroupsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,20 +36,24 @@ class GroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return searchGroups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.groupCell.value, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath)
 
+        let searchGroup = searchGroups[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.text = "Group1"
+        content.text = searchGroup.name
         cell.contentConfiguration = content
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -62,6 +74,7 @@ class GroupsTableViewController: UITableViewController {
         }    
     }
     */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -1,18 +1,13 @@
 //
-//  SearchTableViewController.swift
+//  GroupsTableViewController.swift
 //  sNet
 //
-//  Created by Юрий Гриневич on 02.05.2022.
+//  Created by Юрий Гриневич on 01.05.2022.
 //
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
-    
-    let searchGroups: [Groups] = [
-    Groups(name: "iOS"),
-    Groups(name: "Android")
-    ]
+class GroupsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +28,23 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return searchGroups.count
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.searchGroup.value, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupCell, for: indexPath)
 
-        let searchGroup = searchGroups[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.text = searchGroup.name
+        content.text = "Group1"
         cell.contentConfiguration = content
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -10,9 +10,11 @@ import UIKit
 class FriendsTableViewController: UITableViewController {
     
     
-    let friends: [Friends] = []
-    let friend1 = Friends(name: "John", lastName: "Dow")
-    let friend2 = Friends(name: "Bob", lastName: "Johnson")
+    let friends: [Friends] = [
+        Friends(name: "John", lastName: "Dow", age: 25),
+        Friends(name: "Bob", lastName: "Johnson", age: 34)
+    ]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +35,18 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return friends.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.friendCell.value, for: indexPath)
 
+        let friend = friends[indexPath.row]
+        
         var content = cell.defaultContentConfiguration()
-        content.text = friend1.name
-        content.secondaryText = friend1.lastName
+        content.text = friend.name + " " + friend.lastName
+      //  content.secondaryText = String(friend.age)
         cell.contentConfiguration = content
         
 

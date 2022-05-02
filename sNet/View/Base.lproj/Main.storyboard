@@ -166,7 +166,7 @@
                                 <connections>
                                     <outlet property="iconLabel" destination="xlY-vB-iTz" id="LKE-Si-g8q"/>
                                     <outlet property="nameLabel" destination="2Y0-NX-96E" id="Pus-5J-e4J"/>
-                                    <segue destination="nla-YO-tRb" kind="show" id="7xv-QQ-qVp"/>
+                                    <segue destination="nla-YO-tRb" kind="show" identifier="friendToPhotoCollectionSegue" id="7xv-QQ-qVp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

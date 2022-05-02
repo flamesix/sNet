@@ -64,8 +64,8 @@
 			children = (
 				5B06970C281D1A02007C50E8 /* LoginViewController.swift */,
 				5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */,
-				5B069716281E647D007C50E8 /* GroupsTableViewController.swift */,
 				5B069719281FC910007C50E8 /* CollectionViewController.swift */,
+				5B069716281E647D007C50E8 /* GroupsTableViewController.swift */,
 				5B06971B281FC947007C50E8 /* SearchTableViewController.swift */,
 			);
 			path = Controllers;

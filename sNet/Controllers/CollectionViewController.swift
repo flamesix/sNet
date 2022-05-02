@@ -11,10 +11,7 @@ private let reuseIdentifier = PropertyKeys.photoCollection
 
 class CollectionViewController: UICollectionViewController {
     
-    let friends: [Friends] = [
-        Friends(icon: "🥸", name: "John", lastName: "Dow", age: 25),
-        Friends(icon: "🤡", name: "Bob", lastName: "Johnson", age: 34)
-    ]
+    var friends: [Friends] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

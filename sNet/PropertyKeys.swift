@@ -12,4 +12,5 @@ struct PropertyKeys {
     static let groupCell = "groupCell"
     static let searchGroup = "searchGroup"
     static let photoCollection = "photoCollection"
+    static let friendToPhotoCollectionSegue = "friendToPhotoCollectionSegue"
 }

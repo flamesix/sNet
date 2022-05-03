@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct Groups {
+    let image: UIImage!
     let name: String
+    let description: String
 }

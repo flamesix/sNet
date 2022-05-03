@@ -58,11 +58,12 @@ class CollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+//        if section == 0 {
+//        return friends.count
+//        } else {
+//            return 0
+//        }
         return friends.count
-        } else {
-            return 0
-        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

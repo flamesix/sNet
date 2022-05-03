@@ -18,6 +18,7 @@
 		5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06973D281FE5B9007C50E8 /* Groups.swift */; };
 		5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */; };
 		5B069744282021AF007C50E8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069743282021AF007C50E8 /* CollectionViewCell.swift */; };
+		5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */; };
 		5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */; };
 		5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */; };
 		5BC8FBDE281A688700CC9A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC8FBDC281A688700CC9A70 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		5B06973D281FE5B9007C50E8 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		5B069743282021AF007C50E8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		5BC8FBD3281A688700CC9A70 /* sNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,8 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				5BC8FBDC281A688700CC9A70 /* Main.storyboard */,
-				5B069743282021AF007C50E8 /* CollectionViewCell.swift */,
 				5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */,
+				5B069743282021AF007C50E8 /* CollectionViewCell.swift */,
+				5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */,
 				5BC8FBE1281A688800CC9A70 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -199,6 +202,7 @@
 				5B06971A281FC910007C50E8 /* CollectionViewController.swift in Sources */,
 				5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */,
 				5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */,
+				5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */,
 				5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */,
 				5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */,
 				5B069713281E5DFE007C50E8 /* Friends.swift in Sources */,

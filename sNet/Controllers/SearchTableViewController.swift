@@ -12,8 +12,8 @@ class SearchTableViewController: UITableViewController {
     @IBOutlet weak var searchField: UISearchBar!
     
     let searchGroups: [Groups] = [
-    Groups(name: "iOS"),
-    Groups(name: "Android")
+        Groups(image: UIImage(named: "12"), name: "iOS", description: "iOS lovers"),
+        Groups(image: UIImage(named: "13"), name: "Android", description: "Android lovers")
     ]
 
     override func viewDidLoad() {

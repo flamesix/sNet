@@ -30,23 +30,21 @@ class SearchTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return searchGroups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath) as! SearchGroupTableViewCell
 
         let searchGroup = searchGroups[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = searchGroup.name
-        cell.contentConfiguration = content
+        cell.updateSearchGroupTable(with: searchGroup)
 
         return cell
     }

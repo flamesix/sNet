@@ -25,10 +25,10 @@ class GroupsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateGroupsTable(with group: Groups) {
-        groupImage.image = group.image
-        groupNameLabel.text = group.name
-        groupDescriptionLabel.text = group.description
+    func updateGroupsTable(with searchGroup: Groups) {
+        groupImage.image = searchGroup.image
+        groupNameLabel.text = searchGroup.name
+        groupDescriptionLabel.text = searchGroup.description
     }
 
 }

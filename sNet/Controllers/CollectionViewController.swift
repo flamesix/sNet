@@ -16,20 +16,21 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1)))
+//        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+//            widthDimension: .fractionalWidth(1),
+//            heightDimension: .fractionalHeight(1)))
+//
+//        let group = NSCollectionLayoutGroup.horizontal(
+//            layoutSize: NSCollectionLayoutSize(
+//                widthDimension: .fractionalWidth(1),
+//                heightDimension: .absolute(70)),
+//            subitem: item,
+//            count: 1)
+//
+//        let section = NSCollectionLayoutSection(group: group)
+//
+//        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
         
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(70)),
-            subitem: item,
-            count: 1)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        
-        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

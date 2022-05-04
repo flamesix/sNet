@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="143" y="-279"/>
         </scene>
-        <!--Friends Table View Controller-->
+        <!--List of Friends-->
         <scene sceneID="YlM-iG-e1c">
             <objects>
                 <tableViewController id="F3p-12-83b" customClass="FriendsTableViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,13 +175,13 @@
                             <outlet property="delegate" destination="F3p-12-83b" id="tvL-Hb-JRZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UD9-7s-E9d"/>
+                    <navigationItem key="navigationItem" title="List of Friends" id="UD9-7s-E9d"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqO-dJ-THe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3324.6153846153843" y="-660.42654028436016"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Photos-->
         <scene sceneID="r3o-ds-g3Z">
             <objects>
                 <collectionViewController id="nla-YO-tRb" customClass="CollectionViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,8 +189,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QQa-km-zqN">
-                            <size key="itemSize" width="220" height="274"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UMa-6C-hf5">
+                            <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -237,7 +237,7 @@
                             <outlet property="delegate" destination="nla-YO-tRb" id="jew-FQ-tVG"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Wev-2v-fMA"/>
+                    <navigationItem key="navigationItem" title="Photos" id="Wev-2v-fMA"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEr-QO-pp3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="1500" y="-279"/>
         </scene>
-        <!--Groups Table View Controller-->
+        <!--User Groups-->
         <scene sceneID="BvN-bK-QWs">
             <objects>
                 <tableViewController id="Ydx-LG-mc3" customClass="GroupsTableViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
@@ -327,7 +327,7 @@
                             <outlet property="delegate" destination="Ydx-LG-mc3" id="dts-9G-ujs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="TTT-GY-QQ6">
+                    <navigationItem key="navigationItem" title="User Groups" id="TTT-GY-QQ6">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="CTg-2V-5UV">
                             <connections>
                                 <segue destination="hRz-6s-SFA" kind="show" id="PBM-tg-ZFP"/>
@@ -339,7 +339,7 @@
             </objects>
             <point key="canvasLocation" x="3324.6153846153843" y="35.545023696682463"/>
         </scene>
-        <!--Search Table View Controller-->
+        <!--Groups-->
         <scene sceneID="QwK-d5-Lft">
             <objects>
                 <tableViewController id="hRz-6s-SFA" customClass="SearchTableViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
@@ -413,7 +413,7 @@
                             <outlet property="delegate" destination="hRz-6s-SFA" id="jIw-2M-l0m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tjf-Iw-Cav"/>
+                    <navigationItem key="navigationItem" title="Groups" id="tjf-Iw-Cav"/>
                     <connections>
                         <outlet property="searchField" destination="7eC-JY-h8Q" id="vUO-Ra-7NB"/>
                     </connections>

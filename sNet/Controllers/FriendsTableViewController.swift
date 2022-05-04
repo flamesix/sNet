@@ -11,8 +11,11 @@ class FriendsTableViewController: UITableViewController {
     
     
     let friends: [Friends] = [
-        Friends(icon: "🥸", name: "John", lastName: "Dow", age: 25),
-        Friends(icon: "🤡", name: "Bob", lastName: "Johnson", age: 34)
+        Friends(userPhoto: UIImage(named: "1"), name: "John", lastName: "Johnson", icon: "🤡"),
+        Friends(userPhoto: UIImage(named: "2"), name: "Bob", lastName: "Bobson", icon: "😈"),
+        Friends(userPhoto: UIImage(named: "3"), name: "Peter", lastName: "Peterson", icon: "🤠"),
+        Friends(userPhoto: UIImage(named: "4"), name: "Rick", lastName: "Rickson", icon: "👻"),
+        Friends(userPhoto: UIImage(named: "5"), name: "Jane", lastName: "Janeson", icon: "😺")
     ]
     
 

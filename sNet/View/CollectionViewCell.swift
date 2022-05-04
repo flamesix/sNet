@@ -10,8 +10,11 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionPhotoLabel: UILabel!
+    @IBOutlet weak var collectionImage: UIImageView!
+    
     
     func updatePhoto(with friend: Friends) {
-        collectionPhotoLabel.text = friend.icon
+        collectionPhotoLabel.text = friend.name
+        collectionImage.image = friend.userPhoto
     }
 }

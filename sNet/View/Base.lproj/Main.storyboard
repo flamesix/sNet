@@ -197,28 +197,37 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollection" id="dZd-pY-9bf" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
-                                <rect key="frame" x="85" y="0.0" width="220" height="274"/>
+                                <rect key="frame" x="70" y="0.0" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rJI-kU-GvK" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="220" height="274"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-EB-RuO">
-                                            <rect key="frame" x="8" y="8" width="204" height="258"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-tS-10l">
+                                            <rect key="frame" x="8" y="8" width="234" height="234"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSp-O1-JWy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="213.66666666666666"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-EB-RuO">
+                                                    <rect key="frame" x="0.0" y="213.66666666666666" width="234" height="20.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7Cd-EB-RuO" firstAttribute="leading" secondItem="rJI-kU-GvK" secondAttribute="leading" constant="8" id="12a-Oo-95J"/>
-                                        <constraint firstAttribute="bottom" secondItem="7Cd-EB-RuO" secondAttribute="bottom" constant="8" id="9XP-TQ-zf8"/>
-                                        <constraint firstItem="7Cd-EB-RuO" firstAttribute="top" secondItem="rJI-kU-GvK" secondAttribute="top" constant="8" id="aiP-0y-dRd"/>
-                                        <constraint firstAttribute="trailing" secondItem="7Cd-EB-RuO" secondAttribute="trailing" constant="8" id="uCW-YN-pGF"/>
+                                        <constraint firstItem="kAQ-tS-10l" firstAttribute="leading" secondItem="rJI-kU-GvK" secondAttribute="leading" constant="8" id="IZ3-z8-ydM"/>
+                                        <constraint firstItem="kAQ-tS-10l" firstAttribute="top" secondItem="rJI-kU-GvK" secondAttribute="top" constant="8" id="QcI-MN-gdA"/>
+                                        <constraint firstAttribute="bottom" secondItem="kAQ-tS-10l" secondAttribute="bottom" constant="8" id="R3Y-gD-Lro"/>
+                                        <constraint firstAttribute="trailing" secondItem="kAQ-tS-10l" secondAttribute="trailing" constant="8" id="eUK-J6-Xcd"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="220" height="274"/>
+                                <size key="customSize" width="250" height="250"/>
                                 <connections>
+                                    <outlet property="collectionImage" destination="HSp-O1-JWy" id="RDm-wi-uxM"/>
                                     <outlet property="collectionPhotoLabel" destination="7Cd-EB-RuO" id="xaY-wn-4i3"/>
                                 </connections>
                             </collectionViewCell>

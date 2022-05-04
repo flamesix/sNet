@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Friends {
-    var icon: String
-    var name: String
-    var lastName: String
-    var age: Int?
+    let userPhoto: UIImage!
+    let name: String
+    let lastName: String
+    let icon: String
 }

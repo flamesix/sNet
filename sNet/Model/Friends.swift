@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
-struct Friends {
+protocol FriendsProtocol {
+    var userPhoto: UIImage! { get }
+    var name: String { get }
+    var lastName: String { get }
+    var icon: String { get }
+}
+
+struct Friends: FriendsProtocol {
     let userPhoto: UIImage!
     let name: String
     let lastName: String

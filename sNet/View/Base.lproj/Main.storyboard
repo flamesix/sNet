@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyF-Ez-Ls5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AyI-F2-hfl">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -120,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="-279"/>
+            <point key="canvasLocation" x="203" y="-279"/>
         </scene>
         <!--List of Friends-->
         <scene sceneID="YlM-iG-e1c">
@@ -480,10 +481,140 @@
             </objects>
             <point key="canvasLocation" x="2395.3846153846152" y="35.545023696682463"/>
         </scene>
+        <!--Second Login View Controller-->
+        <scene sceneID="yhK-hH-7tw">
+            <objects>
+                <viewController id="AyI-F2-hfl" customClass="SecondLoginViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n0x-eS-b2K">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meridian" translatesAutoresizingMaskIntoConstraints="NO" id="WEg-Td-sdh">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqU-oO-Lri">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-oJ-nn7">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="758"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jEq-mN-Zl1">
+                                                <rect key="frame" x="160" y="208" width="70" height="70"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SNET." translatesAutoresizingMaskIntoConstraints="NO" id="8oj-CY-lE5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="5ye-6T-7FX"/>
+                                                    <constraint firstAttribute="width" constant="70" id="aaw-52-2NT"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="soe-iL-sgV">
+                                                <rect key="frame" x="28" y="286" width="334" height="186.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход в sNet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x26-Oh-9rD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" systemColor="systemGray6Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Телефон или почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kT-rf-CUz">
+                                                        <rect key="frame" x="0.0" y="44" width="334" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hOT-rz-dfr">
+                                                        <rect key="frame" x="0.0" y="98" width="334" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage">
+                                                                <imageReference key="value" image="eye.fill" catalog="system" symbolScale="small"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9f-vm-L34">
+                                                        <rect key="frame" x="0.0" y="152" width="334" height="34.333333333333343"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Войти">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="enterButtonPressed:" destination="AyI-F2-hfl" eventType="touchUpInside" id="sOb-gm-fqJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-Wh-00l">
+                                                <rect key="frame" x="28" y="703.66666666666663" width="334" height="34.333333333333371"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="soe-iL-sgV" firstAttribute="centerX" secondItem="7kc-oJ-nn7" secondAttribute="centerX" id="2b9-dp-AR9"/>
+                                            <constraint firstItem="jk7-Wh-00l" firstAttribute="centerX" secondItem="7kc-oJ-nn7" secondAttribute="centerX" id="4Cw-9r-uRV"/>
+                                            <constraint firstItem="jk7-Wh-00l" firstAttribute="leading" secondItem="7kc-oJ-nn7" secondAttribute="leadingMargin" constant="20" id="6Wf-UZ-yUE"/>
+                                            <constraint firstItem="soe-iL-sgV" firstAttribute="leading" secondItem="7kc-oJ-nn7" secondAttribute="leadingMargin" constant="20" id="6j0-47-dLv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="soe-iL-sgV" secondAttribute="trailing" constant="20" id="BsA-th-jLf"/>
+                                            <constraint firstItem="soe-iL-sgV" firstAttribute="top" secondItem="jEq-mN-Zl1" secondAttribute="bottom" constant="8" symbolic="YES" id="IqC-ue-T4q"/>
+                                            <constraint firstAttribute="bottom" secondItem="jk7-Wh-00l" secondAttribute="bottom" constant="20" id="W7y-ST-dh6"/>
+                                            <constraint firstItem="soe-iL-sgV" firstAttribute="centerY" secondItem="7kc-oJ-nn7" secondAttribute="centerY" id="ucK-e8-Now"/>
+                                            <constraint firstItem="jk7-Wh-00l" firstAttribute="centerX" secondItem="jEq-mN-Zl1" secondAttribute="centerX" id="xYW-OT-Xg8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7kc-oJ-nn7" firstAttribute="trailing" secondItem="Yo8-9y-iuG" secondAttribute="trailing" id="8u6-Oe-epq"/>
+                                    <constraint firstItem="7kc-oJ-nn7" firstAttribute="leading" secondItem="Yo8-9y-iuG" secondAttribute="leading" id="QIB-v5-ZUg"/>
+                                    <constraint firstItem="7kc-oJ-nn7" firstAttribute="bottom" secondItem="Yo8-9y-iuG" secondAttribute="bottom" id="TfH-ds-nEQ"/>
+                                    <constraint firstItem="7kc-oJ-nn7" firstAttribute="width" secondItem="TCj-dP-NXS" secondAttribute="width" id="g8W-3w-NkQ"/>
+                                    <constraint firstItem="TCj-dP-NXS" firstAttribute="bottom" secondItem="7kc-oJ-nn7" secondAttribute="bottom" constant="8" id="hDb-gn-sEK"/>
+                                    <constraint firstItem="7kc-oJ-nn7" firstAttribute="top" secondItem="Yo8-9y-iuG" secondAttribute="top" id="x8c-qH-1G3"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Yo8-9y-iuG"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="TCj-dP-NXS"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Okd-Nj-mJh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WEg-Td-sdh" secondAttribute="bottom" id="0l9-jn-nmI"/>
+                            <constraint firstItem="MqU-oO-Lri" firstAttribute="top" secondItem="Okd-Nj-mJh" secondAttribute="top" id="1gb-YL-jad"/>
+                            <constraint firstItem="MqU-oO-Lri" firstAttribute="trailing" secondItem="Okd-Nj-mJh" secondAttribute="trailing" id="7gZ-G5-S7V"/>
+                            <constraint firstAttribute="trailing" secondItem="WEg-Td-sdh" secondAttribute="trailing" id="NHh-mH-BdK"/>
+                            <constraint firstItem="MqU-oO-Lri" firstAttribute="leading" secondItem="Okd-Nj-mJh" secondAttribute="leading" id="YMQ-XQ-e1m"/>
+                            <constraint firstItem="WEg-Td-sdh" firstAttribute="leading" secondItem="n0x-eS-b2K" secondAttribute="leading" id="bwB-Mo-IPq"/>
+                            <constraint firstItem="MqU-oO-Lri" firstAttribute="bottom" secondItem="Okd-Nj-mJh" secondAttribute="bottom" id="fjG-Zp-ef5"/>
+                            <constraint firstItem="WEg-Td-sdh" firstAttribute="top" secondItem="n0x-eS-b2K" secondAttribute="top" id="kso-br-ihx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NyH-hJ-uWT"/>
+                    <connections>
+                        <outlet property="loginTextField" destination="5kT-rf-CUz" id="3ap-q5-MXg"/>
+                        <outlet property="passwordTextField" destination="hOT-rz-dfr" id="P3A-Mb-DwX"/>
+                        <outlet property="scrollView" destination="MqU-oO-Lri" id="dcl-Pe-AdI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etz-Hu-pTJ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="572"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Meridian" width="900" height="1440"/>
         <image name="SNET." width="1024" height="1024"/>
+        <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="greetingcard" catalog="system" width="107" height="128"/>
         <image name="greetingcard.fill" catalog="system" width="106" height="128"/>
         <image name="person" catalog="system" width="128" height="117"/>

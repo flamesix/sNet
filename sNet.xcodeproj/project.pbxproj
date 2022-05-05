@@ -20,6 +20,7 @@
 		5B069744282021AF007C50E8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069743282021AF007C50E8 /* CollectionViewCell.swift */; };
 		5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */; };
 		5B06974A2821AC60007C50E8 /* SearchGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0697492821AC60007C50E8 /* SearchGroupTableViewCell.swift */; };
+		5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */; };
 		5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */; };
 		5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */; };
 		5BC8FBDE281A688700CC9A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC8FBDC281A688700CC9A70 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		5B069743282021AF007C50E8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		5B0697492821AC60007C50E8 /* SearchGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupTableViewCell.swift; sourceTree = "<group>"; };
+		5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
 		5BC8FBD3281A688700CC9A70 /* sNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				5B069719281FC910007C50E8 /* CollectionViewController.swift */,
 				5B069716281E647D007C50E8 /* GroupsTableViewController.swift */,
 				5B06971B281FC947007C50E8 /* SearchTableViewController.swift */,
+				5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				5B069715281E60A1007C50E8 /* PropertyKeys.swift in Sources */,
 				5B06971C281FC947007C50E8 /* SearchTableViewController.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,
+				5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */,
 				5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

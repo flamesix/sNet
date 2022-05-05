@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06970C281D1A02007C50E8 /* LoginViewController.swift */; };
-		5B06970F281D1A1A007C50E8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */; };
+		5B06970F281D1A1A007C50E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06970E281D1A1A007C50E8 /* Extensions.swift */; };
 		5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */; };
 		5B069713281E5DFE007C50E8 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069712281E5DFE007C50E8 /* Friends.swift */; };
 		5B069715281E60A1007C50E8 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069714281E60A1007C50E8 /* PropertyKeys.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		5B06970C281D1A02007C50E8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		5B06970E281D1A1A007C50E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		5B069712281E5DFE007C50E8 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		5B069714281E60A1007C50E8 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			children = (
 				5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */,
 				5BC8FBD8281A688700CC9A70 /* SceneDelegate.swift */,
-				5B06970E281D1A1A007C50E8 /* UIViewControllerExtensions.swift */,
+				5B06970E281D1A1A007C50E8 /* Extensions.swift */,
 				5B069714281E60A1007C50E8 /* PropertyKeys.swift */,
 				5B069740281FEFDA007C50E8 /* Model */,
 				5B06973F281FEFCC007C50E8 /* View */,
@@ -213,7 +213,7 @@
 				5B06974A2821AC60007C50E8 /* SearchGroupTableViewCell.swift in Sources */,
 				5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */,
 				5B069713281E5DFE007C50E8 /* Friends.swift in Sources */,
-				5B06970F281D1A1A007C50E8 /* UIViewControllerExtensions.swift in Sources */,
+				5B06970F281D1A1A007C50E8 /* Extensions.swift in Sources */,
 				5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */,
 				5B069744282021AF007C50E8 /* CollectionViewCell.swift in Sources */,
 				5B069715281E60A1007C50E8 /* PropertyKeys.swift in Sources */,

@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         guard let login = loginTextField.text,
               login != "" else {return showLoginAlert(message: "Login is empty")}
-        performSegue(withIdentifier: "LoginSegue", sender: nil)
+        performSegue(withIdentifier: PropertyKeys.loginSegue, sender: nil)
     }
     
     /*

@@ -26,6 +26,8 @@ class SecondLoginViewController: UIViewController {
 
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
     }
     
     

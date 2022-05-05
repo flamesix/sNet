@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AyI-F2-hfl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyF-Ez-Ls5">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -116,12 +116,12 @@
                     <connections>
                         <outlet property="loginTextField" destination="wxo-up-u8E" id="J0a-Dw-FfH"/>
                         <outlet property="scrollView" destination="S64-pU-dP2" id="bJ6-gp-CN1"/>
-                        <segue destination="Vy3-Oe-Znj" kind="show" identifier="LoginSegue" id="cIE-iY-Qvr"/>
+                        <segue destination="AyI-F2-hfl" kind="show" identifier="loginSegue" id="PYw-t0-xi8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="-279"/>
+            <point key="canvasLocation" x="-282" y="-279"/>
         </scene>
         <!--List of Friends-->
         <scene sceneID="YlM-iG-e1c">
@@ -438,7 +438,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mj-9G-ciK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811" y="-279"/>
+            <point key="canvasLocation" x="-1248" y="-279"/>
         </scene>
         <!--Friends-->
         <scene sceneID="a0e-Sf-JZg">
@@ -604,11 +604,12 @@
                         <outlet property="loginTextField" destination="5kT-rf-CUz" id="3ap-q5-MXg"/>
                         <outlet property="passwordTextField" destination="hOT-rz-dfr" id="P3A-Mb-DwX"/>
                         <outlet property="scrollView" destination="MqU-oO-Lri" id="dcl-Pe-AdI"/>
+                        <segue destination="Vy3-Oe-Znj" kind="show" identifier="loginPasswordSegue" id="uM4-yb-awd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etz-Hu-pTJ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="572"/>
+            <point key="canvasLocation" x="612" y="-279"/>
         </scene>
     </scenes>
     <resources>

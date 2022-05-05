@@ -176,7 +176,7 @@
                             <outlet property="delegate" destination="F3p-12-83b" id="tvL-Hb-JRZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List of Friends" id="UD9-7s-E9d"/>
+                    <navigationItem key="navigationItem" title="List of Friends" largeTitleDisplayMode="always" id="UD9-7s-E9d"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqO-dJ-THe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,7 +328,7 @@
                             <outlet property="delegate" destination="Ydx-LG-mc3" id="dts-9G-ujs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User Groups" id="TTT-GY-QQ6">
+                    <navigationItem key="navigationItem" title="User Groups" largeTitleDisplayMode="always" id="TTT-GY-QQ6">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="CTg-2V-5UV">
                             <connections>
                                 <segue destination="hRz-6s-SFA" kind="show" id="PBM-tg-ZFP"/>
@@ -446,8 +446,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uHY-SV-xMu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill" catalog="system" selectedImage="person" id="Ijb-ZC-ceN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FGI-qH-Q1m">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FGI-qH-Q1m">
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -465,8 +465,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mDs-Po-zJb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="greetingcard.fill" catalog="system" selectedImage="greetingcard" id="Bfg-rB-0lK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HNM-tU-gW4">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HNM-tU-gW4">
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -484,7 +484,7 @@
         <!--Second Login View Controller-->
         <scene sceneID="yhK-hH-7tw">
             <objects>
-                <viewController id="AyI-F2-hfl" customClass="SecondLoginViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondLoginViewController" id="AyI-F2-hfl" customClass="SecondLoginViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n0x-eS-b2K">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

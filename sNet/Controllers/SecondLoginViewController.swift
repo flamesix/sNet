@@ -9,6 +9,10 @@ import UIKit
 
 class SecondLoginViewController: UIViewController {
     
+    let login: [LoginProtocol] = []
+    
+    var updatingData: String = ""
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -21,8 +25,12 @@ class SecondLoginViewController: UIViewController {
         passwordTextField.setRightButton(systemName: "eye.fill")
         self.setupHideKeyboardOnTap()
         scrollView.registerForKeyboardNotifications()
+        updateLoginTextField(with: updatingData)
     }
     
+    func updateLoginTextField(with text: String) {
+        loginTextField.text = text
+    }
 
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {

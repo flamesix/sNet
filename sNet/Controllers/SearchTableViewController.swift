@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    let searchController = UISearchController()
     
     @IBOutlet weak var searchField: UISearchBar!
     
@@ -15,15 +17,28 @@ class SearchTableViewController: UITableViewController {
         Groups(image: UIImage(named: "12"), name: "iOS", description: "iOS lovers"),
         Groups(image: UIImage(named: "13"), name: "Android", description: "Android lovers")
     ]
+    
+    var filteredGroups: [Groups] = []
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 
 

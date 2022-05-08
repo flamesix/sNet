@@ -329,7 +329,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="User Groups" largeTitleDisplayMode="always" id="TTT-GY-QQ6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="CTg-2V-5UV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CTg-2V-5UV">
                             <connections>
                                 <segue destination="hRz-6s-SFA" kind="show" id="PBM-tg-ZFP"/>
                             </connections>

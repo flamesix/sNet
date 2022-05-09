@@ -29,6 +29,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController.searchResultsUpdater = self
         navigationItem.hidesSearchBarWhenScrolling = false
         
+        updateSearchResults(for: searchController)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,8 +39,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if let searchString = searchController.searchBar.text,
+           !searchString.isEmpty {
+            filteredGroups = searchGroups.filter { (item) -> Bool in
+                item.name.localizedCaseInsensitiveContains(searchString)
+            }
+        } else {
+            filteredGroups = searchGroups
+        }
+        tableView.reloadData()
     }
+
 
 
     // MARK: - Table view data source
@@ -51,14 +61,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return searchGroups.count
+        //return searchGroups.count
+        return filteredGroups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath) as! SearchGroupTableViewCell
 
-        let searchGroup = searchGroups[indexPath.row]
+       // let searchGroup = searchGroups[indexPath.row]
+        let searchGroup = filteredGroups[indexPath.row]
         cell.updateSearchGroupTable(with: searchGroup)
 
         return cell

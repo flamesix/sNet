@@ -208,10 +208,10 @@
                                             <rect key="frame" x="8" y="8" width="136" height="159"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSp-O1-JWy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="114.33333333333333"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="118.66666666666667"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-EB-RuO">
-                                                    <rect key="frame" x="0.0" y="134.33333333333334" width="136" height="24.666666666666657"/>
+                                                    <rect key="frame" x="0.0" y="138.66666666666666" width="136" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -331,13 +331,10 @@
                     <navigationItem key="navigationItem" title="User Groups" largeTitleDisplayMode="always" id="TTT-GY-QQ6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CTg-2V-5UV">
                             <connections>
-                                <action selector="goTo:" destination="Ydx-LG-mc3" id="P1J-Pc-Ri7"/>
+                                <segue destination="hRz-6s-SFA" kind="show" identifier="goToSearchTableView" id="DfX-BL-TfJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="hRz-6s-SFA" kind="show" identifier="goToSearchTableView" id="lRS-Zg-SjL"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbe-2O-j1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -400,6 +397,7 @@
                                     <outlet property="searchDescriptionLabel" destination="Rl6-lj-bQH" id="rLd-lm-aGO"/>
                                     <outlet property="searchGroupLabel" destination="YoF-7P-tFC" id="vQh-2E-zQh"/>
                                     <outlet property="searchImage" destination="EV2-Ac-5wA" id="IfB-a3-rHX"/>
+                                    <segue destination="Ish-8w-fsV" kind="unwind" unwindAction="unwindToGroupsTableViewController:" id="Ev4-uA-UEd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -411,6 +409,7 @@
                     <navigationItem key="navigationItem" title="Groups" id="tjf-Iw-Cav"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXK-XR-4CR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ish-8w-fsV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4100" y="35.545023696682463"/>
         </scene>

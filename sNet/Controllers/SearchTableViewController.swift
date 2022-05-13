@@ -40,8 +40,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
        // updateDataFromGroup(with: updatingData!)
-        print(updatingData)
+       // print(updatingData)
     }
     
     func updateDataFromGroup(with group: Groups) {

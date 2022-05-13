@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     func updatePhoto(with friend: Friends) {
-        collectionPhotoLabel.text = friend.name
+        collectionPhotoLabel.text = friend.description
         collectionImage.image = friend.userPhoto
     }
 }

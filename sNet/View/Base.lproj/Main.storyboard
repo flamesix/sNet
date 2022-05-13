@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyF-Ez-Ls5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tPZ-ZS-d7O">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -430,6 +430,42 @@
             </objects>
             <point key="canvasLocation" x="-1248" y="-279"/>
         </scene>
+        <!--Canvas View Controller-->
+        <scene sceneID="1im-8N-ZNo">
+            <objects>
+                <viewController id="tPZ-ZS-d7O" customClass="CanvasViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JZR-h6-d1C">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqh-XV-4PM" customClass="DrawingControl" customModule="sNet" customModuleProvider="target">
+                                <rect key="frame" x="75" y="302" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pqh-XV-4PM" secondAttribute="height" multiplier="1:1" id="F3u-mo-FMa"/>
+                                    <constraint firstAttribute="width" constant="240" id="Rub-Mo-cBQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldDrawRect" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isToggle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xzD-fe-Jgp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pqh-XV-4PM" firstAttribute="centerX" secondItem="JZR-h6-d1C" secondAttribute="centerX" id="bSh-v4-lir"/>
+                            <constraint firstItem="pqh-XV-4PM" firstAttribute="centerY" secondItem="JZR-h6-d1C" secondAttribute="centerY" id="goz-Cb-Ueg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="drawingController" destination="pqh-XV-4PM" id="oMi-7N-ZGB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZe-5n-zcw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="-1857"/>
+        </scene>
         <!--Friends-->
         <scene sceneID="a0e-Sf-JZg">
             <objects>
@@ -612,6 +648,9 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

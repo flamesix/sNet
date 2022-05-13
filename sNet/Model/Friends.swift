@@ -15,9 +15,13 @@ protocol FriendsProtocol {
     var icon: String { get }
 }
 
-struct Friends: FriendsProtocol {
+struct Friends: FriendsProtocol, CustomStringConvertible {
     let userPhoto: UIImage!
     let name: String
     let lastName: String
     let icon: String
+    
+    var description: String {
+        "My photo \(icon)"
+    }
 }

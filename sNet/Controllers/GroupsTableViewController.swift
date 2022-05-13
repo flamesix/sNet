@@ -36,6 +36,8 @@ class GroupsTableViewController: UITableViewController {
         Groups(image: UIImage(named: "10"), name: "Shopping", description: "Find best price"),
         Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
     ]
+    
+    var deletedItem: Groups?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,7 @@ class GroupsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupCell, for: indexPath) as! GroupsTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupCell, for: indexPath) as? GroupsTableViewCell else { preconditionFailure("Error") }
 
         let group = groups[indexPath.row]
         cell.updateGroupsTable(with: group)
@@ -83,7 +85,7 @@ class GroupsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            groups.remove(at: indexPath.row)
+            deletedItem = groups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -106,14 +108,35 @@ class GroupsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
+//    @IBAction func goToSearchTableViewController(_ sender: UIBarButtonItem) {
+////        performSegue(withIdentifier: PropertyKeys.goToSearchTableViewController, sender: sender)
+//        print("TEST -----------------------------------------------------------")
+////        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+////        let editScreen = storyboard.instantiateViewController(withIdentifier: PropertyKeys.searchTableViewController) as! SearchTableViewController
+////        editScreen.updatingData = deletedItem!
+//
+//
+//    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        segue.destination
         // Pass the selected object to the new view controller.
     }
     */
 
+    @IBAction func goTo(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: PropertyKeys.goToSearchTableViewController, sender: sender)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editScreen = storyboard.instantiateViewController(withIdentifier: PropertyKeys.searchTableViewController) as! SearchTableViewController
+        
+        editScreen.updatingData = deletedItem
+        print(editScreen.updatingData!)
+        
+    }
+    
 }

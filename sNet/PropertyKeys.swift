@@ -16,5 +16,6 @@ struct PropertyKeys {
     static let photoCollection = "photoCollection"
     static let friendToPhotoCollectionSegue = "friendToPhotoCollectionSegue"
     static let secondLoginViewController = "secondLoginViewController"
-    
+    static let searchTableViewController = "SearchTableViewController"
+    static let goToSearchTableViewController = "goToSearchTableView"
 }

@@ -13,14 +13,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     @IBOutlet weak var searchField: UISearchBar!
     
-    let searchGroups: [Groups] = [
+    var searchGroups: [Groups] = [
         Groups(image: UIImage(named: "12"), name: "iOS", description: "iOS lovers"),
         Groups(image: UIImage(named: "13"), name: "Android", description: "Android lovers")
     ]
     
     var filteredGroups: [Groups] = []
     
-    
+    var updatingData: Groups?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       // updateDataFromGroup(with: updatingData!)
+        print(updatingData)
+    }
+    
+    func updateDataFromGroup(with group: Groups) {
+        searchGroups.append(group)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -67,7 +77,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath) as! SearchGroupTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.searchGroup, for: indexPath) as? SearchGroupTableViewCell else { preconditionFailure("Error") }
 
        // let searchGroup = searchGroups[indexPath.row]
         let searchGroup = filteredGroups[indexPath.row]

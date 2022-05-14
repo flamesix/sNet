@@ -10,6 +10,7 @@ import UIKit
 class FriendsTableViewController: UITableViewController {
     
     
+    
     let friends: [Friends] = [
         Friends(userPhoto: UIImage(named: "1"), name: "John", lastName: "Johnson", icon: "🤡"),
         Friends(userPhoto: UIImage(named: "2"), name: "Bob", lastName: "Bobson", icon: "😈"),
@@ -45,6 +46,7 @@ class FriendsTableViewController: UITableViewController {
         
         let friend = friends[indexPath.row]
         cell.updateFriendsTable(with: friend)
+        
         
         return cell
     }

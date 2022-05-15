@@ -162,10 +162,9 @@
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hTZ-ti-ppa">
                                                             <rect key="frame" x="8" y="8" width="34.333333333333336" height="34.333333333333336"/>
-                                                            <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                            <color key="backgroundColor" systemColor="systemTealColor"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="AEM-2O-8Ae"/>
                                                         <constraint firstAttribute="trailing" secondItem="Rfx-37-QFz" secondAttribute="trailing" constant="5" id="Pdb-d1-Zps"/>
@@ -195,6 +194,7 @@
                                 <connections>
                                     <outlet property="iconLabel" destination="xlY-vB-iTz" id="LKE-Si-g8q"/>
                                     <outlet property="nameLabel" destination="2Y0-NX-96E" id="Pus-5J-e4J"/>
+                                    <outlet property="userPhotoImageView" destination="hTZ-ti-ppa" id="BBq-ZO-tTC"/>
                                     <segue destination="nla-YO-tRb" kind="show" identifier="friendToPhotoCollectionSegue" id="7xv-QQ-qVp"/>
                                 </connections>
                             </tableViewCell>
@@ -686,8 +686,8 @@
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

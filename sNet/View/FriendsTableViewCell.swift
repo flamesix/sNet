@@ -11,7 +11,8 @@ class FriendsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-   
+    @IBOutlet weak var userPhotoImageView: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ class FriendsTableViewCell: UITableViewCell {
     func updateFriendsTable(with friend: Friends) {
         iconLabel.text = friend.icon
         nameLabel.text = friend.name + " " + friend.lastName
+        userPhotoImageView.image = friend.userPhoto
     }
 
 }

@@ -14,11 +14,11 @@ class FriendsPhotoView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-       // backgroundColor = .cyan
-        userPhotoImageView.layer.shadowRadius = 16
-    //    userPhotoImageView.layer.shadowOffset = CGSize(
-        userPhotoImageView.layer.shadowOpacity = 0
-        userPhotoImageView.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        layer.cornerRadius = frame.size.width / 2
+       // layer.shadowRadius = userPhotoImageView.frame.size.width / 2
+        layer.shadowOffset = .zero
+        layer.shadowOpacity = 1
+        layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
        
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.size.width / 2
         
@@ -30,10 +30,6 @@ class FriendsPhotoView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-    }
-    
-    func updateFriendsPhotoImageView(with friend: Friends) {
-        userPhotoImageView.image = friend.userPhoto
     }
     
 

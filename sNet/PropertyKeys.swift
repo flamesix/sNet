@@ -18,4 +18,6 @@ struct PropertyKeys {
     static let secondLoginViewController = "secondLoginViewController"
     static let searchTableViewController = "SearchTableViewController"
     static let goToSearchTableViewController = "goToSearchTableView"
+    static let newsTableViewCell = "NewsTableViewCell"
+    static let chatTableViewCell = "ChatTableViewCell"
 }

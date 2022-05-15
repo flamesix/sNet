@@ -15,6 +15,10 @@ class LikePhotoControl: UIControl {
     @IBOutlet var likePhotoCountLabel: UILabel!
     @IBOutlet var heartPhotoImage: UIImageView!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupGesture()

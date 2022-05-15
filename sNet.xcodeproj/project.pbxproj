@@ -24,6 +24,7 @@
 		5B0F2DF9282ECB720081E5E3 /* DrawingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */; };
 		5B0F2DFF28300FA30081E5E3 /* FriendsPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */; };
 		5B0F2E012830E19C0081E5E3 /* LikePhotoControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2E002830E19C0081E5E3 /* LikePhotoControl.swift */; };
+		5B0F2E03283104A30081E5E3 /* LastNamePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2E02283104A30081E5E3 /* LastNamePicker.swift */; };
 		5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */; };
 		5BB709BB28240818006C32F1 /* Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709BA28240818006C32F1 /* Logins.swift */; };
 		5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingControl.swift; sourceTree = "<group>"; };
 		5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoView.swift; sourceTree = "<group>"; };
 		5B0F2E002830E19C0081E5E3 /* LikePhotoControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePhotoControl.swift; sourceTree = "<group>"; };
+		5B0F2E02283104A30081E5E3 /* LastNamePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNamePicker.swift; sourceTree = "<group>"; };
 		5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
 		5BB709BA28240818006C32F1 /* Logins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logins.swift; sourceTree = "<group>"; };
 		5BC8FBD3281A688700CC9A70 /* sNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */,
 				5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */,
 				5B0F2E002830E19C0081E5E3 /* LikePhotoControl.swift */,
+				5B0F2E02283104A30081E5E3 /* LastNamePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */,
 				5B0F2DF7282ECB460081E5E3 /* CanvasViewController.swift in Sources */,
 				5B0F2DFF28300FA30081E5E3 /* FriendsPhotoView.swift in Sources */,
+				5B0F2E03283104A30081E5E3 /* LastNamePicker.swift in Sources */,
 				5BB709BB28240818006C32F1 /* Logins.swift in Sources */,
 				5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */,
 				5B06974A2821AC60007C50E8 /* SearchGroupTableViewCell.swift in Sources */,

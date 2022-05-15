@@ -12,12 +12,15 @@ class FriendsTableViewController: UITableViewController {
     
     
     let friends: [Friends] = [
-        Friends(userPhoto: UIImage(named: "1"), name: "John", lastName: "Johnson", icon: "🤡"),
-        Friends(userPhoto: UIImage(named: "2"), name: "Bob", lastName: "Bobson", icon: "😈"),
-        Friends(userPhoto: UIImage(named: "3"), name: "Peter", lastName: "Peterson", icon: "🤠"),
-        Friends(userPhoto: UIImage(named: "4"), name: "Rick", lastName: "Rickson", icon: "👻"),
-        Friends(userPhoto: UIImage(named: "5"), name: "Jane", lastName: "Janeson", icon: "😺")
+        Friends(userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡"),
+        Friends(userPhoto: UIImage(named: "g2"), name: "Bob", lastName: "Bobson", icon: "😈"),
+        Friends(userPhoto: UIImage(named: "g3"), name: "Peter", lastName: "Peterson", icon: "🤠"),
+        Friends(userPhoto: UIImage(named: "g4"), name: "Rick", lastName: "Rickson", icon: "👻"),
+        Friends(userPhoto: UIImage(named: "g5"), name: "Jane", lastName: "Janeson", icon: "😺")
     ]
+    
+    var friendsDictionary = [String: [Friends]]()
+    var friednsSectionTitles = [String]()
     
     
     override func viewDidLoad() {
@@ -28,31 +31,60 @@ class FriendsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        for friend in friends {
+            let friendKey = String(friend.lastName.prefix(1))
+            if var friendValues = friendsDictionary[friendKey] {
+                friendValues.append(friend)
+                friendsDictionary[friendKey] = friendValues
+            } else {
+                friendsDictionary[friendKey] = [friend]
+            }
+        }
+        
+        friednsSectionTitles = [String](friendsDictionary.keys)
+        friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+       // return 1
+        return friednsSectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+      //  return friends.count
+        let friendKey = friednsSectionTitles[section]
+        if let friendValues = friendsDictionary[friendKey] {
+            return friendValues.count
+        }
+        
+        return 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.friendCell, for: indexPath) as?  FriendsTableViewCell else { preconditionFailure("Error") }
         
-        let friend = friends[indexPath.row]
-        cell.updateFriendsTable(with: friend)
-        
+        let friendKey = friednsSectionTitles[indexPath.section]
+//        let friend = friends[indexPath.row]
+//        cell.updateFriendsTable(with: friend)
+        if let friendValues = friendsDictionary[friendKey] {
+            let friend = friendValues[indexPath.row]
+            cell.updateFriendsTable(with: friend)
+        }
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friednsSectionTitles[section]
+    }
     
-    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return friednsSectionTitles
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

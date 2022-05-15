@@ -28,7 +28,9 @@ class FriendsTableViewController: UITableViewController {
         Friends(userPhoto: UIImage(named: "2"), name: "Chloe", lastName: "Richardson", icon: "🧐"),
         Friends(userPhoto: UIImage(named: "3"), name: "Marty", lastName: "Rogers", icon: "🧐"),
         Friends(userPhoto: UIImage(named: "7"), name: "Helmut", lastName: "Henzel", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐")
+        Friends(userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐"),
+        Friends(userPhoto: UIImage(named: "4"), name: "Григорий", lastName: "Гришин", icon: "🧐"),
+        Friends(userPhoto: UIImage(named: "4"), name: "Вячеслав", lastName: "Юдин", icon: "🧐")
     ]
     
     var friendsDictionary = [String: [Friends]]()

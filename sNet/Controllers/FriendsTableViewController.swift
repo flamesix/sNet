@@ -140,10 +140,20 @@ class FriendsTableViewController: UITableViewController {
         if segue.identifier == PropertyKeys.friendToPhotoCollectionSegue,
            let collectionVC = segue.destination as? CollectionViewController,
            let indexPath = tableView.indexPathForSelectedRow {
-            let friend = friends[indexPath.row]
-            let friendName = friends[indexPath.row].name
-            collectionVC.friends.append(friend)
-            collectionVC.title = friendName
+            let friendKey = friednsSectionTitles[indexPath.section]
+    //        let friend = friends[indexPath.row]
+    //        cell.updateFriendsTable(with: friend)
+            if let friendValues = friendsDictionary[friendKey] {
+                let friend = friendValues[indexPath.row]
+               
+                let friendName = friend.name
+                collectionVC.friends.append(friend)
+                collectionVC.title = friendName
+            }
+//            let friend = friends[indexPath.row]
+//            let friendName = friends[indexPath.row].name
+//            collectionVC.friends.append(friend)
+//            collectionVC.title = friendName
             
         }
     }

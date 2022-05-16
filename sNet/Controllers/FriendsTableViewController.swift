@@ -12,25 +12,25 @@ class FriendsTableViewController: UITableViewController {
     
     
     let friends: [Friends] = [
-        Friends(userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡"),
-        Friends(userPhoto: UIImage(named: "g2"), name: "Bob", lastName: "Bobson", icon: "😈"),
-        Friends(userPhoto: UIImage(named: "g3"), name: "Peter", lastName: "Peterson", icon: "🤠"),
-        Friends(userPhoto: UIImage(named: "g4"), name: "Rick", lastName: "Rickson", icon: "👻"),
-        Friends(userPhoto: UIImage(named: "g5"), name: "Jane", lastName: "Janeson", icon: "😺"),
-        Friends(userPhoto: UIImage(named: "g6"), name: "Anna", lastName: "Annenson", icon: "🎃"),
-        Friends(userPhoto: UIImage(named: "g7"), name: "Dick", lastName: "Dickson", icon: "👺"),
-        Friends(userPhoto: UIImage(named: "g8"), name: "Mary", lastName: "Smith", icon: "🤪"),
-        Friends(userPhoto: UIImage(named: "g9"), name: "Helga", lastName: "Morrison", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "g10"), name: "Leonard", lastName: "Cohen", icon: "🥸"),
-        Friends(userPhoto: UIImage(named: "1"), name: "Jim", lastName: "Cohen", icon: "🥸"),
-        Friends(userPhoto: UIImage(named: "9"), name: "Richard", lastName: "Morrison", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "8"), name: "James", lastName: "Morrison", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "2"), name: "Chloe", lastName: "Richardson", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "3"), name: "Marty", lastName: "Rogers", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "7"), name: "Helmut", lastName: "Henzel", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "4"), name: "Григорий", lastName: "Гришин", icon: "🧐"),
-        Friends(userPhoto: UIImage(named: "4"), name: "Вячеслав", lastName: "Юдин", icon: "🧐")
+        Friends(userID: "1", userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡"),
+        Friends(userID: "2", userPhoto: UIImage(named: "g2"), name: "Bob", lastName: "Bobson", icon: "😈"),
+        Friends(userID: "3", userPhoto: UIImage(named: "g3"), name: "Peter", lastName: "Peterson", icon: "🤠"),
+        Friends(userID: "4", userPhoto: UIImage(named: "g4"), name: "Rick", lastName: "Rickson", icon: "👻"),
+        Friends(userID: "5", userPhoto: UIImage(named: "g5"), name: "Jane", lastName: "Janeson", icon: "😺"),
+        Friends(userID: "6", userPhoto: UIImage(named: "g6"), name: "Anna", lastName: "Annenson", icon: "🎃"),
+        Friends(userID: "7", userPhoto: UIImage(named: "g7"), name: "Dick", lastName: "Dickson", icon: "👺"),
+        Friends(userID: "8", userPhoto: UIImage(named: "g8"), name: "Mary", lastName: "Smith", icon: "🤪"),
+        Friends(userID: "9", userPhoto: UIImage(named: "g9"), name: "Helga", lastName: "Morrison", icon: "🧐"),
+        Friends(userID: "10", userPhoto: UIImage(named: "g10"), name: "Leonard", lastName: "Cohen", icon: "🥸"),
+        Friends(userID: "11", userPhoto: UIImage(named: "1"), name: "Jim", lastName: "Cohen", icon: "🥸"),
+        Friends(userID: "12", userPhoto: UIImage(named: "9"), name: "Richard", lastName: "Morrison", icon: "🧐"),
+        Friends(userID: "13", userPhoto: UIImage(named: "8"), name: "James", lastName: "Morrison", icon: "🧐"),
+        Friends(userID: "14", userPhoto: UIImage(named: "2"), name: "Chloe", lastName: "Richardson", icon: "🧐"),
+        Friends(userID: "15", userPhoto: UIImage(named: "3"), name: "Marty", lastName: "Rogers", icon: "🧐"),
+        Friends(userID: "16", userPhoto: UIImage(named: "7"), name: "Helmut", lastName: "Henzel", icon: "🧐"),
+        Friends(userID: "17", userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐"),
+        Friends(userID: "18", userPhoto: UIImage(named: "4"), name: "Григорий", lastName: "Гришин", icon: "🧐"),
+        Friends(userID: "19", userPhoto: UIImage(named: "4"), name: "Вячеслав", lastName: "Юдин", icon: "🧐")
     ]
     
     var friendsDictionary = [String: [Friends]]()

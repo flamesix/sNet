@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol FriendsProtocol {
+    var userID: String { get }
     var userPhoto: UIImage! { get }
     var name: String { get }
     var lastName: String { get }
@@ -16,6 +17,7 @@ protocol FriendsProtocol {
 }
 
 struct Friends: FriendsProtocol, CustomStringConvertible {
+    let userID: String
     let userPhoto: UIImage!
     let name: String
     let lastName: String

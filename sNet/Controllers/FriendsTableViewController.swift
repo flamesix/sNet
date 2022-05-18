@@ -231,7 +231,7 @@ class FriendsTableViewController: UITableViewController {
                 let friend = friendValues[indexPath.row]
                 
                 let friendName = friend.name
-              //  collectionVC.friends.append(friend)
+                collectionVC.friends.append(friend)
                 collectionVC.photos = friend.photos
                 collectionVC.title = "\(friendName)'s photos"
                 

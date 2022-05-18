@@ -12,6 +12,8 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         tableView.register(UINib(nibName: PropertyKeys.newsTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.newsTableViewCell)
 
         // Uncomment the following line to preserve selection between presentations

@@ -11,7 +11,8 @@ private let reuseIdentifier = PropertyKeys.photoCollection
 
 class CollectionViewController: UICollectionViewController {
     
-    var friends: [Friends] = []
+   // var friends: [Friends] = []
+    var photos: [PhotosOfFriend] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,15 +59,17 @@ class CollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return friends.count
+       // return friends.count
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as?  CollectionViewCell else { preconditionFailure("Error") }
     
-        let friend = friends[indexPath.item]
-        cell.updatePhoto(with: friend)
-        
+//        let friend = friends[indexPath.item]
+//        cell.updatePhoto(with: friend)
+        let photo = photos[indexPath.item]
+        cell.updatePhoto(with: photo)
     
         return cell
     }

@@ -20,4 +20,5 @@ struct PropertyKeys {
     static let goToSearchTableViewController = "goToSearchTableView"
     static let newsTableViewCell = "NewsTableViewCell"
     static let chatTableViewCell = "ChatTableViewCell"
+    static let newsCollectionViewCell = "newsCollectionViewCell"
 }

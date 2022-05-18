@@ -27,6 +27,9 @@
 		5B1FA27C2831415200850327 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FA27A2831415200850327 /* NewsTableViewCell.swift */; };
 		5B1FA27D2831415200850327 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1FA27B2831415200850327 /* NewsTableViewCell.xib */; };
 		5B1FA27F283145E200850327 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FA27E283145E200850327 /* NewsTableViewController.swift */; };
+		5B1FA2A228338DDC00850327 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FA2A028338DDC00850327 /* NewsCollectionViewCell.swift */; };
+		5B1FA2A328338DDC00850327 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1FA2A128338DDC00850327 /* NewsCollectionViewCell.xib */; };
+		5BACAB292833DD4300E6D845 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BACAB282833DD4300E6D845 /* News.swift */; };
 		5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */; };
 		5BB709BB28240818006C32F1 /* Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709BA28240818006C32F1 /* Logins.swift */; };
 		5BC8FBD7281A688700CC9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8FBD6281A688700CC9A70 /* AppDelegate.swift */; };
@@ -58,6 +61,9 @@
 		5B1FA27A2831415200850327 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		5B1FA27B2831415200850327 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		5B1FA27E283145E200850327 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		5B1FA2A028338DDC00850327 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B1FA2A128338DDC00850327 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		5BACAB282833DD4300E6D845 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
 		5BB709BA28240818006C32F1 /* Logins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logins.swift; sourceTree = "<group>"; };
 		5BC8FBD3281A688700CC9A70 /* sNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,8 @@
 				5B0F2E002830E19C0081E5E3 /* LikePhotoControl.swift */,
 				5B1FA27A2831415200850327 /* NewsTableViewCell.swift */,
 				5B1FA27B2831415200850327 /* NewsTableViewCell.xib */,
+				5B1FA2A028338DDC00850327 /* NewsCollectionViewCell.swift */,
+				5B1FA2A128338DDC00850327 /* NewsCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 				5B069712281E5DFE007C50E8 /* Friends.swift */,
 				5B06973D281FE5B9007C50E8 /* Groups.swift */,
 				5BB709BA28240818006C32F1 /* Logins.swift */,
+				5BACAB282833DD4300E6D845 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 				5BC8FBE0281A688800CC9A70 /* Assets.xcassets in Resources */,
 				5BC8FBDE281A688700CC9A70 /* Main.storyboard in Resources */,
 				5B1FA27D2831415200850327 /* NewsTableViewCell.xib in Resources */,
+				5B1FA2A328338DDC00850327 /* NewsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +258,9 @@
 				5B1FA27F283145E200850327 /* NewsTableViewController.swift in Sources */,
 				5B069744282021AF007C50E8 /* CollectionViewCell.swift in Sources */,
 				5B069715281E60A1007C50E8 /* PropertyKeys.swift in Sources */,
+				5BACAB292833DD4300E6D845 /* News.swift in Sources */,
 				5B0F2DF9282ECB720081E5E3 /* DrawingControl.swift in Sources */,
+				5B1FA2A228338DDC00850327 /* NewsCollectionViewCell.swift in Sources */,
 				5B06971C281FC947007C50E8 /* SearchTableViewController.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,
 				5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */,

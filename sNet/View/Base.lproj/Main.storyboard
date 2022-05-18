@@ -157,9 +157,6 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFQ-fJ-NhL" customClass="FriendsPhotoView" customModule="sNet" customModuleProvider="target">
                                                     <rect key="frame" x="323.66666666666669" y="0.0" width="50.333333333333314" height="50.333333333333336"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfx-37-QFz">
-                                                            <rect key="frame" x="5" y="5" width="40.333333333333336" height="40.333333333333336"/>
-                                                        </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hTZ-ti-ppa">
                                                             <rect key="frame" x="8" y="8" width="34.333333333333336" height="34.333333333333336"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -167,13 +164,9 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="AEM-2O-8Ae"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Rfx-37-QFz" secondAttribute="trailing" constant="5" id="Pdb-d1-Zps"/>
                                                         <constraint firstAttribute="width" secondItem="hFQ-fJ-NhL" secondAttribute="height" multiplier="1:1" id="Pzl-py-Fas"/>
                                                         <constraint firstItem="hTZ-ti-ppa" firstAttribute="top" secondItem="hFQ-fJ-NhL" secondAttribute="top" constant="8" id="UaA-hW-jhA"/>
                                                         <constraint firstAttribute="bottom" secondItem="hTZ-ti-ppa" secondAttribute="bottom" constant="8" id="bLa-PV-0XU"/>
-                                                        <constraint firstItem="Rfx-37-QFz" firstAttribute="top" secondItem="hFQ-fJ-NhL" secondAttribute="top" constant="5" id="brO-vp-t0M"/>
-                                                        <constraint firstItem="Rfx-37-QFz" firstAttribute="leading" secondItem="hFQ-fJ-NhL" secondAttribute="leading" constant="5" id="eSx-aa-Mab"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Rfx-37-QFz" secondAttribute="bottom" constant="5" id="ode-sC-Dln"/>
                                                         <constraint firstItem="hTZ-ti-ppa" firstAttribute="leading" secondItem="hFQ-fJ-NhL" secondAttribute="leading" constant="8" id="prc-Bv-q3N"/>
                                                         <constraint firstAttribute="trailing" secondItem="hTZ-ti-ppa" secondAttribute="trailing" constant="8" id="xto-4G-Qub"/>
                                                     </constraints>

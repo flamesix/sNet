@@ -34,7 +34,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="P6N-y0-CZd" secondAttribute="bottom" id="1xj-mB-hwW"/>
+                <constraint firstAttribute="bottom" secondItem="P6N-y0-CZd" secondAttribute="bottom" priority="999" id="1xj-mB-hwW"/>
                 <constraint firstItem="P6N-y0-CZd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Gh0-Kx-UWW"/>
                 <constraint firstAttribute="trailing" secondItem="P6N-y0-CZd" secondAttribute="trailing" id="Ii1-2A-aIk"/>
                 <constraint firstItem="P6N-y0-CZd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RnC-He-8xa"/>

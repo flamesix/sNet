@@ -32,7 +32,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Iik-xk-Orc" secondAttribute="bottom" id="6Wx-JH-aLv"/>
+                                            <constraint firstAttribute="bottom" secondItem="Iik-xk-Orc" secondAttribute="bottom" priority="999" id="6Wx-JH-aLv"/>
                                             <constraint firstAttribute="width" secondItem="vo1-Pu-doM" secondAttribute="height" multiplier="1:1" id="ByZ-Ay-5MB"/>
                                             <constraint firstAttribute="trailing" secondItem="Iik-xk-Orc" secondAttribute="trailing" id="Osc-v5-H7o"/>
                                             <constraint firstItem="Iik-xk-Orc" firstAttribute="top" secondItem="vo1-Pu-doM" secondAttribute="top" id="Pb6-Wc-EEM"/>
@@ -166,7 +166,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Y3n-YA-B6s" secondAttribute="bottom" constant="4" id="12g-Ay-ywH"/>
+                    <constraint firstAttribute="bottom" secondItem="Y3n-YA-B6s" secondAttribute="bottom" priority="999" constant="4" id="12g-Ay-ywH"/>
                     <constraint firstItem="Y3n-YA-B6s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="MX5-rj-NZC"/>
                     <constraint firstItem="Y3n-YA-B6s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="h3Q-Bg-CK0"/>
                     <constraint firstAttribute="trailing" secondItem="Y3n-YA-B6s" secondAttribute="trailing" constant="4" id="u1j-Td-JGF"/>

@@ -23,4 +23,5 @@ struct PropertyKeys {
     static let newsCollectionViewCell = "newsCollectionViewCell"
     static let groupsAndSearchTableViewCell = "GroupsAndSearchTableViewCell"
     static let addSelectedGroup = "addSelectedGroup"
+    static let newsAndPhotoTableViewCell = "NewsAndPhotoTableViewCell"
 }

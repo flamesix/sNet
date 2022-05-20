@@ -14,7 +14,7 @@ class NewsTableViewController: UITableViewController {
         
         
         
-        tableView.register(UINib(nibName: PropertyKeys.newsTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.newsTableViewCell)
+      //  tableView.register(UINib(nibName: PropertyKeys.newsTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.newsTableViewCell)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,13 +37,13 @@ class NewsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.newsTableViewCell, for: indexPath) as? NewsTableViewCell else { preconditionFailure("Error")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.newsAndPhotoTableViewCell, for: indexPath) as? NewsAndPhotoTableViewCell else { preconditionFailure("Error")}
 
         
 
         return cell
     }
-    
+
    
 
     /*

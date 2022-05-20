@@ -42,6 +42,8 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        tableView.register(UINib(nibName: PropertyKeys.groupsAndSearchTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.groupsAndSearchTableViewCell)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -61,7 +63,7 @@ class GroupsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupCell, for: indexPath) as? GroupsTableViewCell else { preconditionFailure("Error") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupsAndSearchTableViewCell, for: indexPath) as? GroupsAndSearchTableViewCell else { preconditionFailure("Error") }
         
         let group = groups[indexPath.row]
         cell.updateGroupsTable(with: group)
@@ -147,7 +149,5 @@ class GroupsTableViewController: UITableViewController {
                 tableView.reloadData()
             }
         }
-        
     }
-    
 }

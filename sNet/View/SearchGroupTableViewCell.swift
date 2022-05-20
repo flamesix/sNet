@@ -25,10 +25,10 @@ class SearchGroupTableViewCell: UITableViewCell {
         
     }
     
-    func updateSearchGroupTable(with group: Groups) {
-        searchImage.image = group.image
-        searchGroupLabel.text = group.name
-        searchDescriptionLabel.text = group.description
-    }
+//    func updateSearchGroupTable(with group: Groups) {
+//        searchImage.image = group.image
+//        searchGroupLabel.text = group.name
+//        searchDescriptionLabel.text = group.description
+//    }
 
 }

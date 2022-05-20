@@ -38,6 +38,7 @@ extension UIViewController {
 
 extension UITextField {
 
+    
     ///Set system images to the left of text field
     func setLeftImage(systemName: String) {
 
@@ -49,6 +50,7 @@ extension UITextField {
         self.leftViewMode = .always
     }
     
+     
     //Set system images to the right of text field
     func setRightImage(systemName: String) {
 

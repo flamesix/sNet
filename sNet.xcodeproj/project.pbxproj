@@ -18,8 +18,6 @@
 		5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06973D281FE5B9007C50E8 /* Groups.swift */; };
 		5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */; };
 		5B069744282021AF007C50E8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B069743282021AF007C50E8 /* CollectionViewCell.swift */; };
-		5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */; };
-		5B06974A2821AC60007C50E8 /* SearchGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0697492821AC60007C50E8 /* SearchGroupTableViewCell.swift */; };
 		5B0F2DF7282ECB460081E5E3 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2DF6282ECB460081E5E3 /* CanvasViewController.swift */; };
 		5B0F2DF9282ECB720081E5E3 /* DrawingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */; };
 		5B0F2DFF28300FA30081E5E3 /* FriendsPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */; };
@@ -54,8 +52,6 @@
 		5B06973D281FE5B9007C50E8 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		5B069743282021AF007C50E8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
-		5B0697492821AC60007C50E8 /* SearchGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupTableViewCell.swift; sourceTree = "<group>"; };
 		5B0F2DF6282ECB460081E5E3 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingControl.swift; sourceTree = "<group>"; };
 		5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoView.swift; sourceTree = "<group>"; };
@@ -113,8 +109,6 @@
 				5BC8FBDC281A688700CC9A70 /* Main.storyboard */,
 				5B06974128201CC1007C50E8 /* FriendsTableViewCell.swift */,
 				5B069743282021AF007C50E8 /* CollectionViewCell.swift */,
-				5B0697472821117C007C50E8 /* GroupsTableViewCell.swift */,
-				5B0697492821AC60007C50E8 /* SearchGroupTableViewCell.swift */,
 				5B0F2DF8282ECB720081E5E3 /* DrawingControl.swift */,
 				5B0F2DFE28300FA30081E5E3 /* FriendsPhotoView.swift */,
 				5B0F2E002830E19C0081E5E3 /* LikePhotoControl.swift */,
@@ -250,13 +244,11 @@
 				5B06971A281FC910007C50E8 /* CollectionViewController.swift in Sources */,
 				5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */,
 				5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */,
-				5B0697482821117C007C50E8 /* GroupsTableViewCell.swift in Sources */,
 				5B0F2DF7282ECB460081E5E3 /* CanvasViewController.swift in Sources */,
 				5B0F2DFF28300FA30081E5E3 /* FriendsPhotoView.swift in Sources */,
 				5BB709BB28240818006C32F1 /* Logins.swift in Sources */,
 				5B569A782836C02100674FBA /* GroupsAndSearchTableViewCell.swift in Sources */,
 				5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */,
-				5B06974A2821AC60007C50E8 /* SearchGroupTableViewCell.swift in Sources */,
 				5B0F2E012830E19C0081E5E3 /* LikePhotoControl.swift in Sources */,
 				5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */,
 				5B069713281E5DFE007C50E8 /* Friends.swift in Sources */,

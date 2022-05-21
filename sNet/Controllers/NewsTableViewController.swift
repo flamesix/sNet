@@ -76,8 +76,8 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.newsAndPhotoTableViewCell, for: indexPath) as? NewsAndPhotoTableViewCell else { preconditionFailure("Error")}
         
-        let new = news[indexPath.row]
-        cell.updateNews(with: new)
+        let news = news[indexPath.row]
+        cell.updateNews(with: news)
         
         return cell
     }

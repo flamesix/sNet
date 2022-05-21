@@ -244,7 +244,7 @@
                                                                     <rect key="frame" x="137" y="1.9999999999999982" width="15" height="17.333333333333336"/>
                                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="15" id="Gm3-ck-49E"/>
+                                                                        <constraint firstAttribute="width" priority="999" constant="15" id="Gm3-ck-49E"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
@@ -254,7 +254,7 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" id="41A-RQ-ocY"/>
+                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" priority="999" id="41A-RQ-ocY"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="centerX" secondItem="k3x-AX-dDP" secondAttribute="centerX" id="6XC-Tt-Afd"/>
                                                         <constraint firstItem="k3x-AX-dDP" firstAttribute="top" secondItem="HSp-O1-JWy" secondAttribute="bottom" priority="999" constant="5" id="K19-7j-R6T"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="leading" secondItem="KKw-kp-7Gq" secondAttribute="leading" constant="10" id="Os3-6K-iOk"/>

@@ -542,19 +542,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-Tj-Qyi">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-Tj-Qyi">
                                                     <rect key="frame" x="0.0" y="90.666666666666686" width="374" height="374"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OKX-Qh-2G2">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="187"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="DGl-wg-zw6">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="DGl-wg-zw6">
                                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="DGl-wg-zw6" secondAttribute="height" multiplier="1:1" priority="999" id="auu-xJ-moO"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="Sft-f7-DdI">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="Sft-f7-DdI">
                                                                     <rect key="frame" x="187" y="0.0" width="187" height="187"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Sft-f7-DdI" secondAttribute="height" multiplier="1:1" priority="999" id="9A9-CO-DQf"/>
@@ -565,13 +565,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hZ0-gj-A1F">
                                                             <rect key="frame" x="0.0" y="187" width="374" height="187"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="g2" translatesAutoresizingMaskIntoConstraints="NO" id="NNP-Hm-NnW">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="g2" translatesAutoresizingMaskIntoConstraints="NO" id="NNP-Hm-NnW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="NNP-Hm-NnW" secondAttribute="height" multiplier="1:1" priority="999" id="qlh-2W-fSr"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="0IA-wf-vwM">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="0IA-wf-vwM">
                                                                     <rect key="frame" x="187" y="0.0" width="187" height="187"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="0IA-wf-vwM" secondAttribute="height" multiplier="1:1" priority="999" id="Ueo-lw-3Rj"/>

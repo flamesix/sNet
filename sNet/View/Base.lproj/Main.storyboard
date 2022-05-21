@@ -404,12 +404,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ygw-tf-pYU"/>
+                        <segue destination="Lhj-KT-czo" kind="relationship" relationship="rootViewController" id="yau-cR-80h"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mj-9G-ciK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1248" y="-279"/>
+        </scene>
+        <!--Pre Login View Controller-->
+        <scene sceneID="vur-7w-76U">
+            <objects>
+                <viewController id="Lhj-KT-czo" customClass="PreLoginViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FUY-2C-f4C">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meridian" translatesAutoresizingMaskIntoConstraints="NO" id="pTs-Hx-B4V">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grinevich Apps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDG-Yb-R1m">
+                                <rect key="frame" x="110.66666666666669" y="407" width="169" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BJY-CX-nJU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pTs-Hx-B4V" secondAttribute="trailing" id="3wK-ah-LWs"/>
+                            <constraint firstItem="xDG-Yb-R1m" firstAttribute="centerY" secondItem="FUY-2C-f4C" secondAttribute="centerY" id="FN4-KU-eGx"/>
+                            <constraint firstItem="xDG-Yb-R1m" firstAttribute="centerX" secondItem="FUY-2C-f4C" secondAttribute="centerX" id="Pe6-dU-5Do"/>
+                            <constraint firstAttribute="bottom" secondItem="pTs-Hx-B4V" secondAttribute="bottom" id="To9-7S-yLQ"/>
+                            <constraint firstItem="pTs-Hx-B4V" firstAttribute="top" secondItem="FUY-2C-f4C" secondAttribute="top" id="w1H-Sn-XeX"/>
+                            <constraint firstItem="pTs-Hx-B4V" firstAttribute="leading" secondItem="FUY-2C-f4C" secondAttribute="leading" id="yM9-xU-fKn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8hC-DI-NCc"/>
+                    <connections>
+                        <outlet property="logoLabel" destination="xDG-Yb-R1m" id="Djc-P3-My4"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="preLoginToLoginSegue" id="7K2-jN-bzu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09S-cb-8rt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="405"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">

@@ -8,6 +8,15 @@
 import UIKit
 
 class NewsTableViewController: UITableViewController {
+    
+    let news: [News] = [
+        News(userPhotoImage: UIImage(named: "g1"), userNameLabel: "Dick", dateCreated: Date(timeIntervalSince1970: 123456789), newsText: "Very faint planetary nebula Abell 7 is some 1,800 light-years distant, just south of Orion in planet Earth's skies in the constellation Lepus, The Hare. Surrounded by Milky Way stars and near the line-of-sight to distant background galaxies, its generally simple spherical shape, about 8 light-years in diameter, is outlined in this deep telescopic image. Within its confines are beautiful, more complex details enhanced by the use of narrowband filters. Emission from hydrogen is shown in reddish hues with oxygen emission mapped to green and blue colors, giving Abell 7 a natural appearance that would otherwise be much too faint to be appreciated by eye. A planetary nebula represents a very brief final phase in stellar evolution that our own Sun will experience 5 billion years hence, as the nebula's central, once sun-like star shrugs off its outer layers. Abell 7 itself is estimated to be 20,000 years old. Its central star is seen here as a fading white dwarf some 10 billion years old.",
+         newsPhoto: [
+         NewsPhoto(newsPhoto: UIImage(named: "Abell_7"))
+         ]
+             )
+    
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +41,15 @@ class NewsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return news.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.newsAndPhotoTableViewCell, for: indexPath) as? NewsAndPhotoTableViewCell else { preconditionFailure("Error")}
 
-        
+        let new = news[indexPath.row]
+        cell.updateNews(with: new)
 
         return cell
     }

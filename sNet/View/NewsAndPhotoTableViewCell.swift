@@ -35,6 +35,10 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
         ]
     }
     
+    var numberOfLikes = 100
+    var numberOfCommets = 234
+    var numberOfReposts = 23
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -52,6 +56,28 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+     
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        numberOfLikes += 1
+        likeButton.setTitle(String(numberOfLikes), for: .normal)
+       }
+    
+    
+    @IBAction func commentButtonPressed(_ sender: UIButton) {
+        numberOfCommets += 1
+        commentButton.setTitle(String(numberOfCommets), for: .normal)
+    }
+    
+    
+    @IBAction func repostButtonPressed(_ sender: UIButton) {
+        numberOfReposts += 1
+        repostButton.setTitle(String(numberOfReposts), for: .normal)
+    }
+    
+    
+    
+    
     func updateNews(with news: News) {
         userPhotoImage.image = news.userPhotoImage
         userNameLabel.text = news.userNameLabel
@@ -65,6 +91,5 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
             }
             
         }
-        
     }
 }

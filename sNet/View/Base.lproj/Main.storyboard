@@ -98,11 +98,62 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="f3g-rX-aQf"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="syx-XV-Bvp"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkp-z4-SA3" customClass="LoginLoadingView" customModule="sNet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kil-jn-IbS">
+                                        <rect key="frame" x="155" y="373" width="80" height="20"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-gb-O0B">
+                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="20" height="18.666666666666664"/>
+                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="oYy-gb-O0B" secondAttribute="height" multiplier="1:1" id="C9G-AI-fnN"/>
+                                                    <constraint firstAttribute="width" constant="20" id="QsY-he-y5W"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z2P-oB-3bY">
+                                                <rect key="frame" x="30" y="0.99999999999999822" width="20" height="18.666666666666664"/>
+                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Z2P-oB-3bY" secondAttribute="height" multiplier="1:1" id="CRY-QT-yYX"/>
+                                                    <constraint firstAttribute="width" constant="20" id="NV1-by-eOZ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jId-AZ-dxs">
+                                                <rect key="frame" x="60" y="0.99999999999999822" width="20" height="18.666666666666664"/>
+                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jId-AZ-dxs" secondAttribute="height" multiplier="1:1" id="XGJ-n4-G7J"/>
+                                                    <constraint firstAttribute="width" constant="20" id="ZLV-tU-O5a"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="X1m-0v-r6T"/>
+                                            <constraint firstItem="Z2P-oB-3bY" firstAttribute="width" secondItem="Z2P-oB-3bY" secondAttribute="height" multiplier="1:1" id="sv9-DM-L7h"/>
+                                            <constraint firstAttribute="width" constant="80" id="tRr-lJ-oDD"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kil-jn-IbS" firstAttribute="centerX" secondItem="jkp-z4-SA3" secondAttribute="centerX" id="Kor-Rz-JGf"/>
+                                    <constraint firstItem="kil-jn-IbS" firstAttribute="centerY" secondItem="jkp-z4-SA3" secondAttribute="centerY" id="xHH-JK-bpQ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="firstDotImage" destination="oYy-gb-O0B" id="1hO-Aa-B3V"/>
+                                    <outlet property="secondDotImage" destination="Z2P-oB-3bY" id="fy9-12-spO"/>
+                                    <outlet property="thirdDotImage" destination="jId-AZ-dxs" id="gwZ-DD-ftv"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jkp-z4-SA3" secondAttribute="bottom" id="2dE-9a-qKP"/>
                             <constraint firstItem="ncA-fA-3Pw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3ZM-3v-lzI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jkp-z4-SA3" secondAttribute="trailing" id="8Sg-rn-2Mv"/>
+                            <constraint firstItem="jkp-z4-SA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LEU-xI-etB"/>
                             <constraint firstAttribute="trailing" secondItem="ncA-fA-3Pw" secondAttribute="trailing" id="Lhu-Oi-oT0"/>
                             <constraint firstItem="S64-pU-dP2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SCp-Bh-RXS"/>
                             <constraint firstItem="ncA-fA-3Pw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SWz-5d-LFn"/>
@@ -110,6 +161,7 @@
                             <constraint firstItem="S64-pU-dP2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y3b-OA-YDE"/>
                             <constraint firstAttribute="bottom" secondItem="ncA-fA-3Pw" secondAttribute="bottom" id="gQ4-7E-bxH"/>
                             <constraint firstItem="S64-pU-dP2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ouN-HE-u5A"/>
+                            <constraint firstItem="jkp-z4-SA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y3f-It-5Ir"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gwr-Mb-Keg"/>
@@ -409,7 +461,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mj-9G-ciK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1248" y="-279"/>
+            <point key="canvasLocation" x="-1900" y="-279"/>
         </scene>
         <!--Pre Login View Controller-->
         <scene sceneID="vur-7w-76U">
@@ -448,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09S-cb-8rt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="405"/>
+            <point key="canvasLocation" x="-1098" y="-279"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">
@@ -928,6 +980,7 @@
         <image name="Meridian" width="900" height="1440"/>
         <image name="SNET." width="1024" height="1024"/>
         <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="106"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="g2" width="1024" height="983"/>
         <image name="heart" catalog="system" width="128" height="109"/>
@@ -939,6 +992,9 @@
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

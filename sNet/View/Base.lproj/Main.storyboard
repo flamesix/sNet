@@ -223,7 +223,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="hTZ-ti-ppa" secondAttribute="trailing" constant="8" id="xto-4G-Qub"/>
                                                     </constraints>
                                                     <connections>
-                                                        <outlet property="userPhotoImageView" destination="hTZ-ti-ppa" id="3X2-jV-CDe"/>
+                                                        <outlet property="userPhotoImageView" destination="hTZ-ti-ppa" id="TM8-Qb-cQc"/>
                                                     </connections>
                                                 </view>
                                             </subviews>

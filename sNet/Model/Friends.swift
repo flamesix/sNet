@@ -6,10 +6,34 @@
 //
 
 import Foundation
+import UIKit
 
-struct Friends {
-    var icon: String
-    var name: String
-    var lastName: String
-    var age: Int?
+protocol FriendsProtocol {
+    var userID: String { get }
+    var userPhoto: UIImage! { get }
+    var name: String { get }
+    var lastName: String { get }
+    var icon: String { get }
 }
+
+protocol PhotosOfFriendProtocol {
+    var photos: UIImage! { get }
+}
+
+struct Friends: FriendsProtocol, CustomStringConvertible {
+    let userID: String
+    let userPhoto: UIImage!
+    let name: String
+    let lastName: String
+    let icon: String
+    let photos: [PhotosOfFriend]
+    
+    var description: String {
+        "My photo \(icon)"
+    }
+}
+
+struct PhotosOfFriend: PhotosOfFriendProtocol {
+    let photos: UIImage!
+}
+

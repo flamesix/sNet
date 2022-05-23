@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-struct Groups {
+protocol GroupsProtocol {
+    var image: UIImage! { get }
+    var name: String { get }
+    var description: String { get }
+}
+
+struct Groups: GroupsProtocol {
     let image: UIImage!
     let name: String
     let description: String

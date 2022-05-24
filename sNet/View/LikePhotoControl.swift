@@ -37,9 +37,18 @@ class LikePhotoControl: UIControl {
         if isLikePressed {
             likePhotoCountLabel.text = "0"
             heartPhotoImage.image = UIImage(systemName: "heart")
+            
+            UIView.animate(withDuration: 0.2) {
+                self.heartPhotoImage.transform = .identity
+            }
+
         } else {
             likePhotoCountLabel.text = "1"
             heartPhotoImage.image = UIImage(systemName: "heart.fill")
+            UIView.animate(withDuration: 0.2) {
+                self.heartPhotoImage.transform = self.transform.scaledBy(x: 1.3, y: 1.3)
+            }
+           
         }
         
         sendActions(for: .valueChanged)

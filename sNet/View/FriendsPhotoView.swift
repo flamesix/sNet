@@ -48,13 +48,25 @@ class FriendsPhotoView: UIControl {
     
     @objc private func friendsPhotoTap(_ tapGesture: UITapGestureRecognizer) {
         
-        UIView.animate(withDuration: 0.4,
-                       delay: 0,
-                       usingSpringWithDamping: 0.1,
-                       initialSpringVelocity: 0.1,
-                       options: []) {
-            self.userPhotoImageView.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
-        } 
+        UIView.animate(withDuration: 1,
+                       delay: 0.2,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1) {
+            self.userPhotoImageView.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
+        }
+
+        userPhotoImageView.transform = .identity
+        
+        /*
+        let springAnimation = CASpringAnimation(keyPath: "position.x")
+        springAnimation.initialVelocity = 1
+        springAnimation.damping = 1
+        springAnimation.duration = 1
+        springAnimation.stiffness = 10
+        userPhotoImageView.layer.position.x = userPhotoImageView.layer.position.x + 5
+        
+        userPhotoImageView.layer.add(springAnimation, forKey: nil)
+         */
 
         sendActions(for: .valueChanged)
         

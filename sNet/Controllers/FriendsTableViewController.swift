@@ -174,6 +174,22 @@ class FriendsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
+        //        UIView.animate(withDuration: 2, delay: 0.05 * Double(indexPath.row), animations: {
+        //              cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+        //        })
+        
+        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width / 8, y: 0)
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.05 * Double(indexPath.row),
+            options: [.curveEaseInOut],
+            animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return friednsSectionTitles[section]
     }

@@ -25,4 +25,5 @@ struct PropertyKeys {
     static let addSelectedGroup = "addSelectedGroup"
     static let newsAndPhotoTableViewCell = "NewsAndPhotoTableViewCell"
     static let preLoginToLoginSegue = "preLoginToLoginSegue"
+    static let showPhotosSegue = "showPhotosSegue"
 }

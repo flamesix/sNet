@@ -28,6 +28,8 @@ class LikePhotoControl: UIControl {
         let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
         tap.numberOfTapsRequired = 2
         addGestureRecognizer(tap)
+        
+        tap.cancelsTouchesInView = false
     }
     
     @objc private func likeTapped(_ tapGesture: UITapGestureRecognizer) {

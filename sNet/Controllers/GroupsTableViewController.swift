@@ -50,11 +50,6 @@ class GroupsTableViewController: UITableViewController {
         
 //        self.setupHideKeyboardOnTap()
         
-       //groupsSearchBar.showsCancelButton = true
-        
-        groupsSearchBar.setPositionAdjustment(.init(horizontal: 0, vertical: 0), for: .search)
-        
-        
         searchedGroups = groups
         
         tableView.register(UINib(nibName: PropertyKeys.groupsAndSearchTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.groupsAndSearchTableViewCell)
@@ -168,22 +163,24 @@ class GroupsTableViewController: UITableViewController {
     }
 }
 
+// MARK: - SearchBarDelegate
 
 extension GroupsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             searchedGroups = groups
         } else {
-            searchedGroups = groups.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            searchedGroups = groups.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
         tableView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 5,
+        searchBar.searchTextField.transform = CGAffineTransform(translationX: searchBar.frame.width, y: 0)
+        UIView.animate(withDuration: 2,
                        delay: 0,
                        options: []) {
-            
+            searchBar.searchTextField.transform = CGAffineTransform(translationX: 0, y: 0)
         } completion: { _ in
             self.groupsSearchBar.showsCancelButton = true
         }

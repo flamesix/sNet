@@ -53,7 +53,7 @@ class FriendsPhotoView: UIControl {
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 1) {
             self.userPhotoImageView.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
-        }
+        } 
 
         userPhotoImageView.transform = .identity
         
@@ -69,6 +69,8 @@ class FriendsPhotoView: UIControl {
          */
 
         sendActions(for: .valueChanged)
+        
+        
         
     }
 

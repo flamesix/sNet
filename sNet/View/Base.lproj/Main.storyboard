@@ -354,7 +354,7 @@
                     <navigationItem key="navigationItem" title="Photos" id="Wev-2v-fMA">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="photo" catalog="system" id="s4j-FB-0zz">
                             <connections>
-                                <segue destination="YZI-cY-R5S" kind="show" identifier="showPhotosSegue" id="0Yc-I7-bA7"/>
+                                <segue destination="YZI-cY-R5S" kind="show" identifier="showPhotosSegue" id="wtS-UC-SZk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -363,21 +363,56 @@
             </objects>
             <point key="canvasLocation" x="4150.7692307692305" y="-660.42654028436016"/>
         </scene>
-        <!--View Controller-->
+        <!--Photos View Controller-->
         <scene sceneID="JVV-zp-pwq">
             <objects>
-                <viewController id="YZI-cY-R5S" sceneMemberID="viewController">
+                <viewController id="YZI-cY-R5S" customClass="PhotosViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YPZ-OW-O6s">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-oW-xCs">
+                                <rect key="frame" x="16" y="271.66666666666669" width="358" height="358.00000000000006"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKk-VS-7py">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="358"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9mx-51-aJW">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="358"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="NKk-VS-7py" firstAttribute="leading" secondItem="VOx-oW-xCs" secondAttribute="leading" id="31l-p5-ogn"/>
+                                    <constraint firstAttribute="trailing" secondItem="9mx-51-aJW" secondAttribute="trailing" id="5pI-Pm-8dn"/>
+                                    <constraint firstItem="9mx-51-aJW" firstAttribute="top" secondItem="VOx-oW-xCs" secondAttribute="top" id="7P5-hi-c3I"/>
+                                    <constraint firstAttribute="bottom" secondItem="9mx-51-aJW" secondAttribute="bottom" id="Dq4-GB-aC0"/>
+                                    <constraint firstItem="NKk-VS-7py" firstAttribute="top" secondItem="VOx-oW-xCs" secondAttribute="top" id="HV9-cH-7Xp"/>
+                                    <constraint firstItem="9mx-51-aJW" firstAttribute="leading" secondItem="VOx-oW-xCs" secondAttribute="leading" id="Hnt-X6-FGP"/>
+                                    <constraint firstAttribute="width" constant="358" id="YIS-fj-01g"/>
+                                    <constraint firstAttribute="height" constant="358" id="gxY-C9-DGU"/>
+                                    <constraint firstAttribute="bottom" secondItem="NKk-VS-7py" secondAttribute="bottom" id="yqt-js-fua"/>
+                                    <constraint firstAttribute="trailing" secondItem="NKk-VS-7py" secondAttribute="trailing" id="yuS-Ku-YQm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lcE-jH-Zcs"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VOx-oW-xCs" firstAttribute="centerX" secondItem="lcE-jH-Zcs" secondAttribute="centerX" id="AeH-pR-pIv"/>
+                            <constraint firstItem="VOx-oW-xCs" firstAttribute="centerY" secondItem="lcE-jH-Zcs" secondAttribute="centerY" id="vd6-yF-iaK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h3X-A7-ps7"/>
+                    <connections>
+                        <outlet property="mainImageView" destination="NKk-VS-7py" id="RZ8-qd-cpm"/>
+                        <outlet property="photosView" destination="VOx-oW-xCs" id="NlP-Ll-4Ue"/>
+                        <outlet property="secondaryImageView" destination="9mx-51-aJW" id="c9l-lZ-W7W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kef-VW-rA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5118" y="-660"/>
+            <point key="canvasLocation" x="5083.0769230769229" y="-660.42654028436016"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bhi-1r-fkJ">

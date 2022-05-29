@@ -29,6 +29,7 @@
 		5B569A812839114200674FBA /* PreLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A802839114200674FBA /* PreLoginViewController.swift */; };
 		5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A84283AAACE00674FBA /* LoginLoadingView.swift */; };
 		5B569A89284271D100674FBA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A88284271D100674FBA /* PhotosViewController.swift */; };
+		5B569A8D2843B8AC00674FBA /* CloudAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */; };
 		5BACAB292833DD4300E6D845 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BACAB282833DD4300E6D845 /* News.swift */; };
 		5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */; };
 		5BB709BB28240818006C32F1 /* Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709BA28240818006C32F1 /* Logins.swift */; };
@@ -63,6 +64,7 @@
 		5B569A802839114200674FBA /* PreLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginViewController.swift; sourceTree = "<group>"; };
 		5B569A84283AAACE00674FBA /* LoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLoadingView.swift; sourceTree = "<group>"; };
 		5B569A88284271D100674FBA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationViewController.swift; sourceTree = "<group>"; };
 		5BACAB282833DD4300E6D845 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
 		5BB709BA28240818006C32F1 /* Logins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logins.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				5B569A802839114200674FBA /* PreLoginViewController.swift */,
+				5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */,
 				5B06970C281D1A02007C50E8 /* LoginViewController.swift */,
 				5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */,
 				5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */,
@@ -250,6 +253,7 @@
 				5B569A782836C02100674FBA /* GroupsAndSearchTableViewCell.swift in Sources */,
 				5B06974228201CC1007C50E8 /* FriendsTableViewCell.swift in Sources */,
 				5B569A7D2837EBED00674FBA /* NewsAndPhotoTableViewCell.swift in Sources */,
+				5B569A8D2843B8AC00674FBA /* CloudAnimationViewController.swift in Sources */,
 				5B0F2E012830E19C0081E5E3 /* LikePhotoControl.swift in Sources */,
 				5B069717281E647D007C50E8 /* GroupsTableViewController.swift in Sources */,
 				5B069713281E5DFE007C50E8 /* Friends.swift in Sources */,

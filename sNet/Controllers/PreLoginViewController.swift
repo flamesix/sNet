@@ -33,7 +33,8 @@ class PreLoginViewController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.performSegue(withIdentifier: PropertyKeys.preLoginToLoginSegue, sender: nil)
+          //  self.performSegue(withIdentifier: PropertyKeys.preLoginToLoginSegue, sender: nil)
+            self.performSegue(withIdentifier: PropertyKeys.fromPreLoginToCloudSegue, sender: nil)
         }
         
         

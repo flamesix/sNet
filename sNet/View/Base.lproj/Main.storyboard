@@ -565,11 +565,52 @@
                     <connections>
                         <outlet property="logoLabel" destination="xDG-Yb-R1m" id="Djc-P3-My4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="preLoginToLoginSegue" id="7K2-jN-bzu"/>
+                        <segue destination="g9B-la-z8s" kind="show" identifier="fromPreLoginToCloudSegue" id="kvT-zO-zSV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09S-cb-8rt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1098" y="-279"/>
+        </scene>
+        <!--Cloud Animation View Controller-->
+        <scene sceneID="wYE-DF-0bD">
+            <objects>
+                <viewController id="g9B-la-z8s" customClass="CloudAnimationViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hh0-7e-rUT">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meridian" translatesAutoresizingMaskIntoConstraints="NO" id="m0X-aF-nJD">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pL-HI-1hm">
+                                <rect key="frame" x="75" y="358" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3rt-U5-HpD"/>
+                                    <constraint firstAttribute="height" constant="128" id="fnI-1l-CWW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3kG-3B-Aut"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m0X-aF-nJD" firstAttribute="trailing" secondItem="3kG-3B-Aut" secondAttribute="trailing" id="I9u-hJ-xk5"/>
+                            <constraint firstItem="m0X-aF-nJD" firstAttribute="leading" secondItem="3kG-3B-Aut" secondAttribute="leading" id="IHl-v8-HSh"/>
+                            <constraint firstItem="2pL-HI-1hm" firstAttribute="centerY" secondItem="hh0-7e-rUT" secondAttribute="centerY" id="Vp9-WU-TVx"/>
+                            <constraint firstItem="2pL-HI-1hm" firstAttribute="centerX" secondItem="hh0-7e-rUT" secondAttribute="centerX" id="ehU-NA-hqP"/>
+                            <constraint firstItem="m0X-aF-nJD" firstAttribute="top" secondItem="hh0-7e-rUT" secondAttribute="top" id="im8-ct-6EH"/>
+                            <constraint firstAttribute="bottom" secondItem="m0X-aF-nJD" secondAttribute="bottom" id="xiQ-bA-ojh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XwX-5Z-L6h"/>
+                    <connections>
+                        <outlet property="cloudView" destination="2pL-HI-1hm" id="6Sa-j9-Svb"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cloudAnimationToLoginSegue" id="sof-NX-ZUn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D13-oW-kIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="381.75355450236964"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">
@@ -1041,6 +1082,9 @@
             <point key="canvasLocation" x="1500" y="1709.7156398104264"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7K2-jN-bzu"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="128" height="128"/>
         <image name="11" width="128" height="128"/>

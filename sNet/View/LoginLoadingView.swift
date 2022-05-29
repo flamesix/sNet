@@ -21,7 +21,7 @@ class LoginLoadingView: UIView {
         animateDot(dot: secondDotImage, delay: 0.66)
         animateDot(dot: thirdDotImage, delay: 0.99)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isHidden = true
         }
         

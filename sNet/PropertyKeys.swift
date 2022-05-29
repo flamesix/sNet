@@ -26,4 +26,6 @@ struct PropertyKeys {
     static let newsAndPhotoTableViewCell = "NewsAndPhotoTableViewCell"
     static let preLoginToLoginSegue = "preLoginToLoginSegue"
     static let showPhotosSegue = "showPhotosSegue"
+    static let fromPreLoginToCloudSegue = "fromPreLoginToCloudSegue"
+    static let cloudAnimationToLoginSegue = "cloudAnimationToLoginSegue"
 }

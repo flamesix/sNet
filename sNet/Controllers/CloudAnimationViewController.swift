@@ -22,8 +22,10 @@ class CloudAnimationViewController: UIViewController {
         layer.strokeStart = 0
         layer.strokeEnd = 1
         layer.lineWidth = 10
-        layer.strokeColor = UIColor.lightGray.cgColor
+        layer.lineCap = .round
+        layer.strokeColor = UIColor.systemGray6.cgColor
         layer.fillColor = UIColor.clear.cgColor
+        
         
         cloudView.layer.addSublayer(layer)
     }
@@ -148,4 +150,5 @@ class CloudAnimationViewController: UIViewController {
         
         return bezier2Path
     }()
+    
 }

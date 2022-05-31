@@ -51,7 +51,7 @@ class CloudAnimationViewController: UIViewController {
         
         layer.add(animationsGroup, forKey: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.performSegue(withIdentifier: PropertyKeys.cloudAnimationToLoginSegue, sender: nil)
         }
     }

@@ -11,105 +11,105 @@ class FriendsTableViewController: UITableViewController {
     
     let friends: [Friends] = [
         Friends(userID: "1", userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7")),
-            PhotosOfFriend(photos: UIImage(named: "7")),
-            PhotosOfFriend(photos: UIImage(named: "8")),
-            PhotosOfFriend(photos: UIImage(named: "1"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7")),
+            PhotosOfFriend(photo: UIImage(named: "7")),
+            PhotosOfFriend(photo: UIImage(named: "8")),
+            PhotosOfFriend(photo: UIImage(named: "1"))
         ]),
         Friends(userID: "2", userPhoto: UIImage(named: "g2"), name: "Bob", lastName: "Bobson", icon: "😈", photos: [
-            PhotosOfFriend(photos: UIImage(named: "2")),
-            PhotosOfFriend(photos: UIImage(named: "3")),
-            PhotosOfFriend(photos: UIImage(named: "12"))
+            PhotosOfFriend(photo: UIImage(named: "2")),
+            PhotosOfFriend(photo: UIImage(named: "3")),
+            PhotosOfFriend(photo: UIImage(named: "12"))
         ]),
         Friends(userID: "3", userPhoto: UIImage(named: "g3"), name: "Peter", lastName: "Peterson", icon: "🤠", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g3")),
-            PhotosOfFriend(photos: UIImage(named: "g10")),
-            PhotosOfFriend(photos: UIImage(named: "2")),
-            PhotosOfFriend(photos: UIImage(named: "4")),
-            PhotosOfFriend(photos: UIImage(named: "9")),
-            PhotosOfFriend(photos: UIImage(named: "5")),
-            PhotosOfFriend(photos: UIImage(named: "1")),
-            PhotosOfFriend(photos: UIImage(named: "g1")),
-            PhotosOfFriend(photos: UIImage(named: "g2")),
-            PhotosOfFriend(photos: UIImage(named: "g4"))
+            PhotosOfFriend(photo: UIImage(named: "g3")),
+            PhotosOfFriend(photo: UIImage(named: "g10")),
+            PhotosOfFriend(photo: UIImage(named: "2")),
+            PhotosOfFriend(photo: UIImage(named: "4")),
+            PhotosOfFriend(photo: UIImage(named: "9")),
+            PhotosOfFriend(photo: UIImage(named: "5")),
+            PhotosOfFriend(photo: UIImage(named: "1")),
+            PhotosOfFriend(photo: UIImage(named: "g1")),
+            PhotosOfFriend(photo: UIImage(named: "g2")),
+            PhotosOfFriend(photo: UIImage(named: "g4"))
         ]),
         Friends(userID: "4", userPhoto: UIImage(named: "g4"), name: "Rick", lastName: "Rickson", icon: "👻", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7")),
-            PhotosOfFriend(photos: UIImage(named: "g7")),
-            PhotosOfFriend(photos: UIImage(named: "g7")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7")),
+            PhotosOfFriend(photo: UIImage(named: "g7")),
+            PhotosOfFriend(photo: UIImage(named: "g7")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "5", userPhoto: UIImage(named: "g5"), name: "Jane", lastName: "Janeson", icon: "😺", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "6", userPhoto: UIImage(named: "g6"), name: "Anna", lastName: "Annenson", icon: "🎃", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7")),
-            PhotosOfFriend(photos: UIImage(named: "g3")),
-            PhotosOfFriend(photos: UIImage(named: "g10")),
-            PhotosOfFriend(photos: UIImage(named: "2")),
-            PhotosOfFriend(photos: UIImage(named: "4")),
-            PhotosOfFriend(photos: UIImage(named: "9")),
-            PhotosOfFriend(photos: UIImage(named: "5")),
-            PhotosOfFriend(photos: UIImage(named: "1")),
-            PhotosOfFriend(photos: UIImage(named: "g1")),
-            PhotosOfFriend(photos: UIImage(named: "g2")),
-            PhotosOfFriend(photos: UIImage(named: "g4"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7")),
+            PhotosOfFriend(photo: UIImage(named: "g3")),
+            PhotosOfFriend(photo: UIImage(named: "g10")),
+            PhotosOfFriend(photo: UIImage(named: "2")),
+            PhotosOfFriend(photo: UIImage(named: "4")),
+            PhotosOfFriend(photo: UIImage(named: "9")),
+            PhotosOfFriend(photo: UIImage(named: "5")),
+            PhotosOfFriend(photo: UIImage(named: "1")),
+            PhotosOfFriend(photo: UIImage(named: "g1")),
+            PhotosOfFriend(photo: UIImage(named: "g2")),
+            PhotosOfFriend(photo: UIImage(named: "g4"))
         ]),
         Friends(userID: "7", userPhoto: UIImage(named: "g7"), name: "Dick", lastName: "Dickson", icon: "👺", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "8", userPhoto: UIImage(named: "g8"), name: "Mary", lastName: "Smith", icon: "🤪", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "9", userPhoto: UIImage(named: "g9"), name: "Helga", lastName: "Morrison", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "10", userPhoto: UIImage(named: "g10"), name: "Leonard", lastName: "Cohen", icon: "🥸", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "11", userPhoto: UIImage(named: "1"), name: "Jim", lastName: "Cohen", icon: "🥸", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "12", userPhoto: UIImage(named: "9"), name: "Richard", lastName: "Morrison", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "13", userPhoto: UIImage(named: "8"), name: "James", lastName: "Morrison", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "14", userPhoto: UIImage(named: "2"), name: "Chloe", lastName: "Richardson", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "15", userPhoto: UIImage(named: "3"), name: "Marty", lastName: "Rogers", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "16", userPhoto: UIImage(named: "7"), name: "Helmut", lastName: "Henzel", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "17", userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "18", userPhoto: UIImage(named: "4"), name: "Григорий", lastName: "Гришин", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ]),
         Friends(userID: "19", userPhoto: UIImage(named: "4"), name: "Вячеслав", lastName: "Юдин", icon: "🧐", photos: [
-            PhotosOfFriend(photos: UIImage(named: "g9")),
-            PhotosOfFriend(photos: UIImage(named: "g7"))
+            PhotosOfFriend(photo: UIImage(named: "g9")),
+            PhotosOfFriend(photo: UIImage(named: "g7"))
         ])
     ]
     
@@ -172,6 +172,22 @@ class FriendsTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
+        //        UIView.animate(withDuration: 2, delay: 0.05 * Double(indexPath.row), animations: {
+        //              cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+        //        })
+        
+        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width / 8, y: 0)
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.05 * Double(indexPath.row),
+            options: [.curveEaseInOut],
+            animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

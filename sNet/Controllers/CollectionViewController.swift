@@ -104,5 +104,15 @@ class CollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == PropertyKeys.showPhotosSegue,
+           let photosVC = segue.destination as? PhotosViewController {
+
+            photosVC.photos = photos
+        }
+           
+    }
 
 }

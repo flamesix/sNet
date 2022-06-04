@@ -17,6 +17,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
 //        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
 //            widthDimension: .fractionalWidth(1),
 //            heightDimension: .fractionalHeight(1)))

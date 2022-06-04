@@ -132,6 +132,8 @@ class CloudAnimationViewController: UIViewController {
     }()
     */
     
+    
+    
     let cloudLogo: UIBezierPath = {
         
     let bezier2Path = UIBezierPath()
@@ -150,5 +152,9 @@ class CloudAnimationViewController: UIViewController {
         
         return bezier2Path
     }()
+    
+}
+
+extension CloudAnimationViewController: UIViewControllerTransitioningDelegate {
     
 }

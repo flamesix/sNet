@@ -34,7 +34,11 @@ class PreLoginViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
           //  self.performSegue(withIdentifier: PropertyKeys.preLoginToLoginSegue, sender: nil)
-            self.performSegue(withIdentifier: PropertyKeys.fromPreLoginToCloudSegue, sender: nil)
+          //  self.performSegue(withIdentifier: PropertyKeys.fromPreLoginToCloudSegue, sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let cloudAnimationVC = storyboard.instantiateViewController(withIdentifier: PropertyKeys.cloudAnimationViewController)
+            
+            self.navigationController?.pushViewController(cloudAnimationVC, animated: true)
         }
         
         

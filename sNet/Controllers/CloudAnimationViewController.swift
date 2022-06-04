@@ -19,14 +19,14 @@ class CloudAnimationViewController: UIViewController {
         
         
         layer.path = cloudLogo.cgPath
+        layer.frame = cloudView.bounds
+        //layer.position = cloudView.center
         layer.strokeStart = 0
         layer.strokeEnd = 1
         layer.lineWidth = 10
         layer.lineCap = .round
         layer.strokeColor = UIColor.systemGray6.cgColor
         layer.fillColor = UIColor.clear.cgColor
-        
-        
         cloudView.layer.addSublayer(layer)
     }
     
@@ -37,24 +37,26 @@ class CloudAnimationViewController: UIViewController {
         lineStartAnimation.fromValue = -1
         lineStartAnimation.toValue = 0
         lineStartAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
+
         let lineEndAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
         lineEndAnimation.fromValue = 0
         lineEndAnimation.toValue = 1
         lineEndAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
       //  lineAnimation.duration = 4
-        
+
       //  layer.add(lineAnimation, forKey: nil)
         animationsGroup.animations = [lineStartAnimation, lineEndAnimation]
         animationsGroup.duration = 4
         animationsGroup.repeatCount = .infinity
-        
+
         layer.add(animationsGroup, forKey: nil)
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.performSegue(withIdentifier: PropertyKeys.cloudAnimationToLoginSegue, sender: nil)
         }
     }
+    
+    
     
     /*
     let cloudLogo: UIBezierPath = {
@@ -135,7 +137,7 @@ class CloudAnimationViewController: UIViewController {
     
     
     let cloudLogo: UIBezierPath = {
-        
+
     let bezier2Path = UIBezierPath()
     bezier2Path.move(to: CGPoint(x: 164.1, y: 46.28))
     bezier2Path.addCurve(to: CGPoint(x: 164.1, y: 129.72), controlPoint1: CGPoint(x: 197.3, y: 69.32), controlPoint2: CGPoint(x: 197.3, y: 106.68))
@@ -146,15 +148,13 @@ class CloudAnimationViewController: UIViewController {
     bezier2Path.addCurve(to: CGPoint(x: 43.9, y: 46.28), controlPoint1: CGPoint(x: 10.7, y: 106.68), controlPoint2: CGPoint(x: 10.7, y: 69.32))
     bezier2Path.addCurve(to: CGPoint(x: 164.1, y: 46.28), controlPoint1: CGPoint(x: 77.09, y: 23.24), controlPoint2: CGPoint(x: 130.91, y: 23.24))
     bezier2Path.close()
-    UIColor.red.setStroke()
-    bezier2Path.lineWidth = 9
+   // UIColor.red.setStroke()
+   // bezier2Path.lineWidth = 9
     bezier2Path.stroke()
-        
+
         return bezier2Path
     }()
+     
     
 }
 
-extension CloudAnimationViewController: UIViewControllerTransitioningDelegate {
-    
-}

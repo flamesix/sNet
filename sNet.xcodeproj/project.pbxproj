@@ -34,6 +34,8 @@
 		5BA4220F284BA2D400098A9D /* CustomPush+PopAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4220E284BA2D400098A9D /* CustomPush+PopAnimators.swift */; };
 		5BA42211284BA2D700098A9D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42210284BA2D700098A9D /* CustomNavigationController.swift */; };
 		5BA42213284BA2DB00098A9D /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42212284BA2DB00098A9D /* Animator.swift */; };
+		5BA42218284BCC2700098A9D /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42217284BCC2700098A9D /* CloudView.swift */; };
+		5BA4221A284BE03000098A9D /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42219284BE03000098A9D /* CollectionViewLayout.swift */; };
 		5BACAB292833DD4300E6D845 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BACAB282833DD4300E6D845 /* News.swift */; };
 		5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */; };
 		5BB709BB28240818006C32F1 /* Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB709BA28240818006C32F1 /* Logins.swift */; };
@@ -73,6 +75,8 @@
 		5BA4220E284BA2D400098A9D /* CustomPush+PopAnimators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomPush+PopAnimators.swift"; sourceTree = "<group>"; };
 		5BA42210284BA2D700098A9D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		5BA42212284BA2DB00098A9D /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		5BA42217284BCC2700098A9D /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		5BA42219284BE03000098A9D /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		5BACAB282833DD4300E6D845 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoginViewController.swift; sourceTree = "<group>"; };
 		5BB709BA28240818006C32F1 /* Logins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logins.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				5B569A772836C02100674FBA /* GroupsAndSearchTableViewCell.xib */,
 				5B569A7C2837EBED00674FBA /* NewsAndPhotoTableViewCell.swift */,
 				5B569A84283AAACE00674FBA /* LoginLoadingView.swift */,
+				5BA42217284BCC2700098A9D /* CloudView.swift */,
+				5BA42219284BE03000098A9D /* CollectionViewLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */,
 				5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */,
 				5BA4220F284BA2D400098A9D /* CustomPush+PopAnimators.swift in Sources */,
+				5BA4221A284BE03000098A9D /* CollectionViewLayout.swift in Sources */,
 				5BA4220D284BA2D100098A9D /* CustomSegue.swift in Sources */,
 				5BA42211284BA2D700098A9D /* CustomNavigationController.swift in Sources */,
 				5B0F2DF7282ECB460081E5E3 /* CanvasViewController.swift in Sources */,
@@ -290,6 +297,7 @@
 				5B0F2DF9282ECB720081E5E3 /* DrawingControl.swift in Sources */,
 				5B06971C281FC947007C50E8 /* SearchTableViewController.swift in Sources */,
 				5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */,
+				5BA42218284BCC2700098A9D /* CloudView.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,
 				5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */,
 				5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */,

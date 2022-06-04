@@ -263,8 +263,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UMa-6C-hf5">
-                            <size key="itemSize" width="374" height="339"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PhC-cX-yJU">
+                            <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -273,7 +273,7 @@
                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollection" id="dZd-pY-9bf" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
                                 <rect key="frame" x="8" y="0.0" width="374" height="339"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rJI-kU-GvK" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KoB-LK-rAY">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -306,11 +306,11 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" priority="999" id="41A-RQ-ocY"/>
+                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" id="41A-RQ-ocY"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="centerX" secondItem="k3x-AX-dDP" secondAttribute="centerX" id="6XC-Tt-Afd"/>
                                                         <constraint firstItem="k3x-AX-dDP" firstAttribute="top" secondItem="HSp-O1-JWy" secondAttribute="bottom" priority="999" constant="5" id="K19-7j-R6T"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="leading" secondItem="KKw-kp-7Gq" secondAttribute="leading" constant="10" id="Os3-6K-iOk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="k3x-AX-dDP" secondAttribute="bottom" priority="999" id="UUo-LA-9vZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="k3x-AX-dDP" secondAttribute="bottom" id="UUo-LA-9vZ"/>
                                                         <constraint firstItem="k3x-AX-dDP" firstAttribute="leading" secondItem="KKw-kp-7Gq" secondAttribute="leading" id="ZkO-Wn-7OX"/>
                                                         <constraint firstAttribute="trailing" secondItem="k3x-AX-dDP" secondAttribute="trailing" id="eKT-Fu-bhv"/>
                                                     </constraints>
@@ -333,12 +333,13 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="top" secondItem="rJI-kU-GvK" secondAttribute="top" priority="999" id="ELJ-uY-2qu"/>
+                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="top" secondItem="KoB-LK-rAY" secondAttribute="top" id="ELJ-uY-2qu"/>
                                         <constraint firstAttribute="trailing" secondItem="sh1-ut-bLj" secondAttribute="trailing" id="OQ7-Jt-FNF"/>
-                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="leading" secondItem="rJI-kU-GvK" secondAttribute="leading" id="a8c-kr-JnX"/>
-                                        <constraint firstAttribute="bottom" secondItem="sh1-ut-bLj" secondAttribute="bottom" priority="999" id="n2D-MU-ISt"/>
+                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="leading" secondItem="KoB-LK-rAY" secondAttribute="leading" id="a8c-kr-JnX"/>
+                                        <constraint firstAttribute="bottom" secondItem="sh1-ut-bLj" secondAttribute="bottom" id="n2D-MU-ISt"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="374" height="339"/>
                                 <connections>
                                     <outlet property="collectionImage" destination="HSp-O1-JWy" id="RDm-wi-uxM"/>
                                     <outlet property="collectionPhotoLabel" destination="7Cd-EB-RuO" id="xaY-wn-4i3"/>

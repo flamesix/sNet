@@ -14,6 +14,7 @@ class CollectionViewController: UICollectionViewController {
     var friends: [Friends] = []
     var photos: [PhotosOfFriend] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +42,7 @@ class CollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+
 
     /*
     // MARK: - Navigation
@@ -74,8 +76,11 @@ class CollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
+
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

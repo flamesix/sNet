@@ -117,11 +117,11 @@ class CollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == PropertyKeys.showPhotosSegue,
-           let selectedPhoto = collectionView.indexPathsForSelectedItems?.first,
            let photosVC = segue.destination as? PhotosViewController {
 
+            let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
             photosVC.photos = photos
-            photosVC.currentIndex = selectedPhoto.item
+            photosVC.currentIndex = selectedPhoto?.item ?? 0
         }
            
     }

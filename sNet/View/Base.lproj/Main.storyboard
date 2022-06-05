@@ -353,6 +353,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Photos" id="Wev-2v-fMA">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="photo" catalog="system" id="s4j-FB-0zz">
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <segue destination="YZI-cY-R5S" kind="show" identifier="showPhotosSegue" id="wtS-UC-SZk"/>
                             </connections>
@@ -659,6 +660,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FGI-qH-Q1m">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -678,6 +680,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HNM-tU-gW4">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z8W-EF-Jga">
@@ -1054,6 +1057,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRf-E4-3WU">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1073,6 +1077,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J8M-VL-64k">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

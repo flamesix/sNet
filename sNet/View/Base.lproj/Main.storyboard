@@ -381,7 +381,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="358"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="NKk-VS-7py" firstAttribute="leading" secondItem="VOx-oW-xCs" secondAttribute="leading" id="31l-p5-ogn"/>
                                     <constraint firstAttribute="trailing" secondItem="9mx-51-aJW" secondAttribute="trailing" id="5pI-Pm-8dn"/>
@@ -397,7 +396,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lcE-jH-Zcs"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VOx-oW-xCs" firstAttribute="centerX" secondItem="lcE-jH-Zcs" secondAttribute="centerX" id="AeH-pR-pIv"/>
                             <constraint firstItem="VOx-oW-xCs" firstAttribute="centerY" secondItem="lcE-jH-Zcs" secondAttribute="centerY" id="vd6-yF-iaK"/>
@@ -412,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kef-VW-rA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5043" y="-753"/>
+            <point key="canvasLocation" x="5092" y="-660"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bhi-1r-fkJ">
@@ -423,6 +422,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
+                        <color key="selectedImageTintColor" systemColor="systemTealColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="uHY-SV-xMu" kind="relationship" relationship="viewControllers" id="SJl-VN-WEp"/>
@@ -1123,6 +1125,12 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

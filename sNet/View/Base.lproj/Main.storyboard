@@ -406,7 +406,6 @@
                     <navigationItem key="navigationItem" id="h3X-A7-ps7"/>
                     <connections>
                         <outlet property="mainImageView" destination="NKk-VS-7py" id="RZ8-qd-cpm"/>
-                        <outlet property="photosView" destination="VOx-oW-xCs" id="NlP-Ll-4Ue"/>
                         <outlet property="secondaryImageView" destination="9mx-51-aJW" id="c9l-lZ-W7W"/>
                     </connections>
                 </viewController>

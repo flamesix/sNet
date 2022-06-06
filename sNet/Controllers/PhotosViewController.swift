@@ -9,13 +9,14 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
-    @IBOutlet weak var photosView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var secondaryImageView: UIImageView!
     
     var photos: [PhotosOfFriend] = []
     
-    private var propertyAnimator: UIViewPropertyAnimator!
+    private var propertyAnimator: UIViewPropertyAnimator = {
+        return UIViewPropertyAnimator(duration: 1, curve: .easeInOut)
+    }()
     
     enum AnimationDirection {
         case left
@@ -51,43 +52,57 @@ class PhotosViewController: UIViewController {
         mainImageView.image = photos[currentIndex].photo
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
-        photosView.addGestureRecognizer(panGesture)
+        view.addGestureRecognizer(panGesture)
         
     }
     
     @objc func panned(_ panGesture: UIPanGestureRecognizer) {
+        
         switch panGesture.state {
             
         case .began:
+            
             if panGesture.translation(in: view).x > 0 {
-                animateWithPropertyAnimator(animation: .right)
-                animationDirection = .right
-//                propertyAnimator.pauseAnimation()
+                //right
+                guard currentIndex >= 1 else { return }
+                animate(animation: .right)
+                //                propertyAnimator.addAnimations {
+                //                    self.animate(animation: .right)
+                //                }
+                
+                //                propertyAnimator.startAnimation()
+                //                propertyAnimator.pauseAnimation()
+                // animate(animation: .right)
+                
+                //                secondaryImageView.image = photos[currentIndex - 1].photo
+                //                secondaryImageView.transform = CGAffineTransform(translationX: -1.2 * secondaryImageView.bounds.width, y: 200).concatenating(CGAffineTransform(scaleX: 1.2, y: 1.2))
+                //                mainImageView.transform = CGAffineTransform(translationX: 1.2 * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+                //                currentIndex -= 1
+                //                mainImageView.image = photos[currentIndex].photo
+                //                mainImageView.transform = .identity
+                //                secondaryImageView.image = nil
+                
             } else {
-                animateWithPropertyAnimator(animation: .left)
-                animationDirection = .left
-//                propertyAnimator.pauseAnimation()
+                //left
+                guard currentIndex + 1 < photos.count else { return }
+                animate(animation: .left)
+                
+                
+                
+                //                secondaryImageView.image = photos[currentIndex + 1].photo
+                //                secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * secondaryImageView.bounds.width, y: 200).concatenating(CGAffineTransform(scaleX: 1.2, y: 1.2))
+                //                mainImageView.transform = CGAffineTransform(translationX: -1.2 * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+                //                currentIndex += 1
+                //                mainImageView.image = photos[currentIndex].photo
+                //                mainImageView.transform = .identity
+                //                secondaryImageView.image = nil
             }
+            
         case .changed:
-            switch animationDirection {
-            case .left:
-                
-                let percent = min(max(0, -panGesture.translation(in: view).x / 200), 1)
-                propertyAnimator.fractionComplete = percent
-                
-            case .right:
-                
-                let percent = min(max(0, panGesture.translation(in: view).x / 200), 1)
-                propertyAnimator.fractionComplete = percent
-                
-            }
+            print("changed")
         case .ended:
-            if propertyAnimator.fractionComplete > 0.3 {
-                propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.2)
-            } else {
-                propertyAnimator.isReversed = true
-                propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.2)
-            }
+            print("ended")
+            
         case .possible:
             break
         case .cancelled:
@@ -97,43 +112,28 @@ class PhotosViewController: UIViewController {
         @unknown default:
             break
         }
+        
+        
     }
     
-    private func animateWithPropertyAnimator(animation: AnimationDirection) {
-        
-        if animation == .right {
-            guard currentIndex >= 1 else { return }
-        } else {
-            guard currentIndex + 1 < photos.count else { return }
-        }
-        
-        //Setting secondaryImageView to initial state
-        secondaryImageView.transform = CGAffineTransform(translationX: 1.5 * animation.direction * secondaryImageView.bounds.width, y: 200).concatenating(.init(scaleX: 1.2, y: 1.2))
+    private func animate(animation: AnimationDirection) {
         
         secondaryImageView.image = photos[currentIndex + animation.index].photo
+        secondaryImageView.transform = CGAffineTransform(translationX: animation.direction * secondaryImageView.bounds.width, y: 200)
         
-        //Animation
-        propertyAnimator = UIViewPropertyAnimator(duration: 1,
-                                                  curve: .easeInOut,
-                                                  animations: { [self] in
-            mainImageView.transform = CGAffineTransform(translationX: -1.5 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(.init(scaleX: 0.6, y: 0.6))
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       options: .curveEaseInOut) { [self] in
+            
+            mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+            
             secondaryImageView.transform = .identity
-        })
-        
-        propertyAnimator.addCompletion { [self] position in
-            switch position {
-            case .end:
-                currentIndex = currentIndex + animation.index
-                mainImageView.image = photos[currentIndex].photo
-                mainImageView.transform = .identity
-                secondaryImageView.image = nil
-            case .start:
-                secondaryImageView.transform = CGAffineTransform(translationX: -1.5 * animation.direction * secondaryImageView.bounds.width, y: 200).concatenating(.init(scaleX: 1.2, y: 1.2))
-            case .current:
-                break
-            @unknown default:
-                break
-            }
+            
+        } completion: { [self] _ in
+            currentIndex = currentIndex + animation.index
+            mainImageView.image = photos[currentIndex].photo
+            mainImageView.transform = .identity
+            secondaryImageView.image = nil
         }
     }
 }

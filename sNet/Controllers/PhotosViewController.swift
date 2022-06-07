@@ -149,30 +149,34 @@ class PhotosViewController: UIViewController {
         
         secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * secondaryImageView.bounds.width, y: 200)
         
-        propertyAnimator.addAnimations { [self] in
+        propertyAnimator.addAnimations { [weak self] in
             
-            secondaryImageView.image = photos[currentIndex + animation.index].photo
+            guard let self = self else {return}
+            
+            self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
             
             
-            mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+            self.mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * self.mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
             
-            secondaryImageView.transform = .identity
+            self.secondaryImageView.transform = .identity
             
         }
         
-        propertyAnimator.addCompletion { [self] position in
+        propertyAnimator.addCompletion { [weak self] position in
+            
+            guard let self = self else {return}
             
             switch position {
             case .end:
                 
-                currentIndex = currentIndex + animation.index
-                mainImageView.image = photos[currentIndex].photo
-                mainImageView.transform = .identity
-                secondaryImageView.image = nil
+                self.currentIndex = self.currentIndex + animation.index
+                self.mainImageView.image = self.photos[self.currentIndex].photo
+                self.mainImageView.transform = .identity
+                self.secondaryImageView.image = nil
             case .start:
                 
-                secondaryImageView.image = photos[currentIndex + animation.index].photo
-                secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * secondaryImageView.bounds.width, y: 200)
+                self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
+                self.secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * self.secondaryImageView.bounds.width, y: 200)
             case .current:
                 break
             @unknown default:

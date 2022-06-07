@@ -45,7 +45,10 @@ class PhotosViewController: UIViewController {
     }()
     
     private var propertyAnimator: UIViewPropertyAnimator = {
-        return UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut)
+        
+        let cubicTiming = UICubicTimingParameters(controlPoint1: CGPoint(x: 0.05, y: 0.78), controlPoint2: CGPoint(x: 0.99, y: 0.34))
+        
+        return UIViewPropertyAnimator(duration: 0.5, timingParameters: cubicTiming)
     }()
     
     private var animationDirection: AnimationDirection = .left
@@ -71,7 +74,6 @@ class PhotosViewController: UIViewController {
             
         case .began:
             if translation > 0 {
-                print("began panGesture")
                 guard currentIndex >= 1 else { return }
                 animationDirection = .right
                 
@@ -98,7 +100,7 @@ class PhotosViewController: UIViewController {
             }
         case .ended:
             
-            if propertyAnimator.fractionComplete > 0.4 {
+            if propertyAnimator.fractionComplete > 0.2 {
                 propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.5)
             } else {
                 propertyAnimator.isReversed = true

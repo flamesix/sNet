@@ -45,7 +45,6 @@ class PhotosViewController: UIViewController {
     }()
     
     private var propertyAnimator: UIViewPropertyAnimator = {
-        
         let cubicTiming = UICubicTimingParameters(controlPoint1: CGPoint(x: 0.05, y: 0.78), controlPoint2: CGPoint(x: 0.99, y: 0.34))
         
         return UIViewPropertyAnimator(duration: 0.5, timingParameters: cubicTiming)
@@ -71,15 +70,11 @@ class PhotosViewController: UIViewController {
         let relativeTranslation = translation / 200
         
         switch panGesture.state {
-            
         case .began:
             if translation > 0 {
                 guard currentIndex >= 1 else { return }
                 animationDirection = .right
-                
                 animationWithPropertyAnimator(animation: .right)
-                // animate(animation: .right)
-                
                 
             } else {
                 guard currentIndex + 1 < photos.count else { return }
@@ -90,7 +85,6 @@ class PhotosViewController: UIViewController {
         case .changed:
             
             switch animationDirection {
-                
             case .right:
                 let percent = min(max(0, relativeTranslation), 1)
                 propertyAnimator.fractionComplete = percent
@@ -99,7 +93,6 @@ class PhotosViewController: UIViewController {
                 propertyAnimator.fractionComplete = percent
             }
         case .ended:
-            
             if propertyAnimator.fractionComplete > 0.2 {
                 propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.5)
             } else {
@@ -116,32 +109,30 @@ class PhotosViewController: UIViewController {
         @unknown default:
             break
         }
-        
-        
     }
     
     /*
-    ///Animation with UIView.animation
-    private func animate(animation: AnimationDirection) {
-        
-        secondaryImageView.image = photos[currentIndex + animation.index].photo
-        secondaryImageView.transform = CGAffineTransform(translationX: animation.direction * secondaryImageView.bounds.width, y: 200)
-        
-        UIView.animate(withDuration: 1,
-                       delay: 0,
-                       options: .curveEaseInOut) { [self] in
-            
-            mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
-            
-            secondaryImageView.transform = .identity
-            
-        } completion: { [self] _ in
-            currentIndex = currentIndex + animation.index
-            mainImageView.image = photos[currentIndex].photo
-            mainImageView.transform = .identity
-            secondaryImageView.image = nil
-        }
-    }
+     ///Animation with UIView.animation
+     private func animate(animation: AnimationDirection) {
+     
+     secondaryImageView.image = photos[currentIndex + animation.index].photo
+     secondaryImageView.transform = CGAffineTransform(translationX: animation.direction * secondaryImageView.bounds.width, y: 200)
+     
+     UIView.animate(withDuration: 1,
+     delay: 0,
+     options: .curveEaseInOut) { [self] in
+     
+     mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+     
+     secondaryImageView.transform = .identity
+     
+     } completion: { [self] _ in
+     currentIndex = currentIndex + animation.index
+     mainImageView.image = photos[currentIndex].photo
+     mainImageView.transform = .identity
+     secondaryImageView.image = nil
+     }
+     }
      */
     
     ///Animate with propertyAnimator
@@ -155,7 +146,6 @@ class PhotosViewController: UIViewController {
             
             self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
             
-            
             self.mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * self.mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
             
             self.secondaryImageView.transform = .identity
@@ -168,13 +158,11 @@ class PhotosViewController: UIViewController {
             
             switch position {
             case .end:
-                
                 self.currentIndex = self.currentIndex + animation.index
                 self.mainImageView.image = self.photos[self.currentIndex].photo
                 self.mainImageView.transform = .identity
                 self.secondaryImageView.image = nil
             case .start:
-                
                 self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
                 self.secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * self.secondaryImageView.bounds.width, y: 200)
             case .current:

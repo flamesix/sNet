@@ -86,7 +86,7 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
         
         for (newsImage, newsPhoto) in zip(newsImages, news.newsPhoto) {
             if let newsPhoto = newsPhoto {
-                newsImage.isHidden.toggle()
+                newsImage.isHidden = false
                 newsImage.image = newsPhoto.newsPhoto
             }
             

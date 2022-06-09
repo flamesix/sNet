@@ -83,7 +83,6 @@ class PhotosViewController: UIViewController {
             }
             
         case .changed:
-            
             switch animationDirection {
             case .right:
                 let percent = min(max(0, relativeTranslation), 1)

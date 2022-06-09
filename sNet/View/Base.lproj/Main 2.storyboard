@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-152" y="-182"/>
+            <point key="canvasLocation" x="-282" y="-279"/>
         </scene>
         <!--List of Friends-->
         <scene sceneID="YlM-iG-e1c">
@@ -263,37 +263,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PhC-cX-yJU">
-                            <size key="itemSize" width="128" height="128"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UMa-6C-hf5">
+                            <size key="itemSize" width="379" height="398"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollection" id="dZd-pY-9bf" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
-                                <rect key="frame" x="8" y="0.0" width="374" height="339"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollection" id="dZd-pY-9bf" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
+                                <rect key="frame" x="5.666666666666667" y="0.0" width="379" height="398"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KoB-LK-rAY">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rJI-kU-GvK" customClass="CollectionViewCell" customModule="sNet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="379" height="398"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sh1-ut-bLj">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="379" height="398"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-kp-7Gq" customClass="LikePhotoControl" customModule="sNet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="318.66666666666669"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="377.66666666666669"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="k3x-AX-dDP">
-                                                            <rect key="frame" x="0.0" y="298.33333333333331" width="374" height="20.333333333333314"/>
+                                                            <rect key="frame" x="0.0" y="357.33333333333331" width="379" height="20.333333333333314"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8d-WV-cd2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="362" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="i3D-St-4Nf">
-                                                                    <rect key="frame" x="359" y="1.9999999999999982" width="15" height="17.333333333333336"/>
+                                                                    <rect key="frame" x="364" y="1.9999999999999982" width="15" height="17.333333333333336"/>
                                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" priority="999" constant="15" id="Gm3-ck-49E"/>
@@ -302,15 +302,15 @@
                                                             </subviews>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HSp-O1-JWy">
-                                                            <rect key="frame" x="10" y="8" width="354" height="285.33333333333331"/>
+                                                            <rect key="frame" x="10" y="8" width="359" height="344.33333333333331"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" id="41A-RQ-ocY"/>
+                                                        <constraint firstItem="HSp-O1-JWy" firstAttribute="top" secondItem="KKw-kp-7Gq" secondAttribute="topMargin" priority="999" id="41A-RQ-ocY"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="centerX" secondItem="k3x-AX-dDP" secondAttribute="centerX" id="6XC-Tt-Afd"/>
                                                         <constraint firstItem="k3x-AX-dDP" firstAttribute="top" secondItem="HSp-O1-JWy" secondAttribute="bottom" priority="999" constant="5" id="K19-7j-R6T"/>
                                                         <constraint firstItem="HSp-O1-JWy" firstAttribute="leading" secondItem="KKw-kp-7Gq" secondAttribute="leading" constant="10" id="Os3-6K-iOk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="k3x-AX-dDP" secondAttribute="bottom" id="UUo-LA-9vZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="k3x-AX-dDP" secondAttribute="bottom" priority="999" id="UUo-LA-9vZ"/>
                                                         <constraint firstItem="k3x-AX-dDP" firstAttribute="leading" secondItem="KKw-kp-7Gq" secondAttribute="leading" id="ZkO-Wn-7OX"/>
                                                         <constraint firstAttribute="trailing" secondItem="k3x-AX-dDP" secondAttribute="trailing" id="eKT-Fu-bhv"/>
                                                     </constraints>
@@ -320,7 +320,7 @@
                                                     </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-EB-RuO">
-                                                    <rect key="frame" x="0.0" y="318.66666666666669" width="374" height="20.333333333333314"/>
+                                                    <rect key="frame" x="0.0" y="377.66666666666669" width="379" height="20.333333333333314"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -333,13 +333,13 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="top" secondItem="KoB-LK-rAY" secondAttribute="top" id="ELJ-uY-2qu"/>
+                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="top" secondItem="rJI-kU-GvK" secondAttribute="top" priority="999" id="ELJ-uY-2qu"/>
                                         <constraint firstAttribute="trailing" secondItem="sh1-ut-bLj" secondAttribute="trailing" id="OQ7-Jt-FNF"/>
-                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="leading" secondItem="KoB-LK-rAY" secondAttribute="leading" id="a8c-kr-JnX"/>
-                                        <constraint firstAttribute="bottom" secondItem="sh1-ut-bLj" secondAttribute="bottom" id="n2D-MU-ISt"/>
+                                        <constraint firstItem="sh1-ut-bLj" firstAttribute="leading" secondItem="rJI-kU-GvK" secondAttribute="leading" id="a8c-kr-JnX"/>
+                                        <constraint firstAttribute="bottom" secondItem="sh1-ut-bLj" secondAttribute="bottom" priority="999" id="n2D-MU-ISt"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="374" height="339"/>
+                                <size key="customSize" width="379" height="398"/>
                                 <connections>
                                     <outlet property="collectionImage" destination="HSp-O1-JWy" id="RDm-wi-uxM"/>
                                     <outlet property="collectionPhotoLabel" destination="7Cd-EB-RuO" id="xaY-wn-4i3"/>
@@ -412,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kef-VW-rA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5043" y="-753"/>
+            <point key="canvasLocation" x="5083.0769230769229" y="-660.42654028436016"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bhi-1r-fkJ">
@@ -515,10 +515,10 @@
             </objects>
             <point key="canvasLocation" x="4100" y="35.545023696682463"/>
         </scene>
-        <!--Custom Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="sNI-Z0-h4e">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MyF-Ez-Ls5" customClass="CustomNavigationController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MyF-Ez-Ls5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rXr-wy-gHY">
                         <autoresizingMask key="autoresizingMask"/>
@@ -575,7 +575,7 @@
         <!--Cloud Animation View Controller-->
         <scene sceneID="wYE-DF-0bD">
             <objects>
-                <viewController storyboardIdentifier="CloudAnimationViewController" id="g9B-la-z8s" customClass="CloudAnimationViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g9B-la-z8s" customClass="CloudAnimationViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hh0-7e-rUT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D13-oW-kIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-962" y="454"/>
+            <point key="canvasLocation" x="-1098" y="604"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">
@@ -651,7 +651,7 @@
         <!--Friends-->
         <scene sceneID="a0e-Sf-JZg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uHY-SV-xMu" customClass="CustomNavigationController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uHY-SV-xMu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill" catalog="system" selectedImage="person" id="Ijb-ZC-ceN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FGI-qH-Q1m">
@@ -670,7 +670,7 @@
         <!--Groups-->
         <scene sceneID="7It-JZ-k3A">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mDs-Po-zJb" customClass="CustomNavigationController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mDs-Po-zJb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" selectedImage="person.3" id="Bfg-rB-0lK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HNM-tU-gW4">
@@ -1046,7 +1046,7 @@
         <!--News-->
         <scene sceneID="QIT-U8-yWF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kkw-zE-8vv" customClass="CustomNavigationController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kkw-zE-8vv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="newspaper.fill" catalog="system" selectedImage="newspaper" id="b4I-Ic-ej0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRf-E4-3WU">
@@ -1065,7 +1065,7 @@
         <!--Chat-->
         <scene sceneID="GxH-9R-JJL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4KL-Ya-QAl" customClass="CustomNavigationController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4KL-Ya-QAl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" selectedImage="message" id="mMH-Cc-BYD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J8M-VL-64k">
@@ -1083,7 +1083,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sof-NX-ZUn"/>
+        <segue reference="7K2-jN-bzu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="128" height="128"/>

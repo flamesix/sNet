@@ -54,9 +54,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     func updateSearchResults(for searchController: UISearchController) {
         if let searchString = searchController.searchBar.text,
            !searchString.isEmpty {
-            filteredGroups = searchGroups.filter { (item) -> Bool in
-                item.name.localizedCaseInsensitiveContains(searchString)
-            }
+            filteredGroups = searchGroups.filter { $0.name.localizedCaseInsensitiveContains(searchString) }
         } else {
             filteredGroups = searchGroups
         }

@@ -17,7 +17,7 @@ protocol FriendsProtocol {
 }
 
 protocol PhotosOfFriendProtocol {
-    var photos: UIImage! { get }
+    var photo: UIImage! { get }
 }
 
 struct Friends: FriendsProtocol, CustomStringConvertible {
@@ -34,6 +34,6 @@ struct Friends: FriendsProtocol, CustomStringConvertible {
 }
 
 struct PhotosOfFriend: PhotosOfFriendProtocol {
-    let photos: UIImage!
+    let photo: UIImage!
 }
 

@@ -9,6 +9,11 @@ import UIKit
 
 class GroupsTableViewController: UITableViewController {
     
+    @IBOutlet weak var groupsSearchBar: UISearchBar! {
+        didSet {
+            groupsSearchBar.delegate = self
+        }
+    }
     //    let groups: [Groups] = [
     //        Groups(image: "1", name: "Auto", description: "Auto lovers"),
     //        Groups(image: "2", name: "Music", description: "Music lovers"),
@@ -37,11 +42,15 @@ class GroupsTableViewController: UITableViewController {
         Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
     ]
     
+    var searchedGroups: [Groups] = []
     var deletedItem: Groups?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.setupHideKeyboardOnTap()
+        
+        searchedGroups = groups
         
         tableView.register(UINib(nibName: PropertyKeys.groupsAndSearchTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.groupsAndSearchTableViewCell)
         // Uncomment the following line to preserve selection between presentations
@@ -58,14 +67,16 @@ class GroupsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
+        // return groups.count
+        return searchedGroups.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupsAndSearchTableViewCell, for: indexPath) as? GroupsAndSearchTableViewCell else { preconditionFailure("Error") }
         
-        let group = groups[indexPath.row]
+        // let group = groups[indexPath.row]
+        let group = searchedGroups[indexPath.row]
         cell.updateGroupsTable(with: group)
         
         return cell
@@ -87,7 +98,7 @@ class GroupsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deletedItem = groups.remove(at: indexPath.row)
+            deletedItem = searchedGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -144,10 +155,47 @@ class GroupsTableViewController: UITableViewController {
         if let sourceViewController = unwindSegue.source as? SearchTableViewController,
            let indexPath = sourceViewController.tableView.indexPathForSelectedRow {
             let groupToAdd = sourceViewController.filteredGroups[indexPath.row]
-            if !groups.contains(where: {$0.name == groupToAdd.name}) {
-                groups.append(groupToAdd)
+            if !searchedGroups.contains(where: {$0.name == groupToAdd.name}) {
+                searchedGroups.append(groupToAdd)
                 tableView.reloadData()
             }
         }
     }
+}
+
+// MARK: - SearchBarDelegate
+
+extension GroupsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchedGroups = groups
+        } else {
+            searchedGroups = groups.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.searchTextField.transform = CGAffineTransform(translationX: searchBar.frame.width, y: 0)
+        UIView.animate(withDuration: 2,
+                       delay: 0,
+                       options: []) {
+            searchBar.searchTextField.transform = CGAffineTransform(translationX: 0, y: 0)
+        } completion: { _ in
+            self.groupsSearchBar.showsCancelButton = true
+        }
+
+        
+    }
+    
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        groupsSearchBar.searchTextField.text = ""
+        searchedGroups = groups
+        groupsSearchBar.showsCancelButton = false
+        setupHideKeyboardOnTap()
+        tableView.reloadData()
+    }
+    
 }

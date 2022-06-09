@@ -28,4 +28,5 @@ struct PropertyKeys {
     static let showPhotosSegue = "showPhotosSegue"
     static let fromPreLoginToCloudSegue = "fromPreLoginToCloudSegue"
     static let cloudAnimationToLoginSegue = "cloudAnimationToLoginSegue"
+    static let cloudAnimationViewController = "CloudAnimationViewController"
 }

@@ -14,8 +14,10 @@ class CollectionViewController: UICollectionViewController {
     var friends: [Friends] = []
     var photos: [PhotosOfFriend] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
 //        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
 //            widthDimension: .fractionalWidth(1),
@@ -40,6 +42,7 @@ class CollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+
 
     /*
     // MARK: - Navigation
@@ -73,8 +76,14 @@ class CollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: PropertyKeys.showPhotosSegue, sender: nil)
+    }
+    
 
     // MARK: UICollectionViewDelegate
+
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -110,7 +119,9 @@ class CollectionViewController: UICollectionViewController {
         if segue.identifier == PropertyKeys.showPhotosSegue,
            let photosVC = segue.destination as? PhotosViewController {
 
+            let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
             photosVC.photos = photos
+            photosVC.currentIndex = selectedPhoto?.item ?? 0
         }
            
     }

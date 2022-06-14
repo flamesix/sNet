@@ -31,6 +31,7 @@
 		5B569A89284271D100674FBA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A88284271D100674FBA /* PhotosViewController.swift */; };
 		5B569A8D2843B8AC00674FBA /* CloudAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */; };
 		5B872CB428527658008B84BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B872CB328527658008B84BC /* Session.swift */; };
+		5B964DD42858C44200E94F40 /* WebViewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */; };
 		5BA4220D284BA2D100098A9D /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4220C284BA2D100098A9D /* CustomSegue.swift */; };
 		5BA4220F284BA2D400098A9D /* CustomPush+PopAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4220E284BA2D400098A9D /* CustomPush+PopAnimators.swift */; };
 		5BA42211284BA2D700098A9D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42210284BA2D700098A9D /* CustomNavigationController.swift */; };
@@ -74,6 +75,7 @@
 		5B569A88284271D100674FBA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationViewController.swift; sourceTree = "<group>"; };
 		5B872CB328527658008B84BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewLoginViewController.swift; sourceTree = "<group>"; };
 		5BA4220C284BA2D100098A9D /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		5BA4220E284BA2D400098A9D /* CustomPush+PopAnimators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomPush+PopAnimators.swift"; sourceTree = "<group>"; };
 		5BA42210284BA2D700098A9D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				B1E8C5913F7FD684ABAB7D83 /* Pods-sNet.debug.xcconfig */,
 				A496BBE43BFDE27B8462D81B /* Pods-sNet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -124,6 +125,7 @@
 				5B569A802839114200674FBA /* PreLoginViewController.swift */,
 				5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */,
 				5B06970C281D1A02007C50E8 /* LoginViewController.swift */,
+				5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */,
 				5BB709B82822F5F0006C32F1 /* SecondLoginViewController.swift */,
 				5B069710281E5D4B007C50E8 /* FriendsTableViewController.swift */,
 				5B069719281FC910007C50E8 /* CollectionViewController.swift */,
@@ -346,6 +348,7 @@
 				5B06970D281D1A02007C50E8 /* LoginViewController.swift in Sources */,
 				5B06973E281FE5B9007C50E8 /* Groups.swift in Sources */,
 				5BA4220F284BA2D400098A9D /* CustomPush+PopAnimators.swift in Sources */,
+				5B964DD42858C44200E94F40 /* WebViewLoginViewController.swift in Sources */,
 				5BA4221A284BE03000098A9D /* CollectionViewLayout.swift in Sources */,
 				5BA4220D284BA2D100098A9D /* CustomSegue.swift in Sources */,
 				5BA42211284BA2D700098A9D /* CustomNavigationController.swift in Sources */,

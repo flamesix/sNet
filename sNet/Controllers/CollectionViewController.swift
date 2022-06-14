@@ -77,6 +77,9 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: PropertyKeys.showPhotosSegue, sender: nil)
+    }
     
 
     // MARK: UICollectionViewDelegate
@@ -116,7 +119,9 @@ class CollectionViewController: UICollectionViewController {
         if segue.identifier == PropertyKeys.showPhotosSegue,
            let photosVC = segue.destination as? PhotosViewController {
 
+            let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
             photosVC.photos = photos
+            photosVC.currentIndex = selectedPhoto?.item ?? 0
         }
            
     }

@@ -49,7 +49,6 @@ class GroupsTableViewController: UITableViewController {
         super.viewDidLoad()
         
 //        self.setupHideKeyboardOnTap()
-        
         searchedGroups = groups
         
         tableView.register(UINib(nibName: PropertyKeys.groupsAndSearchTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.groupsAndSearchTableViewCell)
@@ -59,6 +58,7 @@ class GroupsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
     
     // MARK: - Table view data source
     

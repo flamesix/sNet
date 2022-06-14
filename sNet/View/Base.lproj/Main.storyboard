@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyF-Ez-Ls5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zgg-nN-u7r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -353,6 +353,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Photos" id="Wev-2v-fMA">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="photo" catalog="system" id="s4j-FB-0zz">
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <segue destination="YZI-cY-R5S" kind="show" identifier="showPhotosSegue" id="wtS-UC-SZk"/>
                             </connections>
@@ -381,7 +382,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="358"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="NKk-VS-7py" firstAttribute="leading" secondItem="VOx-oW-xCs" secondAttribute="leading" id="31l-p5-ogn"/>
                                     <constraint firstAttribute="trailing" secondItem="9mx-51-aJW" secondAttribute="trailing" id="5pI-Pm-8dn"/>
@@ -397,7 +397,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lcE-jH-Zcs"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VOx-oW-xCs" firstAttribute="centerX" secondItem="lcE-jH-Zcs" secondAttribute="centerX" id="AeH-pR-pIv"/>
                             <constraint firstItem="VOx-oW-xCs" firstAttribute="centerY" secondItem="lcE-jH-Zcs" secondAttribute="centerY" id="vd6-yF-iaK"/>
@@ -406,13 +406,12 @@
                     <navigationItem key="navigationItem" id="h3X-A7-ps7"/>
                     <connections>
                         <outlet property="mainImageView" destination="NKk-VS-7py" id="RZ8-qd-cpm"/>
-                        <outlet property="photosView" destination="VOx-oW-xCs" id="NlP-Ll-4Ue"/>
                         <outlet property="secondaryImageView" destination="9mx-51-aJW" id="c9l-lZ-W7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kef-VW-rA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5043" y="-753"/>
+            <point key="canvasLocation" x="5092" y="-660"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bhi-1r-fkJ">
@@ -423,6 +422,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
+                        <color key="selectedImageTintColor" systemColor="systemTealColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="uHY-SV-xMu" kind="relationship" relationship="viewControllers" id="SJl-VN-WEp"/>
@@ -612,6 +614,37 @@
             </objects>
             <point key="canvasLocation" x="-962" y="454"/>
         </scene>
+        <!--Web View Login View Controller-->
+        <scene sceneID="iGg-kL-JQZ">
+            <objects>
+                <viewController id="Zgg-nN-u7r" customClass="WebViewLoginViewController" customModule="sNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o94-ds-Irn">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frL-EB-ib6">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hM2-aG-UA6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="frL-EB-ib6" firstAttribute="top" secondItem="o94-ds-Irn" secondAttribute="top" id="IRn-GJ-plX"/>
+                            <constraint firstAttribute="bottom" secondItem="frL-EB-ib6" secondAttribute="bottom" id="LGc-0b-otK"/>
+                            <constraint firstItem="frL-EB-ib6" firstAttribute="leading" secondItem="hM2-aG-UA6" secondAttribute="leading" id="N3u-TB-CbA"/>
+                            <constraint firstItem="frL-EB-ib6" firstAttribute="trailing" secondItem="hM2-aG-UA6" secondAttribute="trailing" id="Wgl-aL-eE7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pGp-j4-IRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2" y="481"/>
+        </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">
             <objects>
@@ -657,6 +690,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FGI-qH-Q1m">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -676,6 +710,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HNM-tU-gW4">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z8W-EF-Jga">
@@ -1052,6 +1087,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRf-E4-3WU">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1071,6 +1107,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J8M-VL-64k">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1123,6 +1160,12 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

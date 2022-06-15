@@ -24,6 +24,8 @@ class WebViewLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        network.getInfoWithURLSessoin(for: session.userID, info: .friendList)
+        
         webview.load(getToken())
         
         network.getInfo(for: session.userID, info: .friendList)

@@ -43,6 +43,8 @@ enum MethodsAPIVK {
 
 class NetworkService {
     
+    static let vkAPIVersion = "5.131"
+    
     private let session = Session.instance
     
     private let apiURL = "https://api.vk.com/method/"
@@ -56,7 +58,7 @@ class NetworkService {
             "user_id": userID,
             "owner_id": userID,
             "access_token": session.token,
-            "v": "5.131"
+            "v": NetworkService.vkAPIVersion
         ]
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
@@ -83,7 +85,7 @@ class NetworkService {
             "owner_id": userID,
             "q": searchText,
             "access_token": session.token,
-            "v": "5.131"
+            "v": NetworkService.vkAPIVersion
         ]
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
@@ -99,5 +101,31 @@ class NetworkService {
                 print(error)
             }
         }
+    }
+    
+    
+    func getInfoWithURLSessoin(for userID: Int, info: MethodsAPIVK) {
+        let configuration = URLSessionConfiguration.default
+        let urlSession = URLSession(configuration: configuration)
+        
+        var urlConstructor = URLComponents()
+        urlConstructor.scheme = "https"
+        urlConstructor.host = "api.vk.com"
+        urlConstructor.path = "/method/"+info.method
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "user_id", value: String(userID)),
+            URLQueryItem(name: "access_token", value: session.token),
+            URLQueryItem(name: "v", value: NetworkService.vkAPIVersion)
+        ]
+        
+        let url = urlConstructor.url
+        
+        guard let url = url else { return }
+
+        let task = urlSession.dataTask(with: url) { data, response, error in
+            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
+            print(json!)
+        }
+        task.resume()
     }
 }

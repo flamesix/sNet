@@ -14,8 +14,7 @@ class WebViewLoginViewController: UIViewController {
     let session = Session.instance
     let network = NetworkService()
     
-    @IBOutlet weak var webview: WKWebView!
-    {
+    @IBOutlet weak var webview: WKWebView! {
         didSet {
             webview.navigationDelegate = self
         }
@@ -25,9 +24,9 @@ class WebViewLoginViewController: UIViewController {
         super.viewDidLoad()
         
         network.getInfoWithURLSessoin(for: session.userID, info: .friendList)
-        
+
         webview.load(getToken())
-        
+
         network.getInfo(for: session.userID, info: .friendList)
         network.getInfo(for: session.userID, info: .photosList)
         network.getInfo(for: session.userID, info: .groupsList)

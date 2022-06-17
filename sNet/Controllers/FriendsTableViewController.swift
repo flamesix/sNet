@@ -133,7 +133,7 @@ class FriendsTableViewController: UITableViewController {
             self.tableView.reloadData()
             
             for frined in friends {
-                print(frined.lastName, frined.userID)
+                print(frined.lastName, frined.userID, frined.userPhotoData)
             }
         }
     }

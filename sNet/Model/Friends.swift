@@ -31,11 +31,14 @@ class Friends: Decodable, CustomStringConvertible {
     var userID: Int = 0
     var firstName: String = ""
     var lastName: String = ""
+    var userPhotoData: String = ""
+    var userPhoto: UIImage = #imageLiteral(resourceName: "SNET.")
 
     enum CodingKeys: String, CodingKey {
         case userID = "id"
         case firstName = "first_name"
         case lastName = "last_name"
+        case userPhotoData = "photo_100"
     }
     
     convenience required init(from decoder: Decoder) throws {
@@ -45,6 +48,8 @@ class Friends: Decodable, CustomStringConvertible {
         self.userID = try values.decode(Int.self, forKey: .userID)
         self.firstName = try values.decode(String.self, forKey: .firstName)
         self.lastName = try values.decode(String.self, forKey: .lastName)
+        self.userPhotoData = try values.decode(String.self, forKey: .userPhotoData)
+      //  self.userPhoto = UIImage(contentsOfFile: userPhotoData) ?? #imageLiteral(resourceName: "SNET.")
         
     }
     

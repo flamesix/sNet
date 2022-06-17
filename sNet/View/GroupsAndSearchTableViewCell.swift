@@ -24,6 +24,17 @@ class GroupsAndSearchTableViewCell: UITableViewCell {
        // groupImage.image = searchGroup.image
         groupNameLabel.text = searchGroup.groupName
         groupDescriptionLabel.text = searchGroup.description
+        
+        if let url = URL(string: searchGroup.groupsPhotoData) {
+            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        searchGroup.groupsPhoto = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+                        self.groupImage.image = searchGroup.groupsPhoto
+                    }
+                }
+            }.resume()
+        }
     }
     
 //    func updateSearchGroupTable(with group: Groups) {
@@ -36,5 +47,16 @@ class GroupsAndSearchTableViewCell: UITableViewCell {
        // groupImage.image = group.image
         groupNameLabel.text = group.groupName
         groupDescriptionLabel.text = group.description
+        
+        if let url = URL(string: group.groupsPhotoData) {
+            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        group.groupsPhoto = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+                        self.groupImage.image = group.groupsPhoto
+                    }
+                }
+            }.resume()
+        }
     }
 }

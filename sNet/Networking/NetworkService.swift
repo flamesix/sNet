@@ -57,7 +57,7 @@ class NetworkService {
         let parameters: Parameters = [
             "user_id": userID,
             "owner_id": userID,
-            "fields": "photo_50",
+            "fields": "photo_100",
             "access_token": session.token,
             "v": NetworkService.vkAPIVersion
         ]
@@ -71,7 +71,7 @@ class NetworkService {
                     //                    let asJSON = try JSONSerialization.jsonObject(with: data)
                     //                    print("\(info.description)\(asJSON)")
                     let users = try JSONDecoder().decode(FriendsResponse.self, from: data).items
-                    //                    print(users.count)
+                    
                     completion(users)
                 } catch {
                     print("Error while decoding response from \(#function)")

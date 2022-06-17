@@ -27,10 +27,12 @@ class WebViewLoginViewController: UIViewController {
 //
 //        webview.load(getToken())
 //
-        network.getInfo(for: session.userID, info: .friendList)
-        network.getInfo(for: session.userID, info: .photosList)
-        network.getInfo(for: session.userID, info: .groupsList)
-        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
+//        network.getInfo(for: session.userID, info: .friendList)
+//        network.getInfo(for: session.userID, info: .photosList)
+//        network.getInfo(for: session.userID, info: .groupsList)
+//        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
+        
+        performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
         
     }
     

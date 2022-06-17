@@ -37,3 +37,20 @@ struct PhotosOfFriend: PhotosOfFriendProtocol {
     let photo: UIImage!
 }
 
+class FrendsList: Decodable {
+    let userID: Int
+    let firstName: String
+    let lastName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userID = "id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+   
+    init(userID: Int, firstName: String, lastName: String) {
+        self.userID = userID
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+}

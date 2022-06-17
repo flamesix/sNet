@@ -104,7 +104,7 @@ class NetworkService {
     }
     
     
-    func getInfoWithURLSessoin(for userID: Int, info: MethodsAPIVK) {
+    func getInfoWithURLSession(for userID: Int, info: MethodsAPIVK) {
         let configuration = URLSessionConfiguration.default
         let urlSession = URLSession(configuration: configuration)
         

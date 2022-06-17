@@ -23,10 +23,10 @@ class WebViewLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        network.getInfoWithURLSessoin(for: session.userID, info: .friendList)
-
-        webview.load(getToken())
-
+//        network.getInfoWithURLSession(for: session.userID, info: .friendList)
+//
+//        webview.load(getToken())
+//
         network.getInfo(for: session.userID, info: .friendList)
         network.getInfo(for: session.userID, info: .photosList)
         network.getInfo(for: session.userID, info: .groupsList)
@@ -35,7 +35,7 @@ class WebViewLoginViewController: UIViewController {
     }
     
     ///Getting access token
-    private func getToken() -> URLRequest {
+    private func getTokenURLRequest() -> URLRequest {
         var urlComponents = URLComponents()
         
         urlComponents.scheme = "https"

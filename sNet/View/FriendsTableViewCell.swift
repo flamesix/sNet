@@ -25,10 +25,16 @@ class FriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+//    func updateFriendsTable(with friend: Friends) {
+//        iconLabel.text = friend.icon
+//        nameLabel.text = friend.name + " " + friend.lastName
+//        userPhotoImageView.image = friend.userPhoto
+//    }
+    
     func updateFriendsTable(with friend: Friends) {
-        iconLabel.text = friend.icon
-        nameLabel.text = friend.name + " " + friend.lastName
-        userPhotoImageView.image = friend.userPhoto
+        iconLabel.text = ""
+        nameLabel.text = friend.firstName + " " + friend.lastName
+       // userPhotoImageView.image = friend.userPhoto
     }
 
 }

@@ -14,15 +14,27 @@ class GroupsAndSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var groupDescriptionLabel: UILabel!
     
     
+//    func updateGroupsTable(with searchGroup: Groups) {
+//        groupImage.image = searchGroup.image
+//        groupNameLabel.text = searchGroup.name
+//        groupDescriptionLabel.text = searchGroup.description
+//    }
+    
     func updateGroupsTable(with searchGroup: Groups) {
-        groupImage.image = searchGroup.image
-        groupNameLabel.text = searchGroup.name
+       // groupImage.image = searchGroup.image
+        groupNameLabel.text = searchGroup.groupName
         groupDescriptionLabel.text = searchGroup.description
     }
     
+//    func updateSearchGroupTable(with group: Groups) {
+//        groupImage.image = group.image
+//        groupNameLabel.text = group.name
+//        groupDescriptionLabel.text = group.description
+//    }
+    
     func updateSearchGroupTable(with group: Groups) {
-        groupImage.image = group.image
-        groupNameLabel.text = group.name
+       // groupImage.image = group.image
+        groupNameLabel.text = group.groupName
         groupDescriptionLabel.text = group.description
     }
 }

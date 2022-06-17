@@ -28,19 +28,26 @@ class GroupsTableViewController: UITableViewController {
     //        Groups(image: "11", name: "Art", description: "Painting")
     //    ]
     
-    var groups: [Groups] = [
-        Groups(image: UIImage(named: "1"), name: "Auto", description: "Auto lovers"),
-        Groups(image: UIImage(named: "2"), name: "Music", description: "Music lovers"),
-        Groups(image: UIImage(named: "3"), name: "Computers", description: "Comp lovers"),
-        Groups(image: UIImage(named: "4"), name: "Books", description: "Book lovers"),
-        Groups(image: UIImage(named: "5"), name: "Cooking", description: "Cooking profi"),
-        Groups(image: UIImage(named: "6"), name: "Traveling", description: "Travel blogging"),
-        Groups(image: UIImage(named: "7"), name: "Sport", description: "Prof. sports"),
-        Groups(image: UIImage(named: "8"), name: "Pets", description: "Pets-Pets-Pets"),
-        Groups(image: UIImage(named: "9"), name: "Blogging", description: "All about blogging"),
-        Groups(image: UIImage(named: "10"), name: "Shopping", description: "Find best price"),
-        Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
-    ]
+//    var groups: [Groups] = [
+//        Groups(image: UIImage(named: "1"), name: "Auto", description: "Auto lovers"),
+//        Groups(image: UIImage(named: "2"), name: "Music", description: "Music lovers"),
+//        Groups(image: UIImage(named: "3"), name: "Computers", description: "Comp lovers"),
+//        Groups(image: UIImage(named: "4"), name: "Books", description: "Book lovers"),
+//        Groups(image: UIImage(named: "5"), name: "Cooking", description: "Cooking profi"),
+//        Groups(image: UIImage(named: "6"), name: "Traveling", description: "Travel blogging"),
+//        Groups(image: UIImage(named: "7"), name: "Sport", description: "Prof. sports"),
+//        Groups(image: UIImage(named: "8"), name: "Pets", description: "Pets-Pets-Pets"),
+//        Groups(image: UIImage(named: "9"), name: "Blogging", description: "All about blogging"),
+//        Groups(image: UIImage(named: "10"), name: "Shopping", description: "Find best price"),
+//        Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
+//    ]
+    
+    var groups: [Groups] = [] {
+        didSet {
+            searchedGroups = groups
+            tableView.reloadData()
+        }
+    }
     
     var searchedGroups: [Groups] = []
     var deletedItem: Groups?
@@ -48,8 +55,12 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NetworkService().getGroupsInfo(for: 800500, info: .groupsList) { [weak self] groupArray in
+            self?.groups = groupArray
+        }
+        
 //        self.setupHideKeyboardOnTap()
-        searchedGroups = groups
+       // searchedGroups = groups
         
         tableView.register(UINib(nibName: PropertyKeys.groupsAndSearchTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.groupsAndSearchTableViewCell)
         // Uncomment the following line to preserve selection between presentations
@@ -155,7 +166,7 @@ class GroupsTableViewController: UITableViewController {
         if let sourceViewController = unwindSegue.source as? SearchTableViewController,
            let indexPath = sourceViewController.tableView.indexPathForSelectedRow {
             let groupToAdd = sourceViewController.filteredGroups[indexPath.row]
-            if !searchedGroups.contains(where: {$0.name == groupToAdd.name}) {
+            if !searchedGroups.contains(where: {$0.groupName == groupToAdd.groupName}) {
                 searchedGroups.append(groupToAdd)
                 tableView.reloadData()
             }
@@ -170,7 +181,7 @@ extension GroupsTableViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             searchedGroups = groups
         } else {
-            searchedGroups = groups.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            searchedGroups = groups.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
         }
         tableView.reloadData()
     }

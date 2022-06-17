@@ -13,24 +13,31 @@ class WebViewLoginViewController: UIViewController {
     
     let session = Session.instance
     let network = NetworkService()
+    var friends = [Friends]()
     
     @IBOutlet weak var webview: WKWebView! {
         didSet {
             webview.navigationDelegate = self
         }
     }
-       
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        network.getInfoWithURLSession(for: session.userID, info: .friendList)
-//
-//        webview.load(getToken())
-//
-//        network.getInfo(for: session.userID, info: .friendList)
-//        network.getInfo(for: session.userID, info: .photosList)
-//        network.getInfo(for: session.userID, info: .groupsList)
-//        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
+//        network.getInfoWithURLSession(for: session.userID, info: .groupsList)
+        //
+//                webview.load(getTokenURLRequest())
+        //
+        //        network.getInfo(for: 123733, info: .friendList)
+//        network.getInfo(for: 123733, info: .friendList) { [weak self] friendsArray in
+//            self?.friends = friendsArray
+//        }
+        //
+//        print(friends)
+        
+        //        network.getInfo(for: session.userID, info: .photosList)
+        //        network.getInfo(for: session.userID, info: .groupsList)
+        //        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
         
         performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
         

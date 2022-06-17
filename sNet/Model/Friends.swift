@@ -20,37 +20,40 @@ protocol PhotosOfFriendProtocol {
     var photo: UIImage! { get }
 }
 
-struct Friends: FriendsProtocol, CustomStringConvertible {
-    let userID: String
-    let userPhoto: UIImage!
-    let name: String
-    let lastName: String
-    let icon: String
-    let photos: [PhotosOfFriend]
+class Friends: Decodable, CustomStringConvertible {
+//    let userID: String
+//    let userPhoto: UIImage!
+//    let name: String
+//    let lastName: String
+//    let icon: String
+//    let photos: [PhotosOfFriend]
     
-    var description: String {
-        "My photo \(icon)"
-    }
-}
+    var userID: Int = 0
+    var firstName: String = ""
+    var lastName: String = ""
 
-struct PhotosOfFriend: PhotosOfFriendProtocol {
-    let photo: UIImage!
-}
-
-class FrendsList: Decodable {
-    let userID: Int
-    let firstName: String
-    let lastName: String
-    
     enum CodingKeys: String, CodingKey {
         case userID = "id"
         case firstName = "first_name"
         case lastName = "last_name"
     }
-   
-    init(userID: Int, firstName: String, lastName: String) {
-        self.userID = userID
-        self.firstName = firstName
-        self.lastName = lastName
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.userID = try values.decode(Int.self, forKey: .userID)
+        self.firstName = try values.decode(String.self, forKey: .firstName)
+        self.lastName = try values.decode(String.self, forKey: .lastName)
+        
     }
+    
+    var description: String {
+     //   "My photo \(icon)"
+        "My photo"
+    }
+}
+
+struct PhotosOfFriend: PhotosOfFriendProtocol {
+    let photo: UIImage!
 }

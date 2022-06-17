@@ -10,7 +10,7 @@ import Foundation
 class Session {
     static let instance = Session()
     
-    var token = "vk1.a.CeElfLrgoNRXdXUSRdeKOkWcw9G01TyIuAYSct7nP7wNmioo8mlTpBT8hIlknvd3KGKtCokqNoMn8Rzj7Exj2yoJY10SrRzb62Jc8S_WkjzjC9-j2A7sWSoS_dyyVtwheJmzVl4OBW2XaS53_vCUsd6i1NDp1v0wkJm1RY3kkBtWhn8TNMYe6Rp7znsH5SC9"
+    var token = "vk1.a.6l3UKk-r8TG-c_17vn59rWCb6yqNTifybVqytXvUR5iRSYhx7cEZL2cx8OYr3j6aA4IXki3i_99gTpt-63vwA_wX0cpt72pwDoFbHEal6gBwp_eCeokhVoqgiz4w76s-RdLGqYlASNuDWhpI5Szimx0qfkoXA3_pzoCvI0sSAHn-ZSly2qsfJRYHg33aq61B"
     var userID: Int = 689477392
     
     private init() { }

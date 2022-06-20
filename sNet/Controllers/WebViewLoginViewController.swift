@@ -14,10 +14,17 @@ class WebViewLoginViewController: UIViewController {
     let session = Session.instance
     let network = NetworkService()
     var friends = [Friends]()
+    var tokenString: String = "" {
+        didSet {
+            session.token = tokenString
+            performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
+        }
+    }
     
     @IBOutlet weak var webview: WKWebView! {
         didSet {
             webview.navigationDelegate = self
+            
         }
     }
     
@@ -26,7 +33,7 @@ class WebViewLoginViewController: UIViewController {
         
 //        network.getInfoWithURLSession(for: session.userID, info: .groupsList)
         //
-//                webview.load(getTokenURLRequest())
+                webview.load(getTokenURLRequest())
         //
         //        network.getInfo(for: 123733, info: .friendList)
 //        network.getInfo(for: 123733, info: .friendList) { [weak self] friendsArray in
@@ -39,7 +46,7 @@ class WebViewLoginViewController: UIViewController {
         //        network.getInfo(for: session.userID, info: .groupsList)
         //        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
         
-        performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
+//        performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
         
     }
     
@@ -91,7 +98,8 @@ extension WebViewLoginViewController: WKNavigationDelegate {
             }
         
         let token = params["access_token"]
-        print(token!)
+      //  print(token!)
+        tokenString = token!
         decisionHandler(.cancel)
     }
 }

@@ -55,7 +55,7 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService().getGroupsInfo(for: 800500, info: .groupsList) { [weak self] groupArray in
+        NetworkService().getGroupsInfo(for: 343939141, info: .groupsList) { [weak self] groupArray in
             self?.groups = groupArray
         }
         

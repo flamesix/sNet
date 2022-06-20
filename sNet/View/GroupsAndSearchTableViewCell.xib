@@ -59,7 +59,7 @@
                 <outlet property="groupImage" destination="URM-a3-xHk" id="y2Y-rX-0bJ"/>
                 <outlet property="groupNameLabel" destination="dod-pc-Uit" id="BCQ-R6-x47"/>
             </connections>
-            <point key="canvasLocation" x="31.884057971014496" y="176.11607142857142"/>
+            <point key="canvasLocation" x="7" y="278"/>
         </tableViewCell>
     </objects>
 </document>

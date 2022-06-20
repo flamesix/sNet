@@ -147,11 +147,9 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService().getInfo(for: 800500, info: .friendList) { [weak self] friendsArray in
+        NetworkService().getInfo(for: 343939141, info: .friendList) { [weak self] friendsArray in
             self?.friends = friendsArray
-//            DispatchQueue.main.async {
-//                self?.tableView.reloadData()
-//            }
+
         }
         
      //   print(friends.count)

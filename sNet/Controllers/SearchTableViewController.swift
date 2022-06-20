@@ -13,10 +13,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     @IBOutlet weak var searchField: UISearchBar!
     
-    var searchGroups: [Groups] = [
-        Groups(image: UIImage(named: "12"), name: "iOS", description: "iOS lovers"),
-        Groups(image: UIImage(named: "13"), name: "Android", description: "Android lovers")
-    ]
+//    var searchGroups: [Groups] = [
+//        Groups(image: UIImage(named: "12"), name: "iOS", description: "iOS lovers"),
+//        Groups(image: UIImage(named: "13"), name: "Android", description: "Android lovers")
+//    ]
+    
+    var searchGroups: [Groups] = [] {
+        didSet {
+            print("Search group is changed")
+        }
+    }
     
     var filteredGroups: [Groups] = []
     
@@ -54,7 +60,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     func updateSearchResults(for searchController: UISearchController) {
         if let searchString = searchController.searchBar.text,
            !searchString.isEmpty {
-            filteredGroups = searchGroups.filter { $0.name.localizedCaseInsensitiveContains(searchString) }
+            filteredGroups = searchGroups.filter { $0.groupName.localizedCaseInsensitiveContains(searchString) }
         } else {
             filteredGroups = searchGroups
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zgg-nN-u7r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyF-Ez-Ls5">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -640,13 +640,15 @@
                             <constraint firstItem="frL-EB-ib6" firstAttribute="trailing" secondItem="hM2-aG-UA6" secondAttribute="trailing" id="Wgl-aL-eE7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HA1-HC-zhI"/>
                     <connections>
                         <outlet property="webview" destination="frL-EB-ib6" id="Pbe-ZD-ebF"/>
+                        <segue destination="Vy3-Oe-Znj" kind="show" identifier="webViewSegue" id="cQP-XJ-9rW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGp-j4-IRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="481"/>
+            <point key="canvasLocation" x="611" y="572"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="1im-8N-ZNo">
@@ -1074,7 +1076,7 @@
                         <outlet property="loginTextField" destination="5kT-rf-CUz" id="3ap-q5-MXg"/>
                         <outlet property="passwordTextField" destination="hOT-rz-dfr" id="P3A-Mb-DwX"/>
                         <outlet property="scrollView" destination="MqU-oO-Lri" id="dcl-Pe-AdI"/>
-                        <segue destination="Vy3-Oe-Znj" kind="show" identifier="loginPasswordSegue" id="uM4-yb-awd"/>
+                        <segue destination="Zgg-nN-u7r" kind="show" identifier="loginPasswordSegue" id="rPX-4b-O9m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etz-Hu-pTJ" sceneMemberID="firstResponder"/>

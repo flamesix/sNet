@@ -51,29 +51,69 @@ class NetworkService {
     private let method: MethodsAPIVK = .friendList
     
     ///Getting info for specifid userID
-    func getInfo(for userID: Int, info: MethodsAPIVK) {
+    func getInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Friends]) -> Void) {
         
         let url = apiURL + info.method
         let parameters: Parameters = [
             "user_id": userID,
             "owner_id": userID,
+            "fields": "photo_100",
             "access_token": session.token,
             "v": NetworkService.vkAPIVersion
         ]
+        
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             switch response.result {
             case .success(let data):
                 do {
-                    let asJSON = try JSONSerialization.jsonObject(with: data)
-                    print("\(info.description)\(asJSON)")
+                    
+                    //                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    //                    print("\(info.description)\(asJSON)")
+                    let users = try JSONDecoder().decode(FriendsResponse.self, from: data).items
+                    
+                    completion(users)
                 } catch {
-                    print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
+                    print("Error while decoding response from \(#function)")
                 }
             case .failure(let error):
                 print(error)
             }
         }
+        
+    }
+    
+    func getGroupsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Groups]) -> Void) {
+        
+        let url = apiURL + info.method
+        let parameters: Parameters = [
+            "user_id": userID,
+            "owner_id": userID,
+            "fields": "description",
+            "extended": "1",
+            "access_token": session.token,
+            "v": NetworkService.vkAPIVersion
+        ]
+        
+        
+        AF.request(url, method: .get, parameters: parameters).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    
+                    //                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    //                    print("\(info.description)\(asJSON)")
+                    let users = try JSONDecoder().decode(GroupsResponse.self, from: data).items
+                    //                    print(users.count)
+                    completion(users)
+                } catch {
+                    print("Error while decoding response from \(#function)")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     ///Getting search results
@@ -121,7 +161,8 @@ class NetworkService {
         let url = urlConstructor.url
         
         guard let url = url else { return }
-
+        print(url)
+        
         let task = urlSession.dataTask(with: url) { data, response, error in
             let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
             print(json!)

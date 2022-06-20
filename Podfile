@@ -5,5 +5,7 @@ target 'sNet' do
 
   # Pods for sNet
 pod 'Alamofire'
+pod 'RealmSwift'
+pod 'Kingfisher'
 
 end

@@ -23,4 +23,20 @@ class CollectionViewCell: UICollectionViewCell {
         collectionPhotoLabel.text = friend.description
         collectionImage.image = photo.photo
     }
+    
+    func updatePhoto(with photo: Photos) {
+        collectionPhotoLabel.text = photo.photoDescription
+//        collectionImage.image = #imageLiteral(resourceName: "SNET.")
+        
+        if let url = URL(string: photo.photoURL) {
+            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.collectionImage.image = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+                       // self.userPhotoImageView.image = friend.userPhoto
+                    }
+                }
+            }.resume()
+        }
+    }
 }

@@ -11,7 +11,7 @@ class Session {
     static let instance = Session()
     
     var token = ""
-    var userID: Int = 689477392
+    var userID: Int = 0
     
     private init() { }
     

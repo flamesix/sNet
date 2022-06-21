@@ -23,7 +23,7 @@ class GroupsAndSearchTableViewCell: UITableViewCell {
     func updateGroupsTable(with searchGroup: Groups) {
        // groupImage.image = searchGroup.image
         groupNameLabel.text = searchGroup.groupName
-        groupDescriptionLabel.text = searchGroup.description
+        groupDescriptionLabel.text = searchGroup.groupDescription
         
         if let url = URL(string: searchGroup.groupsPhotoData) {
             URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in

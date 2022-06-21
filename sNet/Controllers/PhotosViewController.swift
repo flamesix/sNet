@@ -35,7 +35,23 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var secondaryImageView: UIImageView!
     
-    var photos: [PhotosOfFriend] = []
+    //    var photos: [PhotosOfFriend] = []
+    var photos: [Photos] = [] {
+        didSet {
+            for photo in photos {
+                if let url = URL(string: photo.photoURL) {
+                    URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+                        if let data = data {
+                            DispatchQueue.main.async {
+                                photo.photo = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+                                // self.userPhotoImageView.image = friend.userPhoto
+                            }
+                        }
+                    }.resume()
+                }
+            }
+        }
+    }
     
     private lazy var panGesture: UIPanGestureRecognizer = {
         let recognizer = UIPanGestureRecognizer()

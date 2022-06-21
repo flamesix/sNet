@@ -14,12 +14,19 @@ class WebViewLoginViewController: UIViewController {
     let session = Session.instance
     let network = NetworkService()
     var friends = [Friends]()
+    var responseUserID: Int = 0 {
+        didSet {
+            session.userID = responseUserID
+        }
+    }
     var tokenString: String = "" {
         didSet {
             session.token = tokenString
+            
             performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
         }
     }
+     
     
     @IBOutlet weak var webview: WKWebView! {
         didSet {
@@ -98,7 +105,8 @@ extension WebViewLoginViewController: WKNavigationDelegate {
             }
         
         let token = params["access_token"]
-      //  print(token!)
+        let userID = params["user_id"]
+        responseUserID = Int(userID ?? "0")!
         tokenString = token!
         decisionHandler(.cancel)
     }

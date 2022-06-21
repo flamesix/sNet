@@ -25,5 +25,6 @@ class FriendsResponse: Decodable {
         let responseValue = try values.nestedContainer(keyedBy: ResponseKeys.self, forKey: .response)
         let items = try responseValue.decode([Friends].self, forKey: .items)
         self.items = items
+        
      }
 }

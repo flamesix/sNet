@@ -34,9 +34,9 @@ class CollectionViewCell: UICollectionViewCell {
     func updatePhoto(with photo: Photos) {
         collectionPhotoLabel.text = photo.photoDescription
   
-        guard let urlSting = photo.photoDict["x"],
+        guard let urlSting = photo.photoDict[PhotoSizes.m.size],
               let url = URL(string: urlSting) else { return }
-        
+        collectionImage.kf.indicatorType = .activity
         collectionImage.kf.setImage(with: url)
         
     }

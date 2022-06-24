@@ -41,16 +41,16 @@ class PhotosViewController: UIViewController {
     var photos: [Photos] = [] {
         didSet {
             for photo in photos {
-                guard let urlString = photo.photoDict["x"] else { return }
+                guard let urlString = photo.photoDict[PhotoSizes.x.size] else { return }
                 if let url = URL(string: urlString) {
-                    URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-                        if let data = data {
-                            DispatchQueue.main.async {
-                                photo.photo = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
-                                // self.userPhotoImageView.image = friend.userPhoto
-                            }
+                
+                    KingfisherManager.shared.retrieveImage(with: url) { result in
+                        do {
+                            photo.photo = try result.get().image
+                        } catch {
+                            print(error)
                         }
-                    }.resume()
+                    }
                 }
             }
         }

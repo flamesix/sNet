@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class Photos: Decodable {
-    var photoDescription: String = ""
-    var photoType: String = ""
-    var photoURL: String = ""
+    var photoDescription: String = " "
+ //   var photoType: String = ""
+ //   var photoURL: String = ""
     var photo: UIImage = #imageLiteral(resourceName: "SNET.")
     var photoDict: [String: String] = [:]
     
@@ -29,17 +29,13 @@ class Photos: Decodable {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.photoDescription = try values.decode(String.self, forKey: .photoDescription)
-//        let sizeValues = try decoder.container(keyedBy: SizesCodingKeys.self)
-//        self.photoType = try sizeValues.decode(String.self, forKey: .photoType)
-//        self.photoURL = try sizeValues.decode(String.self, forKey: .photoURL)
         
         var sizeValues = try values.nestedUnkeyedContainer(forKey: .sizes)
         var photoDict: [String: String] = [:]
         while !sizeValues.isAtEnd {
-
-        let secondSize = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-//        self.photoType = try secondSize.decode(String.self, forKey: .photoType)
-//        self.photoURL = try secondSize.decode(String.self, forKey: .photoURL)
+            
+            let secondSize = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
+            
             let photoType = try secondSize.decode(String.self, forKey: .photoType)
             let photoURL = try secondSize.decode(String.self, forKey: .photoURL)
             photoDict.updateValue(photoURL, forKey: photoType)

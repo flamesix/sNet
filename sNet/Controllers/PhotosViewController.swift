@@ -41,7 +41,8 @@ class PhotosViewController: UIViewController {
     var photos: [Photos] = [] {
         didSet {
             for photo in photos {
-                if let url = URL(string: photo.photoURL) {
+                guard let urlString = photo.photoDict["x"] else { return }
+                if let url = URL(string: urlString) {
                     URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
                         if let data = data {
                             DispatchQueue.main.async {

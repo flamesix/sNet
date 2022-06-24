@@ -14,10 +14,10 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionImage: UIImageView!
     
     
-//    func updatePhoto(with friend: Friends) {
-//        collectionPhotoLabel.text = friend.description
-//        collectionImage.image = friend.userPhoto
-//    }
+    //    func updatePhoto(with friend: Friends) {
+    //        collectionPhotoLabel.text = friend.description
+    //        collectionImage.image = friend.userPhoto
+    //    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -33,18 +33,11 @@ class CollectionViewCell: UICollectionViewCell {
     
     func updatePhoto(with photo: Photos) {
         collectionPhotoLabel.text = photo.photoDescription
-//        collectionImage.image = #imageLiteral(resourceName: "SNET.")
-        guard let urlSting = photo.photoDict["x"] else { return }
-        if let url = URL(string: urlSting) {
-//            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-//                if let data = data {
-//                    DispatchQueue.main.async {
-//                        self.collectionImage.image = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
-//                       // self.userPhotoImageView.image = friend.userPhoto
-//                    }
-//                }
-//            }.resume()
-            collectionImage.kf.setImage(with: url)
-        }
+  
+        guard let urlSting = photo.photoDict["x"],
+              let url = URL(string: urlSting) else { return }
+        
+        collectionImage.kf.setImage(with: url)
+        
     }
 }

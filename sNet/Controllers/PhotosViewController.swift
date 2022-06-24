@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum AnimationDirection {
     case left
@@ -34,6 +35,7 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var secondaryImageView: UIImageView!
+    
     
     //    var photos: [PhotosOfFriend] = []
     var photos: [Photos] = [] {

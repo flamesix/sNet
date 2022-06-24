@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendsTableViewCell: UITableViewCell {
     
@@ -25,6 +26,12 @@ class FriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userPhotoImageView.kf.cancelDownloadTask()
+        userPhotoImageView.image = nil
+    }
+    
     //    func updateFriendsTable(with friend: Friends) {
     //        iconLabel.text = friend.icon
     //        nameLabel.text = friend.name + " " + friend.lastName
@@ -38,14 +45,15 @@ class FriendsTableViewCell: UITableViewCell {
         
         
         if let url = URL(string: friend.userPhotoData) {
-            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        friend.userPhoto = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
-                        self.userPhotoImageView.image = friend.userPhoto
-                    }
-                }
-            }.resume()
+//            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+//                if let data = data {
+//                    DispatchQueue.main.async {
+//                        friend.userPhoto = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+//                        self.userPhotoImageView.image = friend.userPhoto
+//                    }
+//                }
+//            }.resume()
+            userPhotoImageView.kf.setImage(with: url)
         }
     }
     

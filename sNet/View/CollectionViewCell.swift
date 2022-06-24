@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionViewCell: UICollectionViewCell {
     
@@ -18,6 +19,12 @@ class CollectionViewCell: UICollectionViewCell {
 //        collectionImage.image = friend.userPhoto
 //    }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        collectionImage.kf.cancelDownloadTask()
+        collectionImage.image = nil
+    }
+    
     
     func updatePhoto(with photo: PhotosOfFriend, with friend: Friends) {
         collectionPhotoLabel.text = friend.description
@@ -29,14 +36,15 @@ class CollectionViewCell: UICollectionViewCell {
 //        collectionImage.image = #imageLiteral(resourceName: "SNET.")
         
         if let url = URL(string: photo.photoURL) {
-            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.collectionImage.image = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
-                       // self.userPhotoImageView.image = friend.userPhoto
-                    }
-                }
-            }.resume()
+//            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+//                if let data = data {
+//                    DispatchQueue.main.async {
+//                        self.collectionImage.image = UIImage(data: data) ?? #imageLiteral(resourceName: "g3")
+//                       // self.userPhotoImageView.image = friend.userPhoto
+//                    }
+//                }
+//            }.resume()
+            collectionImage.kf.setImage(with: url)
         }
     }
 }

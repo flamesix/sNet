@@ -34,8 +34,8 @@ class CollectionViewCell: UICollectionViewCell {
     func updatePhoto(with photo: Photos) {
         collectionPhotoLabel.text = photo.photoDescription
 //        collectionImage.image = #imageLiteral(resourceName: "SNET.")
-        
-        if let url = URL(string: photo.photoURL) {
+        guard let urlSting = photo.photoDict["x"] else { return }
+        if let url = URL(string: urlSting) {
 //            URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 //                if let data = data {
 //                    DispatchQueue.main.async {

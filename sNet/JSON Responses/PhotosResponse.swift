@@ -19,11 +19,6 @@ class PhotosResponse: Decodable {
         case items
     }
     
-//    enum SizesKeys: String, CodingKey {
-//        case
-//    }
-
-    
    convenience required init(from decoder: Decoder) throws {
         self.init()
        let values = try decoder.container(keyedBy: CodingKeys.self)

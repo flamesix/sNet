@@ -13,6 +13,7 @@ class Photos: Decodable {
     var photoType: String = ""
     var photoURL: String = ""
     var photo: UIImage = #imageLiteral(resourceName: "SNET.")
+    var photoDict: [String: String] = [:]
     
     enum CodingKeys: String, CodingKey {
         case sizes
@@ -33,15 +34,16 @@ class Photos: Decodable {
 //        self.photoURL = try sizeValues.decode(String.self, forKey: .photoURL)
         
         var sizeValues = try values.nestedUnkeyedContainer(forKey: .sizes)
+        var photoDict: [String: String] = [:]
+        while !sizeValues.isAtEnd {
 
-        _ = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-        _ = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-        _ = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-        _ = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-       
         let secondSize = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
-        self.photoType = try secondSize.decode(String.self, forKey: .photoType)
-        self.photoURL = try secondSize.decode(String.self, forKey: .photoURL)
-        
+//        self.photoType = try secondSize.decode(String.self, forKey: .photoType)
+//        self.photoURL = try secondSize.decode(String.self, forKey: .photoURL)
+            let photoType = try secondSize.decode(String.self, forKey: .photoType)
+            let photoURL = try secondSize.decode(String.self, forKey: .photoURL)
+            photoDict.updateValue(photoURL, forKey: photoType)
+        }
+        self.photoDict = photoDict
     }
 }

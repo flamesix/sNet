@@ -16,6 +16,7 @@ class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
 class CustomNavigationController: UINavigationController, UINavigationControllerDelegate {
 
     let interactiveTransition = CustomInteractiveTransition()
+    var panGestureRecognizer: UIScreenEdgePanGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,9 @@ class CustomNavigationController: UINavigationController, UINavigationController
 //        edgePanGR.edges = .left
 //        view.addGestureRecognizer(edgePanGR)
         
-        let edgePanGR = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-      //  edgePanGR.edges = .left
-        view.addGestureRecognizer(edgePanGR)
+        panGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        panGestureRecognizer?.edges = .left
+        view.addGestureRecognizer(panGestureRecognizer!)
     }
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation,

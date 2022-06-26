@@ -35,7 +35,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNq-dn-9cL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNq-dn-9cL">
                                         <rect key="frame" x="0.0" y="30" width="233" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
@@ -59,7 +59,7 @@
                 <outlet property="groupImage" destination="URM-a3-xHk" id="y2Y-rX-0bJ"/>
                 <outlet property="groupNameLabel" destination="dod-pc-Uit" id="BCQ-R6-x47"/>
             </connections>
-            <point key="canvasLocation" x="31.884057971014496" y="176.11607142857142"/>
+            <point key="canvasLocation" x="7" y="278"/>
         </tableViewCell>
     </objects>
 </document>

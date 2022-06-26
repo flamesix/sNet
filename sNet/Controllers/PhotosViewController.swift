@@ -6,182 +6,188 @@
 //
 
 import UIKit
+import Kingfisher
+
+enum AnimationDirection {
+    case left
+    case right
+    
+    var direction: CGFloat {
+        switch self {
+        case .left:
+            return 1
+        case .right:
+            return -1
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .left:
+            return 1
+        case .right:
+            return -1
+        }
+    }
+}
 
 class PhotosViewController: UIViewController {
     
-    @IBOutlet weak var photosView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var secondaryImageView: UIImageView!
     
-    var photos: [PhotosOfFriend] = []
     
-    private var propertyAnimator: UIViewPropertyAnimator!
-    private var isLeftSwipe = false
-    private var isRightSwipe = false
-    private var currentIndex = 0
+    //    var photos: [PhotosOfFriend] = []
+    var photos: [Photos] = [] {
+        didSet {
+            for photo in photos {
+                guard let urlString = photo.photoDict[PhotoSizes.x.size] else { return }
+                if let url = URL(string: urlString) {
+                
+                    KingfisherManager.shared.retrieveImage(with: url) { result in
+                        do {
+                            photo.photo = try result.get().image
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private lazy var panGesture: UIPanGestureRecognizer = {
+        let recognizer = UIPanGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(panned(_:)))
+        return recognizer
+        
+    }()
+    
+    private var propertyAnimator: UIViewPropertyAnimator = {
+        let cubicTiming = UICubicTimingParameters(controlPoint1: CGPoint(x: 0.05, y: 0.78), controlPoint2: CGPoint(x: 0.99, y: 0.34))
+        
+        return UIViewPropertyAnimator(duration: 0.5, timingParameters: cubicTiming)
+    }()
+    
+    private var animationDirection: AnimationDirection = .left
+    public var currentIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        guard !photos.isEmpty else { return }
+        mainImageView.image = photos[currentIndex].photo
         
-        secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+        view.addGestureRecognizer(panGesture)
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(viewPanned(_:)))
-        view.addGestureRecognizer(panGestureRecognizer)
-        
-        setPhotos(photos: photos)
     }
-     
-    @objc func viewPanned(_ recognizer: UIPanGestureRecognizer) {
+    
+    @objc func panned(_ panGesture: UIPanGestureRecognizer) {
         
-        switch recognizer.state {
+        let translation = panGesture.translation(in: view).x
+        let relativeTranslation = translation / 200
+        
+        switch panGesture.state {
         case .began:
-            mainImageView.transform = .identity
-            mainImageView.image = photos[currentIndex].photo
-         //   secondaryImageView.transform = .identity
-            photosView.bringSubviewToFront(mainImageView)
-            propertyAnimator?.startAnimation()
-            propertyAnimator = UIViewPropertyAnimator(duration: 0.5,
-                                                      curve: .easeInOut,
-                                                      animations: {
-         
-                self.mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-
-            })
-            propertyAnimator.pauseAnimation()
-            isLeftSwipe = false
-            isRightSwipe = false
+            if translation > 0 {
+                guard currentIndex >= 1 else { return }
+                animationDirection = .right
+                animationWithPropertyAnimator(animation: .right)
+                
+            } else {
+                guard currentIndex + 1 < photos.count else { return }
+                animationDirection = .left
+                animationWithPropertyAnimator(animation: .left)
+            }
             
         case .changed:
-            var translation = recognizer.translation(in: view)
-            
-            if translation.x < 0 && (!isLeftSwipe) {
-                if currentIndex == (photos.count - 1) {
-                    propertyAnimator.stopAnimation(true)
-                    return
-                }
-                onChange(isLeft: true)
-                
-                
-                propertyAnimator.stopAnimation(true)
-                propertyAnimator.addAnimations { [self] in
-                    mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-                    mainImageView.transform = mainImageView.transform.concatenating(CGAffineTransform(scaleX: 0.4, y: 0.4))
-                    
-                   // secondaryImageView.transform = .identity
-                }
-                propertyAnimator.addCompletion { _ in
-                    self.onChangeCompletion(isLeft: true)
-                }
-                
-                propertyAnimator.startAnimation()
-                propertyAnimator.pauseAnimation()
-                isLeftSwipe = true
+            switch animationDirection {
+            case .right:
+                let percent = min(max(0, relativeTranslation), 1)
+                propertyAnimator.fractionComplete = percent
+            case .left:
+                let percent = min(max(0, -relativeTranslation), 1)
+                propertyAnimator.fractionComplete = percent
             }
-            
-            if translation.x > 0 && (!isRightSwipe) {
-                if currentIndex == 0 {
-                    propertyAnimator.stopAnimation(true)
-                    return
-                }
-                onChange(isLeft: false)
-                propertyAnimator.stopAnimation(true)
-                propertyAnimator.addAnimations { [self] in
-                    mainImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-                    mainImageView.transform = mainImageView.transform.concatenating(CGAffineTransform(scaleX: 0.4, y: 0.4))
-                    secondaryImageView.transform = .identity
-                }
-                propertyAnimator.addCompletion { _ in
-                    self.onChangeCompletion(isLeft: false)
-                }
-                propertyAnimator.startAnimation()
-                propertyAnimator.pauseAnimation()
-                isRightSwipe = true
-            }
-            
-            if isRightSwipe && (translation.x < 0) {return}
-            if isLeftSwipe && (translation.x > 0) {return}
-            
-            if translation.x < 0 {
-                translation.x = -translation.x
-            }
-            propertyAnimator.fractionComplete = translation.x / (UIScreen.main.bounds.width)
-            
         case .ended:
-            if let animator = propertyAnimator,
-               animator.isRunning {
-                return
-            }
-            var translation = recognizer.translation(in: view)
-            
-            if translation.x < 0 {
-                translation.x = -translation.x
-                
+            if propertyAnimator.fractionComplete > 0.2 {
+                propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.5)
+            } else {
+                propertyAnimator.isReversed = true
+                propertyAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0.5)
             }
             
-            if translation.x / (UIScreen.main.bounds.width) > 0.5  {
-                propertyAnimator.startAnimation()
-            }
-            else {
-                propertyAnimator.stopAnimation(true)
-                propertyAnimator.finishAnimation(at: .start)
-                propertyAnimator.addAnimations { [self] in
-                    mainImageView.transform = .identity
-                    
-                    if isLeftSwipe {
-                        secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-                    }
-                    if isRightSwipe {
-                        secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-                    }
-                }
-                
-                propertyAnimator.addCompletion { _ in
-                    self.mainImageView.transform = .identity
-                    // secondaryImageView.transform = .identity
-                }
-                
-                propertyAnimator.startAnimation()
-            }
-        default:
-            return
+        case .possible:
+            break
+        case .cancelled:
+            break
+        case .failed:
+            break
+        @unknown default:
+            break
         }
     }
     
-    private func onChange(isLeft: Bool) {
-        mainImageView.transform = .identity
-        // secondaryImageView.transform = .identity
-        mainImageView.image = photos[currentIndex].photo
+    /*
+     ///Animation with UIView.animation
+     private func animate(animation: AnimationDirection) {
+     
+     secondaryImageView.image = photos[currentIndex + animation.index].photo
+     secondaryImageView.transform = CGAffineTransform(translationX: animation.direction * secondaryImageView.bounds.width, y: 200)
+     
+     UIView.animate(withDuration: 1,
+     delay: 0,
+     options: .curveEaseInOut) { [self] in
+     
+     mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+     
+     secondaryImageView.transform = .identity
+     
+     } completion: { [self] _ in
+     currentIndex = currentIndex + animation.index
+     mainImageView.image = photos[currentIndex].photo
+     mainImageView.transform = .identity
+     secondaryImageView.image = nil
+     }
+     }
+     */
+    
+    ///Animate with propertyAnimator
+    private func animationWithPropertyAnimator(animation: AnimationDirection) {
         
-        if isLeft {
-            secondaryImageView.image = photos[currentIndex + 1].photo
-            secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-        } else {
-            secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-            secondaryImageView.image = photos[currentIndex - 1].photo
+        secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * secondaryImageView.bounds.width, y: 200)
+        
+        propertyAnimator.addAnimations { [weak self] in
+            
+            guard let self = self else {return}
+            
+            self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
+            
+            self.mainImageView.transform = CGAffineTransform(translationX: -1.2 * animation.direction * self.mainImageView.bounds.width, y: -100).concatenating(CGAffineTransform(scaleX: 0.6, y: 0.6))
+            
+            self.secondaryImageView.transform = .identity
+            
+        }
+        
+        propertyAnimator.addCompletion { [weak self] position in
+            
+            guard let self = self else {return}
+            
+            switch position {
+            case .end:
+                self.currentIndex = self.currentIndex + animation.index
+                self.mainImageView.image = self.photos[self.currentIndex].photo
+                self.mainImageView.transform = .identity
+                self.secondaryImageView.image = nil
+            case .start:
+                self.secondaryImageView.image = self.photos[self.currentIndex + animation.index].photo
+                self.secondaryImageView.transform = CGAffineTransform(translationX: 1.2 * animation.direction * self.secondaryImageView.bounds.width, y: 200)
+            case .current:
+                break
+            @unknown default:
+                break
+            }
         }
     }
-    
-    
-    private func onChangeCompletion(isLeft: Bool) {
-        mainImageView.transform = .identity
-        //    secondaryImageView.transform = .identity
-        if isLeft {
-            currentIndex += 1
-        }
-        else {
-            currentIndex -= 1
-        }
-        mainImageView.image = photos[currentIndex].photo
-        photosView.bringSubviewToFront(mainImageView)
-    }
-    
-    func setPhotos(photos: [PhotosOfFriend]) {
-            mainImageView.image = photos.first?.photo
-    }
-
-    
-    
 }

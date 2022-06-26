@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionViewCell: UICollectionViewCell {
     
@@ -13,14 +14,30 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionImage: UIImageView!
     
     
-//    func updatePhoto(with friend: Friends) {
-//        collectionPhotoLabel.text = friend.description
-//        collectionImage.image = friend.userPhoto
-//    }
+    //    func updatePhoto(with friend: Friends) {
+    //        collectionPhotoLabel.text = friend.description
+    //        collectionImage.image = friend.userPhoto
+    //    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        collectionImage.kf.cancelDownloadTask()
+        collectionImage.image = nil
+    }
     
     
     func updatePhoto(with photo: PhotosOfFriend, with friend: Friends) {
         collectionPhotoLabel.text = friend.description
         collectionImage.image = photo.photo
+    }
+    
+    func updatePhoto(with photo: Photos) {
+        collectionPhotoLabel.text = photo.photoDescription
+  
+        guard let urlSting = photo.photoDict[PhotoSizes.m.size],
+              let url = URL(string: urlSting) else { return }
+        collectionImage.kf.indicatorType = .activity
+        collectionImage.kf.setImage(with: url)
+        
     }
 }

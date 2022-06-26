@@ -44,6 +44,7 @@ class CloudView: UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         self.layer.addSublayer(shapeLayer)
+        shapeLayer.frame = self.layer.bounds
         
         let lineStartAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
         lineStartAnimation.fromValue = -1

@@ -9,6 +9,7 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
+    /*
     let friends: [Friends] = [
         Friends(userID: "1", userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡", photos: [
             PhotosOfFriend(photo: UIImage(named: "g9")),
@@ -112,6 +113,30 @@ class FriendsTableViewController: UITableViewController {
             PhotosOfFriend(photo: UIImage(named: "g7"))
         ])
     ]
+     */
+    
+    var friends: [Friends] = [] {
+        didSet {
+            for friend in friends {
+                let friendKey = String(friend.lastName.prefix(1))
+                if var friendValues = friendsDictionary[friendKey] {
+                    friendValues.append(friend)
+                    friendsDictionary[friendKey] = friendValues
+                } else {
+                    friendsDictionary[friendKey] = [friend]
+                }
+            }
+            
+            friednsSectionTitles = [String](friendsDictionary.keys)
+            friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+            
+            self.tableView.reloadData()
+            
+//            for frined in friends {
+//                print(frined.lastName, frined.userID, frined.userPhotoData)
+//            }
+        }
+    }
     
     
     
@@ -122,24 +147,30 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NetworkService().getInfo(for: 800500, info: .friendList) { [weak self] friendsArray in
+            self?.friends = friendsArray
+
+        }
+        
+     //   print(friends.count)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        for friend in friends {
-            let friendKey = String(friend.lastName.prefix(1))
-            if var friendValues = friendsDictionary[friendKey] {
-                friendValues.append(friend)
-                friendsDictionary[friendKey] = friendValues
-            } else {
-                friendsDictionary[friendKey] = [friend]
-            }
-        }
-        
-        friednsSectionTitles = [String](friendsDictionary.keys)
-        friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+//        for friend in friends {
+//            let friendKey = String(friend.lastName.prefix(1))
+//            if var friendValues = friendsDictionary[friendKey] {
+//                friendValues.append(friend)
+//                friendsDictionary[friendKey] = friendValues
+//            } else {
+//                friendsDictionary[friendKey] = [friend]
+//            }
+//        }
+//
+//        friednsSectionTitles = [String](friendsDictionary.keys)
+//        friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source
@@ -246,11 +277,12 @@ class FriendsTableViewController: UITableViewController {
             if let friendValues = friendsDictionary[friendKey] {
                 let friend = friendValues[indexPath.row]
                 
-                let friendName = friend.name
+              //  let friendName = friend.name
+                let friendName = friend.firstName
                 collectionVC.friends.append(friend)
-                collectionVC.photos = friend.photos
+//                collectionVC.photos = friend.photos
                 collectionVC.title = "\(friendName)'s photos"
-                
+                collectionVC.friendID = friend.userID
             }
             //            let friend = friends[indexPath.row]
             //            let friendName = friends[indexPath.row].name

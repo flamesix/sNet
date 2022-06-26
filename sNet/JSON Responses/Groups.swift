@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 protocol GroupsProtocol {
     var image: UIImage! { get }
@@ -14,31 +15,31 @@ protocol GroupsProtocol {
     var description: String { get }
 }
 
-class Groups: Decodable {
-//    let image: UIImage!
-//    let name: String
-//    let description: String
-    var groupID: Int = 0
-    var groupName: String = ""
-    var description: String = ""
-    var groupsPhotoData: String = ""
+class Groups: Object, Decodable {
+    //    let image: UIImage!
+    //    let name: String
+    //    let description: String
+    @Persisted var groupID: Int = 0
+    @Persisted var groupName: String = ""
+    @Persisted var groupDescription: String = ""
+    @Persisted var groupsPhotoData: String = ""
     var groupsPhoto: UIImage = #imageLiteral(resourceName: "13")
     
     
     enum CodingKeys: String, CodingKey {
         case groupID = "id"
         case groupName = "name"
-        case description
+        case groupDescription = "description"
         case groupsPhotoData = "photo_100"
     }
     
     convenience required init(from decoder: Decoder) throws {
         self.init()
-
+        
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.groupID = try values.decode(Int.self, forKey: .groupID)
         self.groupName = try values.decode(String.self, forKey: .groupName)
-        self.description = try values.decode(String.self, forKey: .description)
+        self.groupDescription = try values.decode(String.self, forKey: .groupDescription)
         self.groupsPhotoData = try values.decode(String.self, forKey: .groupsPhotoData)
         
     }

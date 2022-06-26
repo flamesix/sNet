@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum AnimationDirection {
     case left
@@ -35,7 +36,25 @@ class PhotosViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var secondaryImageView: UIImageView!
     
-    var photos: [PhotosOfFriend] = []
+    
+    //    var photos: [PhotosOfFriend] = []
+    var photos: [Photos] = [] {
+        didSet {
+            for photo in photos {
+                guard let urlString = photo.photoDict[PhotoSizes.x.size] else { return }
+                if let url = URL(string: urlString) {
+                
+                    KingfisherManager.shared.retrieveImage(with: url) { result in
+                        do {
+                            photo.photo = try result.get().image
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     private lazy var panGesture: UIPanGestureRecognizer = {
         let recognizer = UIPanGestureRecognizer()

@@ -132,9 +132,9 @@ class FriendsTableViewController: UITableViewController {
             
             self.tableView.reloadData()
             
-            for frined in friends {
-                print(frined.lastName, frined.userID, frined.userPhotoData)
-            }
+//            for frined in friends {
+//                print(frined.lastName, frined.userID, frined.userPhotoData)
+//            }
         }
     }
     
@@ -149,9 +149,7 @@ class FriendsTableViewController: UITableViewController {
         
         NetworkService().getInfo(for: 800500, info: .friendList) { [weak self] friendsArray in
             self?.friends = friendsArray
-//            DispatchQueue.main.async {
-//                self?.tableView.reloadData()
-//            }
+
         }
         
      //   print(friends.count)
@@ -284,7 +282,7 @@ class FriendsTableViewController: UITableViewController {
                 collectionVC.friends.append(friend)
 //                collectionVC.photos = friend.photos
                 collectionVC.title = "\(friendName)'s photos"
-                
+                collectionVC.friendID = friend.userID
             }
             //            let friend = friends[indexPath.row]
             //            let friendName = friends[indexPath.row].name

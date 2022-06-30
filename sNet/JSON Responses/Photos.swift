@@ -10,6 +10,7 @@ import UIKit
 
 class Photos: Decodable {
     var photoDescription: String = " "
+    var likesCount: Int = 0
  //   var photoType: String = ""
  //   var photoURL: String = ""
     var photo: UIImage = #imageLiteral(resourceName: "SNET.")
@@ -18,6 +19,8 @@ class Photos: Decodable {
     enum CodingKeys: String, CodingKey {
         case sizes
         case photoDescription = "text"
+        case likes
+        case likesCount = "count"
     }
     
     enum SizesCodingKeys: String, CodingKey {
@@ -29,6 +32,8 @@ class Photos: Decodable {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.photoDescription = try values.decode(String.self, forKey: .photoDescription)
+        let likes = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
+        self.likesCount = try likes.decode(Int.self, forKey: .likesCount)
         
         var sizeValues = try values.nestedUnkeyedContainer(forKey: .sizes)
         var photoDict: [String: String] = [:]

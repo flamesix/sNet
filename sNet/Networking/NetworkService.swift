@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 enum MethodsAPIVK {
     case friendList
@@ -51,7 +52,7 @@ class NetworkService {
     private let method: MethodsAPIVK = .friendList
     
     ///Getting info for specifid userID
-    func getInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Friends]) -> Void) {
+    func getFiendsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Friends]) -> Void) {
         
         let url = apiURL + info.method
         let parameters: Parameters = [
@@ -61,18 +62,17 @@ class NetworkService {
             "access_token": session.token,
             "v": NetworkService.vkAPIVersion
         ]
-        
-        
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
+         
+        AF.request(url, method: .get, parameters: parameters).responseData { [weak self] response in
             switch response.result {
             case .success(let data):
                 do {
                     
                     //                    let asJSON = try JSONSerialization.jsonObject(with: data)
                     //                    print("\(info.description)\(asJSON)")
-                    let users = try JSONDecoder().decode(FriendsResponse.self, from: data).items
-                    
-                    completion(users)
+                    let friends = try JSONDecoder().decode(FriendsResponse.self, from: data).items
+                    self?.saveFriendsData(friends)
+                    completion(friends)
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }
@@ -81,6 +81,18 @@ class NetworkService {
             }
         }
         
+    }
+    
+    ///Saving friends to Realm
+    func saveFriendsData(_ friends: [Friends]) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(friends)
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func getGroupsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Groups]) -> Void) {
@@ -103,9 +115,9 @@ class NetworkService {
                     
                     //                    let asJSON = try JSONSerialization.jsonObject(with: data)
                     //                    print("\(info.description)\(asJSON)")
-                    let users = try JSONDecoder().decode(GroupsResponse.self, from: data).items
+                    let groups = try JSONDecoder().decode(GroupsResponse.self, from: data).items
                     //                    print(users.count)
-                    completion(users)
+                    completion(groups)
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }
@@ -124,7 +136,7 @@ class NetworkService {
             "user_id": userID,
             "owner_id": userID,
            // "fields": "description",
-           // "extended": "1",
+            "extended": "1",
             "access_token": session.token,
             "v": NetworkService.vkAPIVersion
         ]
@@ -137,11 +149,11 @@ class NetworkService {
                     
 //                                        let asJSON = try JSONSerialization.jsonObject(with: data)
 //                                        print("\(info.description)\(asJSON)")
-                    let items = try JSONDecoder().decode(PhotosResponse.self, from: data).items
+                    let photos = try JSONDecoder().decode(PhotosResponse.self, from: data).items
                   
                 //   let photos = try JSONDecoder().decode(PhotosSizes.self, from: itemsJSON).sizes
                    
-                    completion(items)
+                    completion(photos)
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }

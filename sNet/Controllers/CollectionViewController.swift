@@ -11,17 +11,11 @@ private let reuseIdentifier = PropertyKeys.photoCollection
 
 class CollectionViewController: UICollectionViewController {
     
-    static var numberOfLikes: Int = 0
-    
     var friendID: Int = 0
     var friends: [Friends] = []
     var photos: [PhotosOfFriend] = []
     var photosNetwork: [Photos] = [] {
         didSet {
-            for item in photosNetwork {
-                CollectionViewController.numberOfLikes = item.likesCount
-               // print(item.photoDict)
-            }
             self.collectionView.reloadData()
         }
     }

@@ -150,7 +150,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getFiendsInfo(for: 295466723, info: .friendList) { [weak self] friendsArray in
+        netwotkService.getFiendsInfo(for: 800500, info: .friendList) { [weak self] friendsArray in
             self?.friends = friendsArray
         }
         
@@ -158,6 +158,7 @@ class FriendsTableViewController: UITableViewController {
 //            var config = Realm.Configuration.defaultConfiguration
 //            config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
+            print(realm.configuration.fileURL)
             realm.objects(Friends.self).map { $0.firstName }.forEach { print($0)}
         } catch {
             print(error)

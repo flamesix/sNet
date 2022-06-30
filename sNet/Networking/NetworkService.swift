@@ -88,7 +88,7 @@ class NetworkService {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(friends)
+                realm.add(friends, update: .modified)
             }
         } catch {
             print(error)

@@ -19,6 +19,7 @@ class CollectionViewController: UICollectionViewController {
     var photos: [PhotosOfFriend] = []
     var photosNetwork: [Photos] = [] {
         didSet {
+            print(photosNetwork)
             self.collectionView.reloadData()
         }
     }

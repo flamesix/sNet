@@ -12,17 +12,23 @@ import RealmSwift
 class Photos: Object, Decodable {
     @Persisted var photoDescription: String = " "
     @Persisted var likesCount: Int = 0
+    @Persisted var photoID: Int = 0
     //   var photoType: String = ""
     //   var photoURL: String = ""
     var photo: UIImage = #imageLiteral(resourceName: "SNET.")
    // var photoDict: [String: String] = [:]
     @Persisted var photoDict = Map<String, String>()
+   
+    override class func primaryKey() -> String? {
+        return "photoID"
+    }
     
     enum CodingKeys: String, CodingKey {
         case sizes
         case photoDescription = "text"
         case likes
         case likesCount = "count"
+        case photoID = "id"
     }
     
     enum SizesCodingKeys: String, CodingKey {
@@ -34,6 +40,7 @@ class Photos: Object, Decodable {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.photoDescription = try values.decode(String.self, forKey: .photoDescription)
+        self.photoID = try values.decode(Int.self, forKey: .photoID)
         let likes = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
         self.likesCount = try likes.decode(Int.self, forKey: .likesCount)
         

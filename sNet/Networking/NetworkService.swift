@@ -201,7 +201,7 @@ class NetworkService {
         do {
           let realm = try Realm()
            try realm.write {
-               realm.add(photos)
+               realm.add(photos, update: .all)
             }
         } catch {
             print(error)

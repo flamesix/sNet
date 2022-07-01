@@ -116,7 +116,9 @@ class NetworkService {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(friends, update: .modified)
+                let oldFriends = realm.objects(Friends.self)
+                realm.delete(oldFriends)
+                realm.add(friends, update: .all)
             }
         } catch {
             print(error)
@@ -201,6 +203,8 @@ class NetworkService {
         do {
           let realm = try Realm()
            try realm.write {
+               let oldPhotos = realm.objects(Photos.self)
+               realm.delete(oldPhotos)
                realm.add(photos, update: .all)
             }
         } catch {

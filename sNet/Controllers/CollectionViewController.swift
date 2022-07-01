@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = PropertyKeys.photoCollection
 
 class CollectionViewController: UICollectionViewController {
+    
+    private let netwotkService = NetworkService()
     
     var friendID: Int = 0
     var friends: [Friends] = []
@@ -19,12 +22,15 @@ class CollectionViewController: UICollectionViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    var photosData: Results<Photos>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService().getPhotosInfo(for: friendID, info: .photosList) { [weak self] photosArray in
-            self?.photosNetwork = photosArray
+        netwotkService.getPhotosInfo(for: friendID, info: .photosList) { [weak self] in
+           // self?.photosNetwork = photosArray
+            self?.getPhotosDataFromRealm()
         }
 //        NetworkService().getInfoWithURLSession(for: 123733, info: .photosList)
 //        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
@@ -51,6 +57,17 @@ class CollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
+    private func getPhotosDataFromRealm() {
+        do {
+            let realm = try Realm()
+            photosData = realm.objects(Photos.self)
+            if let photosData = photosData {
+                photosNetwork = Array(photosData)
+            }
+        } catch {
+            print(error)
+        }
+    }
 
     /*
     // MARK: - Navigation

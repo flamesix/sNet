@@ -134,10 +134,7 @@ class FriendsTableViewController: UITableViewController {
             friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
             
             self.tableView.reloadData()
-            
-            //            for frined in friends {
-            //                print(frined.lastName, frined.userID, frined.userPhotoData)
-            //            }
+     
         }
     }
     
@@ -146,43 +143,29 @@ class FriendsTableViewController: UITableViewController {
     var friendsDictionary = [String: [Friends]]()
     var friednsSectionTitles = [String]()
     
+    var friendsData: Results<Friends>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getFiendsInfo(for: 800500, info: .friendList) { [weak self] friendsArray in
-            self?.friends = friendsArray
+        netwotkService.getFiendsInfo(for: 800500, info: .friendList) { [weak self] in
+            self?.getFriendsDataFromRealm()
         }
-        
+    }
+    
+    private func getFriendsDataFromRealm() {
         do {
-//            var config = Realm.Configuration.defaultConfiguration
-//            config.deleteRealmIfMigrationNeeded = true
+//                        var config = Realm.Configuration.defaultConfiguration
+//                        config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
             print(realm.configuration.fileURL)
-            realm.objects(Friends.self).map { $0.firstName }.forEach { print($0)}
+            friendsData = realm.objects(Friends.self)
+            if let friendsData = friendsData {
+                friends = Array(friendsData)
+            }
         } catch {
             print(error)
         }
-        
-        //   print(friends.count)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //        for friend in friends {
-        //            let friendKey = String(friend.lastName.prefix(1))
-        //            if var friendValues = friendsDictionary[friendKey] {
-        //                friendValues.append(friend)
-        //                friendsDictionary[friendKey] = friendValues
-        //            } else {
-        //                friendsDictionary[friendKey] = [friend]
-        //            }
-        //        }
-        //
-        //        friednsSectionTitles = [String](friendsDictionary.keys)
-        //        friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source

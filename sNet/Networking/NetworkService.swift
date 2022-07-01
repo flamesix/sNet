@@ -52,7 +52,7 @@ class NetworkService {
     private let method: MethodsAPIVK = .friendList
     
     ///Getting info for specifid userID
-    func getFiendsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Friends]) -> Void) {
+    func getFiendsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping () -> Void) {
         
         let url = apiURL + info.method
         let parameters: Parameters = [
@@ -67,12 +67,9 @@ class NetworkService {
             switch response.result {
             case .success(let data):
                 do {
-                    
-                    //                    let asJSON = try JSONSerialization.jsonObject(with: data)
-                    //                    print("\(info.description)\(asJSON)")
                     let friends = try JSONDecoder().decode(FriendsResponse.self, from: data).items
                     self?.saveFriendsData(friends)
-                    completion(friends)
+                    completion()
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }
@@ -80,8 +77,39 @@ class NetworkService {
                 print(error)
             }
         }
-        
     }
+    
+    /*
+     func getFiendsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Friends]) -> Void) {
+         
+         let url = apiURL + info.method
+         let parameters: Parameters = [
+             "user_id": userID,
+             "owner_id": userID,
+             "fields": "photo_100",
+             "access_token": session.token,
+             "v": NetworkService.vkAPIVersion
+         ]
+          
+         AF.request(url, method: .get, parameters: parameters).responseData { [weak self] response in
+             switch response.result {
+             case .success(let data):
+                 do {
+                     
+                     //                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                     //                    print("\(info.description)\(asJSON)")
+                     let friends = try JSONDecoder().decode(FriendsResponse.self, from: data).items
+                     self?.saveFriendsData(friends)
+                     completion(friends)
+                 } catch {
+                     print("Error while decoding response from \(#function)")
+                 }
+             case .failure(let error):
+                 print(error)
+             }
+         }
+     }
+     */
     
     ///Saving friends to Realm
     func saveFriendsData(_ friends: [Friends]) {
@@ -95,7 +123,7 @@ class NetworkService {
         }
     }
     
-    func getGroupsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Groups]) -> Void) {
+    func getGroupsInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping () -> Void) {
         
         let url = apiURL + info.method
         let parameters: Parameters = [
@@ -108,16 +136,13 @@ class NetworkService {
         ]
         
         
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
+        AF.request(url, method: .get, parameters: parameters).responseData { [weak self] response in
             switch response.result {
             case .success(let data):
                 do {
-                    
-                    //                    let asJSON = try JSONSerialization.jsonObject(with: data)
-                    //                    print("\(info.description)\(asJSON)")
                     let groups = try JSONDecoder().decode(GroupsResponse.self, from: data).items
-                    //                    print(users.count)
-                    completion(groups)
+                    self?.saveGroupsData(groups)
+                    completion()
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }
@@ -128,8 +153,20 @@ class NetworkService {
         
     }
     
+    ///Saving groups to Realm
+    func saveGroupsData(_ groups: [Groups]) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(groups, update: .all)
+            }
+        } catch {
+            print(error)
+        }
+    }
     
-    func getPhotosInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping ([Photos]) -> Void) {
+    
+    func getPhotosInfo(for userID: Int, info: MethodsAPIVK, completion: @escaping () -> Void) {
         
         let url = apiURL + info.method
         let parameters: Parameters = [
@@ -142,18 +179,13 @@ class NetworkService {
         ]
         
         
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
+        AF.request(url, method: .get, parameters: parameters).responseData { [weak self] response in
             switch response.result {
             case .success(let data):
                 do {
-                    
-//                                        let asJSON = try JSONSerialization.jsonObject(with: data)
-//                                        print("\(info.description)\(asJSON)")
                     let photos = try JSONDecoder().decode(PhotosResponse.self, from: data).items
-                  
-                //   let photos = try JSONDecoder().decode(PhotosSizes.self, from: itemsJSON).sizes
-                   
-                    completion(photos)
+                    self?.savePhotosData(photos)
+                    completion()
                 } catch {
                     print("Error while decoding response from \(#function)")
                 }
@@ -163,6 +195,19 @@ class NetworkService {
         }
         
     }
+    
+    ///Saving photos to Realm
+    func savePhotosData(_ photos: [Photos]) {
+        do {
+          let realm = try Realm()
+           try realm.write {
+               realm.add(photos)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     
     ///Getting search results
     func getInfo(for userID: Int, info: MethodsAPIVK, search searchText: String) {

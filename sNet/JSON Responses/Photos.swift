@@ -7,14 +7,16 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class Photos: Decodable {
-    var photoDescription: String = " "
-    var likesCount: Int = 0
- //   var photoType: String = ""
- //   var photoURL: String = ""
+class Photos: Object, Decodable {
+    @Persisted var photoDescription: String = " "
+    @Persisted var likesCount: Int = 0
+    //   var photoType: String = ""
+    //   var photoURL: String = ""
     var photo: UIImage = #imageLiteral(resourceName: "SNET.")
-    var photoDict: [String: String] = [:]
+   // var photoDict: [String: String] = [:]
+    @Persisted var photoDict = Map<String, String>()
     
     enum CodingKeys: String, CodingKey {
         case sizes
@@ -36,15 +38,16 @@ class Photos: Decodable {
         self.likesCount = try likes.decode(Int.self, forKey: .likesCount)
         
         var sizeValues = try values.nestedUnkeyedContainer(forKey: .sizes)
-        var photoDict: [String: String] = [:]
+       // var photoDict: [String: String] = [:]
         while !sizeValues.isAtEnd {
             
             let secondSize = try sizeValues.nestedContainer(keyedBy: SizesCodingKeys.self)
             
             let photoType = try secondSize.decode(String.self, forKey: .photoType)
             let photoURL = try secondSize.decode(String.self, forKey: .photoURL)
-            photoDict.updateValue(photoURL, forKey: photoType)
+            self.photoDict.updateValue(photoURL, forKey: photoType)
+            
         }
-        self.photoDict = photoDict
+       // self.photoDict = photoDict
     }
 }

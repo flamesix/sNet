@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupsTableViewController: UITableViewController {
     
@@ -41,6 +42,9 @@ class GroupsTableViewController: UITableViewController {
 //        Groups(image: UIImage(named: "10"), name: "Shopping", description: "Find best price"),
 //        Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
 //    ]
+    private let netwotkService = NetworkService()
+    
+    var groupsData: Results<Groups>?
     
     var groups: [Groups] = [] {
         didSet {
@@ -55,8 +59,8 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService().getGroupsInfo(for: 295466723, info: .groupsList) { [weak self] groupArray in
-            self?.groups = groupArray
+        netwotkService.getGroupsInfo(for: 800500, info: .groupsList) { [weak self] in
+            self?.getGroupsDataFromRealm()
         }
         
 //        self.setupHideKeyboardOnTap()
@@ -70,6 +74,17 @@ class GroupsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    private func getGroupsDataFromRealm() {
+        do {
+           let realm = try Realm()
+           groupsData = realm.objects(Groups.self)
+            if let groupsData = groupsData {
+                groups = Array(groupsData)
+            }
+        } catch {
+            print(error)
+        }
+    }
     
     // MARK: - Table view data source
     

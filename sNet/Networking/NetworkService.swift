@@ -184,9 +184,9 @@ class NetworkService {
                 do {
                     let photos = try JSONDecoder().decode(PhotosResponse.self, from: data).items
                     self?.savePhotosData(photos)
-                    // completion()
                 } catch {
-                    print("Error while decoding response from \(#function)")
+                    let photos: [Photos] = []
+                    self?.savePhotosData(photos)
                 }
             case .failure(let error):
                 print(error)

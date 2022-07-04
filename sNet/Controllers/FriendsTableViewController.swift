@@ -75,6 +75,11 @@ class FriendsTableViewController: UITableViewController {
             case .initial:
                 self?.tableView.reloadData()
             case let .update(_, deletions, insertions, modifications):
+                self?.tableView.performBatchUpdates {
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                }
                 self?.tableView.reloadData()
             case .error(let error):
                 print(error)

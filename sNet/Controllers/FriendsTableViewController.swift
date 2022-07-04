@@ -17,9 +17,37 @@ class FriendsTableViewController: UITableViewController {
         notificationToken?.invalidate()
     }
     
-    var friends: [Friends] = [] {
+//    var friends: [Friends] = [] {
+//        didSet {
+//            for friend in friends {
+//                let friendKey = String(friend.lastName.prefix(1))
+//                if var friendValues = friendsDictionary[friendKey] {
+//                    friendValues.append(friend)
+//                    friendsDictionary[friendKey] = friendValues
+//                } else {
+//                    friendsDictionary[friendKey] = [friend]
+//                }
+//            }
+//
+//            friednsSectionTitles = [String](friendsDictionary.keys)
+//            friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+//
+//            self.tableView.reloadData()
+//
+//        }
+//    }
+    
+    
+    
+    var friendsDictionary = [String: [Friends]]()
+    var friednsSectionTitles = [String]()
+    
+    var friendsData: Results<Friends>? {
         didSet {
-            for friend in friends {
+            guard let friendsData = friendsData else {
+                return
+            }
+            for friend in friendsData {
                 let friendKey = String(friend.lastName.prefix(1))
                 if var friendValues = friendsDictionary[friendKey] {
                     friendValues.append(friend)
@@ -27,22 +55,14 @@ class FriendsTableViewController: UITableViewController {
                 } else {
                     friendsDictionary[friendKey] = [friend]
                 }
+                
+                friednsSectionTitles = [String](friendsDictionary.keys)
+                friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+                
+                self.tableView.reloadData()
             }
-            
-            friednsSectionTitles = [String](friendsDictionary.keys)
-            friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
-            
-            self.tableView.reloadData()
-     
         }
     }
-    
-    
-    
-    var friendsDictionary = [String: [Friends]]()
-    var friednsSectionTitles = [String]()
-    
-    var friendsData: Results<Friends>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +80,9 @@ class FriendsTableViewController: UITableViewController {
             let realm = try Realm()
          //   print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
-            if let friendsData = friendsData {
-                friends = Array(friendsData)
-            }
+//            if let friendsData = friendsData {
+//                friends = Array(friendsData)
+//            }
         } catch {
             print(error)
         }

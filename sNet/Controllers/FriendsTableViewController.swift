@@ -67,7 +67,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getFiendsInfo(for: 123733, info: .friendList)
+        netwotkService.getFiendsInfo(for: 800500, info: .friendList)
         getFriendsDataFromRealm()
         observeFriendsData()
     }
@@ -78,7 +78,7 @@ class FriendsTableViewController: UITableViewController {
 //                        var config = Realm.Configuration.defaultConfiguration
 //                        config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
-         //   print(realm.configuration.fileURL)
+         print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
 //            if let friendsData = friendsData {
 //                friends = Array(friendsData)
@@ -97,13 +97,13 @@ class FriendsTableViewController: UITableViewController {
             case .initial:
                 self?.tableView.reloadData()
             case let .update(_, deletions, insertions, modifications):
-                print(deletions, insertions, modifications)
+                
                 self?.tableView.performBatchUpdates {
                     guard let friendsData = self?.friendsData else { return }
 
-                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: (self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1)))!)!)}, with: .automatic)
-                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: (self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1)))!)!)}, with: .automatic)
-                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: (self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1)))!)!)}, with: .automatic)
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
+                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
                 }
                 self?.tableView.reloadData()
             case .error(let error):

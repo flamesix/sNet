@@ -7,11 +7,13 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class FriendsTableViewController: UITableViewController {
     
     private let netwotkService = NetworkService()
     private var notificationToken: NotificationToken?
+    let session = Session.instance
     
     deinit {
         notificationToken?.invalidate()
@@ -37,7 +39,7 @@ class FriendsTableViewController: UITableViewController {
 //        }
 //    }
     
-    
+    var loggedUser: [AuthUsers] = []
     
     var friendsDictionary = [String: [Friends]]()
     var friendsSectionTitles = [String]()
@@ -66,6 +68,8 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveUserIDsToFirebaseDatabase(userID: session.userID, timestamp: Date.now)
         
         netwotkService.getFiendsInfo(for: 800500, info: .friendList)
         getFriendsDataFromRealm()
@@ -232,4 +236,20 @@ class FriendsTableViewController: UITableViewController {
     }
     
     
+}
+
+
+extension FriendsTableViewController {
+
+    private func saveUserIDsToFirebaseDatabase(userID: Int, timestamp: Date) {
+
+        let user = AuthUsers(userID: userID)
+
+        let data = user.toAnyObject
+        
+        let dbLink = Database.database(url: "https://snet-cd430-default-rtdb.europe-west1.firebasedatabase.app").reference()
+        dbLink.child("UserIDs/\(timestamp)").setValue(data)
+
+    }
+
 }

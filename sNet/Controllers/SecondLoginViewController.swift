@@ -37,11 +37,11 @@ class SecondLoginViewController: UIViewController {
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return }
-        Auth.auth().signIn(withEmail: login, password: password) { authResult, error in
+        Auth.auth().signIn(withEmail: login, password: password) { [weak self] authResult, error in
             if let error = error {
-                self.showLoginAlert(message: error.localizedDescription)
+                self?.showLoginAlert(message: error.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
+                self?.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
             }
         }
         
@@ -52,11 +52,11 @@ class SecondLoginViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return }
-        Auth.auth().createUser(withEmail: login, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: login, password: password) { [weak self] authResult, error in
             if let error = error {
-                self.showLoginAlert(message: error.localizedDescription)
+                self?.showLoginAlert(message: error.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
+                self?.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
             }
         }
     }

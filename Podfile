@@ -9,5 +9,6 @@ pod 'RealmSwift'
 pod 'Kingfisher'
 pod 'FirebaseCore'
 pod 'FirebaseAuth'
+pod 'FirebaseDatabase'
 
 end

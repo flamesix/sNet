@@ -13,6 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionPhotoLabel: UILabel!
     @IBOutlet weak var collectionImage: UIImageView!
     
+    @IBOutlet weak var likePhotoLabel: UILabel!
     
     //    func updatePhoto(with friend: Friends) {
     //        collectionPhotoLabel.text = friend.description
@@ -33,7 +34,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     func updatePhoto(with photo: Photos) {
         collectionPhotoLabel.text = photo.photoDescription
-  
+        likePhotoLabel.text = String(photo.likesCount)
         guard let urlSting = photo.photoDict[PhotoSizes.m.size],
               let url = URL(string: urlSting) else { return }
         collectionImage.kf.indicatorType = .activity

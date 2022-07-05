@@ -35,6 +35,10 @@ class Friends: Object, Decodable {
     @Persisted var userPhotoData: String = ""
     var userPhoto: UIImage = #imageLiteral(resourceName: "SNET.")
     
+    override class func primaryKey() -> String? {
+        return "userID"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case userID = "id"
         case firstName = "first_name"

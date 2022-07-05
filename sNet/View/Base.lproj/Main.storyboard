@@ -343,6 +343,7 @@
                                 <connections>
                                     <outlet property="collectionImage" destination="HSp-O1-JWy" id="RDm-wi-uxM"/>
                                     <outlet property="collectionPhotoLabel" destination="7Cd-EB-RuO" id="xaY-wn-4i3"/>
+                                    <outlet property="likePhotoLabel" destination="o8d-WV-cd2" id="ImN-9F-j5m"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

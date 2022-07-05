@@ -25,6 +25,9 @@ class Groups: Object, Decodable {
     @Persisted var groupsPhotoData: String = ""
     var groupsPhoto: UIImage = #imageLiteral(resourceName: "13")
     
+    override class func primaryKey() -> String? {
+        return "groupID"
+    }
     
     enum CodingKeys: String, CodingKey {
         case groupID = "id"

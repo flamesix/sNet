@@ -40,7 +40,7 @@ class FriendsTableViewController: UITableViewController {
     
     
     var friendsDictionary = [String: [Friends]]()
-    var friednsSectionTitles = [String]()
+    var friendsSectionTitles = [String]()
     
     var friendsData: Results<Friends>? {
         didSet {
@@ -56,8 +56,8 @@ class FriendsTableViewController: UITableViewController {
                     friendsDictionary[friendKey] = [friend]
                 }
                 
-                friednsSectionTitles = [String](friendsDictionary.keys)
-                friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+                friendsSectionTitles = [String](friendsDictionary.keys)
+                friendsSectionTitles = friendsSectionTitles.sorted(by: { $0 < $1 })
                 
                 self.tableView.reloadData()
             }
@@ -101,9 +101,9 @@ class FriendsTableViewController: UITableViewController {
                 self?.tableView.performBatchUpdates {
                     guard let friendsData = self?.friendsData else { return }
 
-                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
-                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
-                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
+                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
                 }
                 self?.tableView.reloadData()
             case .error(let error):
@@ -116,12 +116,12 @@ class FriendsTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // return 1
-        return friednsSectionTitles.count
+        return friendsSectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //  return friends.count
-        let friendKey = friednsSectionTitles[section]
+        let friendKey = friendsSectionTitles[section]
         if let friendValues = friendsDictionary[friendKey] {
             return friendValues.count
         }
@@ -133,7 +133,7 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.friendCell, for: indexPath) as?  FriendsTableViewCell else { preconditionFailure("Error") }
         
-        let friendKey = friednsSectionTitles[indexPath.section]
+        let friendKey = friendsSectionTitles[indexPath.section]
         //        let friend = friends[indexPath.row]
         //        cell.updateFriendsTable(with: friend)
         if let friendValues = friendsDictionary[friendKey] {
@@ -161,11 +161,11 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return friednsSectionTitles[section]
+        return friendsSectionTitles[section]
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return friednsSectionTitles
+        return friendsSectionTitles
     }
     /*
      // Override to support conditional editing of the table view.
@@ -210,7 +210,7 @@ class FriendsTableViewController: UITableViewController {
         if segue.identifier == PropertyKeys.friendToPhotoCollectionSegue,
            let collectionVC = segue.destination as? CollectionViewController,
            let indexPath = tableView.indexPathForSelectedRow {
-            let friendKey = friednsSectionTitles[indexPath.section]
+            let friendKey = friendsSectionTitles[indexPath.section]
             //        let friend = friends[indexPath.row]
             //        cell.updateFriendsTable(with: friend)
             if let friendValues = friendsDictionary[friendKey] {

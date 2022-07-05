@@ -15,34 +15,13 @@ class GroupsTableViewController: UITableViewController {
             groupsSearchBar.delegate = self
         }
     }
-    //    let groups: [Groups] = [
-    //        Groups(image: "1", name: "Auto", description: "Auto lovers"),
-    //        Groups(image: "2", name: "Music", description: "Music lovers"),
-    //        Groups(image: "3", name: "Computers", description: "Comp lovers"),
-    //        Groups(image: "4", name: "Books", description: "Book lovers"),
-    //        Groups(image: "5", name: "Cooking", description: "Cooking profi"),
-    //        Groups(image: "6", name: "Traveling", description: "Travel blogging"),
-    //        Groups(image: "7", name: "Sport", description: "Prof. sports"),
-    //        Groups(image: "8", name: "Pets", description: "Pets-Pets-Pets"),
-    //        Groups(image: "9", name: "Blogging", description: "All about blogging"),
-    //        Groups(image: "10", name: "Shopping", description: "Find best price"),
-    //        Groups(image: "11", name: "Art", description: "Painting")
-    //    ]
-    
-//    var groups: [Groups] = [
-//        Groups(image: UIImage(named: "1"), name: "Auto", description: "Auto lovers"),
-//        Groups(image: UIImage(named: "2"), name: "Music", description: "Music lovers"),
-//        Groups(image: UIImage(named: "3"), name: "Computers", description: "Comp lovers"),
-//        Groups(image: UIImage(named: "4"), name: "Books", description: "Book lovers"),
-//        Groups(image: UIImage(named: "5"), name: "Cooking", description: "Cooking profi"),
-//        Groups(image: UIImage(named: "6"), name: "Traveling", description: "Travel blogging"),
-//        Groups(image: UIImage(named: "7"), name: "Sport", description: "Prof. sports"),
-//        Groups(image: UIImage(named: "8"), name: "Pets", description: "Pets-Pets-Pets"),
-//        Groups(image: UIImage(named: "9"), name: "Blogging", description: "All about blogging"),
-//        Groups(image: UIImage(named: "10"), name: "Shopping", description: "Find best price"),
-//        Groups(image: UIImage(named: "11"), name: "Art", description: "Painting")
-//    ]
+
     private let netwotkService = NetworkService()
+    private var notificationToken: NotificationToken?
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
     
     var groupsData: Results<Groups>?
     
@@ -59,9 +38,9 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getGroupsInfo(for: 800500, info: .groupsList) { [weak self] in
-            self?.getGroupsDataFromRealm()
-        }
+        netwotkService.getGroupsInfo(for: 800500, info: .groupsList)
+        getGroupsDataFromRealm()
+        observeGroupsData()
         
 //        self.setupHideKeyboardOnTap()
        // searchedGroups = groups
@@ -74,6 +53,7 @@ class GroupsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    ///Get groups from Realm DB
     private func getGroupsDataFromRealm() {
         do {
            let realm = try Realm()
@@ -83,6 +63,25 @@ class GroupsTableViewController: UITableViewController {
             }
         } catch {
             print(error)
+        }
+    }
+    
+    ///Notification from Realm DB
+    private func observeGroupsData() {
+        notificationToken = groupsData?.observe { [weak self] change in
+            switch change {
+            case .initial:
+                self?.tableView.reloadData()
+            case let .update(_, deletions, insertions, modifications):
+                self?.tableView.performBatchUpdates {
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                }
+                self?.tableView.reloadData()
+            case .error(let error):
+                print(error)
+            }
         }
     }
     

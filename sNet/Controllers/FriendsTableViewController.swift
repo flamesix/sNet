@@ -10,117 +10,44 @@ import RealmSwift
 
 class FriendsTableViewController: UITableViewController {
     
-    /*
-     let friends: [Friends] = [
-     Friends(userID: "1", userPhoto: UIImage(named: "g1"), name: "John", lastName: "Johnson", icon: "🤡", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7")),
-     PhotosOfFriend(photo: UIImage(named: "7")),
-     PhotosOfFriend(photo: UIImage(named: "8")),
-     PhotosOfFriend(photo: UIImage(named: "1"))
-     ]),
-     Friends(userID: "2", userPhoto: UIImage(named: "g2"), name: "Bob", lastName: "Bobson", icon: "😈", photos: [
-     PhotosOfFriend(photo: UIImage(named: "2")),
-     PhotosOfFriend(photo: UIImage(named: "3")),
-     PhotosOfFriend(photo: UIImage(named: "12"))
-     ]),
-     Friends(userID: "3", userPhoto: UIImage(named: "g3"), name: "Peter", lastName: "Peterson", icon: "🤠", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g3")),
-     PhotosOfFriend(photo: UIImage(named: "g10")),
-     PhotosOfFriend(photo: UIImage(named: "2")),
-     PhotosOfFriend(photo: UIImage(named: "4")),
-     PhotosOfFriend(photo: UIImage(named: "9")),
-     PhotosOfFriend(photo: UIImage(named: "5")),
-     PhotosOfFriend(photo: UIImage(named: "1")),
-     PhotosOfFriend(photo: UIImage(named: "g1")),
-     PhotosOfFriend(photo: UIImage(named: "g2")),
-     PhotosOfFriend(photo: UIImage(named: "g4"))
-     ]),
-     Friends(userID: "4", userPhoto: UIImage(named: "g4"), name: "Rick", lastName: "Rickson", icon: "👻", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7")),
-     PhotosOfFriend(photo: UIImage(named: "g7")),
-     PhotosOfFriend(photo: UIImage(named: "g7")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "5", userPhoto: UIImage(named: "g5"), name: "Jane", lastName: "Janeson", icon: "😺", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "6", userPhoto: UIImage(named: "g6"), name: "Anna", lastName: "Annenson", icon: "🎃", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7")),
-     PhotosOfFriend(photo: UIImage(named: "g3")),
-     PhotosOfFriend(photo: UIImage(named: "g10")),
-     PhotosOfFriend(photo: UIImage(named: "2")),
-     PhotosOfFriend(photo: UIImage(named: "4")),
-     PhotosOfFriend(photo: UIImage(named: "9")),
-     PhotosOfFriend(photo: UIImage(named: "5")),
-     PhotosOfFriend(photo: UIImage(named: "1")),
-     PhotosOfFriend(photo: UIImage(named: "g1")),
-     PhotosOfFriend(photo: UIImage(named: "g2")),
-     PhotosOfFriend(photo: UIImage(named: "g4"))
-     ]),
-     Friends(userID: "7", userPhoto: UIImage(named: "g7"), name: "Dick", lastName: "Dickson", icon: "👺", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "8", userPhoto: UIImage(named: "g8"), name: "Mary", lastName: "Smith", icon: "🤪", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "9", userPhoto: UIImage(named: "g9"), name: "Helga", lastName: "Morrison", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "10", userPhoto: UIImage(named: "g10"), name: "Leonard", lastName: "Cohen", icon: "🥸", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "11", userPhoto: UIImage(named: "1"), name: "Jim", lastName: "Cohen", icon: "🥸", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "12", userPhoto: UIImage(named: "9"), name: "Richard", lastName: "Morrison", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "13", userPhoto: UIImage(named: "8"), name: "James", lastName: "Morrison", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "14", userPhoto: UIImage(named: "2"), name: "Chloe", lastName: "Richardson", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "15", userPhoto: UIImage(named: "3"), name: "Marty", lastName: "Rogers", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "16", userPhoto: UIImage(named: "7"), name: "Helmut", lastName: "Henzel", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "17", userPhoto: UIImage(named: "g9"), name: "Robert", lastName: "Turnbau", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "18", userPhoto: UIImage(named: "4"), name: "Григорий", lastName: "Гришин", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ]),
-     Friends(userID: "19", userPhoto: UIImage(named: "4"), name: "Вячеслав", lastName: "Юдин", icon: "🧐", photos: [
-     PhotosOfFriend(photo: UIImage(named: "g9")),
-     PhotosOfFriend(photo: UIImage(named: "g7"))
-     ])
-     ]
-     */
-    
     private let netwotkService = NetworkService()
+    private var notificationToken: NotificationToken?
     
-    var friends: [Friends] = [] {
+    deinit {
+        notificationToken?.invalidate()
+    }
+    
+//    var friends: [Friends] = [] {
+//        didSet {
+//            for friend in friends {
+//                let friendKey = String(friend.lastName.prefix(1))
+//                if var friendValues = friendsDictionary[friendKey] {
+//                    friendValues.append(friend)
+//                    friendsDictionary[friendKey] = friendValues
+//                } else {
+//                    friendsDictionary[friendKey] = [friend]
+//                }
+//            }
+//
+//            friednsSectionTitles = [String](friendsDictionary.keys)
+//            friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+//
+//            self.tableView.reloadData()
+//
+//        }
+//    }
+    
+    
+    
+    var friendsDictionary = [String: [Friends]]()
+    var friednsSectionTitles = [String]()
+    
+    var friendsData: Results<Friends>? {
         didSet {
-            for friend in friends {
+            guard let friendsData = friendsData else {
+                return
+            }
+            for friend in friendsData {
                 let friendKey = String(friend.lastName.prefix(1))
                 if var friendValues = friendsDictionary[friendKey] {
                     friendValues.append(friend)
@@ -128,43 +55,60 @@ class FriendsTableViewController: UITableViewController {
                 } else {
                     friendsDictionary[friendKey] = [friend]
                 }
+                
+                friednsSectionTitles = [String](friendsDictionary.keys)
+                friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
+                
+                self.tableView.reloadData()
             }
-            
-            friednsSectionTitles = [String](friendsDictionary.keys)
-            friednsSectionTitles = friednsSectionTitles.sorted(by: { $0 < $1 })
-            
-            self.tableView.reloadData()
-     
         }
     }
-    
-    
-    
-    var friendsDictionary = [String: [Friends]]()
-    var friednsSectionTitles = [String]()
-    
-    var friendsData: Results<Friends>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getFiendsInfo(for: 800500, info: .friendList) { [weak self] in
-            self?.getFriendsDataFromRealm()
-        }
+        netwotkService.getFiendsInfo(for: 800500, info: .friendList)
+        getFriendsDataFromRealm()
+        observeFriendsData()
     }
     
+    ///Get friends from Realm DB
     private func getFriendsDataFromRealm() {
         do {
 //                        var config = Realm.Configuration.defaultConfiguration
 //                        config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
-            print(realm.configuration.fileURL)
+         print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
-            if let friendsData = friendsData {
-                friends = Array(friendsData)
-            }
+//            if let friendsData = friendsData {
+//                friends = Array(friendsData)
+//            }
         } catch {
             print(error)
+        }
+    }
+    
+    
+    
+    ///Notification from Realm DB
+    private func observeFriendsData() {
+        notificationToken = friendsData?.observe { [weak self] change in
+            switch change {
+            case .initial:
+                self?.tableView.reloadData()
+            case let .update(_, deletions, insertions, modifications):
+                
+                self?.tableView.performBatchUpdates {
+                    guard let friendsData = self?.friendsData else { return }
+
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
+                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friednsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                }
+                self?.tableView.reloadData()
+            case .error(let error):
+                print(error)
+            }
         }
     }
     

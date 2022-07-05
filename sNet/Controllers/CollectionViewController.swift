@@ -13,13 +13,17 @@ private let reuseIdentifier = PropertyKeys.photoCollection
 class CollectionViewController: UICollectionViewController {
     
     private let netwotkService = NetworkService()
+    private var notificationToken: NotificationToken?
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
     
     var friendID: Int = 0
     var friends: [Friends] = []
     var photos: [PhotosOfFriend] = []
     var photosNetwork: [Photos] = [] {
         didSet {
-            print(photosNetwork)
             self.collectionView.reloadData()
         }
     }
@@ -29,10 +33,9 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        netwotkService.getPhotosInfo(for: friendID, info: .photosList) { [weak self] in
-           // self?.photosNetwork = photosArray
-            self?.getPhotosDataFromRealm()
-        }
+        netwotkService.getPhotosInfo(for: friendID, info: .photosList)
+        getPhotosDataFromRealm()
+        observePhotosData()
 //        NetworkService().getInfoWithURLSession(for: 123733, info: .photosList)
 //        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
 //            widthDimension: .fractionalWidth(1),
@@ -58,27 +61,35 @@ class CollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
+    ///Get photos from Realm DB
     private func getPhotosDataFromRealm() {
         do {
             let realm = try Realm()
             photosData = realm.objects(Photos.self)
-            if let photosData = photosData {
-                photosNetwork = Array(photosData)
-            }
         } catch {
             print(error)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    ///Notification from Realm DB
+    private func observePhotosData() {
+        notificationToken = photosData?.observe { [weak self] change in
+            switch change {
+            case .initial:
+                self?.collectionView.reloadData()
+            case let .update(_, deletions, insertions, modifications):
+                self?.collectionView.performBatchUpdates {
+                    self?.collectionView.deleteItems(at: deletions.map { IndexPath(item: $0, section: 0) })
+                    self?.collectionView.insertItems(at: insertions.map { IndexPath(item: $0, section: 0) })
+                    self?.collectionView.reloadItems(at: modifications.map { IndexPath(item: $0, section: 0) })
+                }
+                self?.collectionView.reloadData()
+            case .error(let error):
+                print(error)
+            }
+        }
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 
@@ -90,7 +101,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        // return friends.count
       //  return photos.count
-        return photosNetwork.count
+        return photosData?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -100,7 +111,7 @@ class CollectionViewController: UICollectionViewController {
 //        cell.updatePhoto(with: friend)
 //        let photo = photos[indexPath.item]
 //        cell.updatePhoto(with: photo, with: friend)
-        let photo = photosNetwork[indexPath.item]
+        guard let photo = photosData?[indexPath.item] else { return cell }
         cell.updatePhoto(with: photo)
     
         return cell
@@ -110,38 +121,6 @@ class CollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: PropertyKeys.showPhotosSegue, sender: nil)
     }
     
-
-    // MARK: UICollectionViewDelegate
-
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -150,7 +129,11 @@ class CollectionViewController: UICollectionViewController {
 
             let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
 //            photosVC.photos = photos
-            photosVC.photos = photosNetwork
+            guard let photosData = photosData else {
+                return
+            }
+
+            photosVC.photos = Array(photosData)
             photosVC.currentIndex = selectedPhoto?.item ?? 0
         }
            

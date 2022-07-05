@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SecondLoginViewController: UIViewController {
     
@@ -34,21 +35,32 @@ class SecondLoginViewController: UIViewController {
 
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return }
+        Auth.auth().signIn(withEmail: login, password: password) { authResult, error in
+            if let error = error {
+                self.showLoginAlert(message: error.localizedDescription)
+            } else {
+                self.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
+            }
+        }
         
-        performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
+       // performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
     }
     
     
-
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return }
+        Auth.auth().createUser(withEmail: login, password: password) { authResult, error in
+            if let error = error {
+                self.showLoginAlert(message: error.localizedDescription)
+            } else {
+                self.performSegue(withIdentifier: PropertyKeys.loginPasswordSegue, sender: nil)
+            }
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+   
     
 }

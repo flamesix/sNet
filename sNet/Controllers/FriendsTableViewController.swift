@@ -78,7 +78,7 @@ class FriendsTableViewController: UITableViewController {
 //                        var config = Realm.Configuration.defaultConfiguration
 //                        config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
-         print(realm.configuration.fileURL)
+        // print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
 //            if let friendsData = friendsData {
 //                friends = Array(friendsData)

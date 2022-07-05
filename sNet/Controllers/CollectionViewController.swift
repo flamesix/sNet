@@ -66,10 +66,6 @@ class CollectionViewController: UICollectionViewController {
         do {
             let realm = try Realm()
             photosData = realm.objects(Photos.self)
-            if let photosData = photosData {
-                photosNetwork = Array(photosData)
-               // print(realm.configuration.fileURL)
-            }
         } catch {
             print(error)
         }

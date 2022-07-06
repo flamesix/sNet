@@ -63,7 +63,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
            !searchText.isEmpty {
             
             netwotkService.searchGroupsInfo(for: 800500, info: .groupSearch, searchText: searchText) { [weak self] searchGroups in
-                self?.filteredGroups = searchGroups //.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
+                self?.filteredGroups = searchGroups.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
                 self?.tableView.reloadData()
             }
             
@@ -101,9 +101,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // print(indexPath.row)
-//        filteredGroups.forEach { print($0.groupName)}
-       // searchGroups.forEach { print($0.groupName) }
+
         performSegue(withIdentifier: PropertyKeys.addSelectedGroup, sender: nil)
 
     }

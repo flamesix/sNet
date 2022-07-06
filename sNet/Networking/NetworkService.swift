@@ -152,6 +152,36 @@ class NetworkService {
         
     }
     
+    func searchGroupsInfo(for userID: Int, info: MethodsAPIVK, searchText: String, completion: @escaping([Groups]) -> Void) {
+        
+        let url = apiURL + info.method
+        let parameters: Parameters = [
+            "user_id": userID,
+            "owner_id": userID,
+//            "fields": "description",
+//            "extended": "1",
+            "q": searchText,
+            "access_token": session.token,
+            "v": NetworkService.vkAPIVersion
+        ]
+        
+        
+        AF.request(url, method: .get, parameters: parameters).responseData { [weak self] response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let searchGroups = try JSONDecoder().decode(GroupsResponse.self, from: data).items
+                    completion(searchGroups)
+                } catch {
+                    print("Error while decoding response from \(#function)")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
     ///Saving groups to Realm
     private func saveGroupsData(_ groups: [Groups]) {
         do {
@@ -228,6 +258,8 @@ class NetworkService {
                 do {
                     let asJSON = try JSONSerialization.jsonObject(with: data)
                     print("\(info.description)\(asJSON)")
+                    print(url)
+                    print(self.session.token)
                 } catch {
                     print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
                 }

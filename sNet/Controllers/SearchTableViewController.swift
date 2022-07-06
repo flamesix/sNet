@@ -10,6 +10,7 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     
     let searchController = UISearchController()
+    private let netwotkService = NetworkService()
     
     @IBOutlet weak var searchField: UISearchBar!
     
@@ -58,9 +59,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchString = searchController.searchBar.text,
-           !searchString.isEmpty {
-            filteredGroups = searchGroups.filter { $0.groupName.localizedCaseInsensitiveContains(searchString) }
+        if let searchText = searchController.searchBar.text,
+           !searchText.isEmpty {
+            
+            netwotkService.searchGroupsInfo(for: 800500, info: .groupSearch, searchText: searchText) { [weak self] searchGroups in
+                self?.filteredGroups = searchGroups //.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
+                self?.tableView.reloadData()
+            }
+            
+//            filteredGroups = searchGroups.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
         } else {
             filteredGroups = searchGroups
         }
@@ -94,7 +101,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+       // print(indexPath.row)
+//        filteredGroups.forEach { print($0.groupName)}
+       // searchGroups.forEach { print($0.groupName) }
         performSegue(withIdentifier: PropertyKeys.addSelectedGroup, sender: nil)
 
     }

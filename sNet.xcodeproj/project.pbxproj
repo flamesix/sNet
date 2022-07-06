@@ -38,6 +38,8 @@
 		5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A84283AAACE00674FBA /* LoginLoadingView.swift */; };
 		5B569A89284271D100674FBA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A88284271D100674FBA /* PhotosViewController.swift */; };
 		5B569A8D2843B8AC00674FBA /* CloudAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */; };
+		5B69122C2875C4DF00B7B68B /* SearchGroupsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69122B2875C4DF00B7B68B /* SearchGroupsResponse.swift */; };
+		5B69122E2875C51900B7B68B /* SearchGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69122D2875C51900B7B68B /* SearchGroups.swift */; };
 		5B872CB428527658008B84BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B872CB328527658008B84BC /* Session.swift */; };
 		5B964DD42858C44200E94F40 /* WebViewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */; };
 		5BA4220D284BA2D100098A9D /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4220C284BA2D100098A9D /* CustomSegue.swift */; };
@@ -91,6 +93,8 @@
 		5B569A84283AAACE00674FBA /* LoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLoadingView.swift; sourceTree = "<group>"; };
 		5B569A88284271D100674FBA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationViewController.swift; sourceTree = "<group>"; };
+		5B69122B2875C4DF00B7B68B /* SearchGroupsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsResponse.swift; sourceTree = "<group>"; };
+		5B69122D2875C51900B7B68B /* SearchGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroups.swift; sourceTree = "<group>"; };
 		5B872CB328527658008B84BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewLoginViewController.swift; sourceTree = "<group>"; };
 		5BA4220C284BA2D100098A9D /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				5B069712281E5DFE007C50E8 /* Friends.swift */,
 				5B473C44285CDD4200E9DDC8 /* GroupsResponse.swift */,
 				5B06973D281FE5B9007C50E8 /* Groups.swift */,
+				5B69122B2875C4DF00B7B68B /* SearchGroupsResponse.swift */,
+				5B69122D2875C51900B7B68B /* SearchGroups.swift */,
 				5B11C6B42861A3E30009C611 /* PhotosResponse.swift */,
 				5B11C6B82861B90C0009C611 /* Photos.swift */,
 			);
@@ -398,6 +404,7 @@
 				5B0F2DF7282ECB460081E5E3 /* CanvasViewController.swift in Sources */,
 				5B0F2DFF28300FA30081E5E3 /* FriendsPhotoView.swift in Sources */,
 				5BB709BB28240818006C32F1 /* Logins.swift in Sources */,
+				5B69122E2875C51900B7B68B /* SearchGroups.swift in Sources */,
 				5B11C6B92861B90C0009C611 /* Photos.swift in Sources */,
 				5B569A812839114200674FBA /* PreLoginViewController.swift in Sources */,
 				5B569A782836C02100674FBA /* GroupsAndSearchTableViewCell.swift in Sources */,
@@ -422,6 +429,7 @@
 				5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */,
 				5BA42218284BCC2700098A9D /* CloudView.swift in Sources */,
 				5B473C45285CDD4200E9DDC8 /* GroupsResponse.swift in Sources */,
+				5B69122C2875C4DF00B7B68B /* SearchGroupsResponse.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,
 				5BB709B92822F5F0006C32F1 /* SecondLoginViewController.swift in Sources */,
 				5B069711281E5D4B007C50E8 /* FriendsTableViewController.swift in Sources */,

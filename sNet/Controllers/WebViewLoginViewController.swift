@@ -108,7 +108,7 @@ extension WebViewLoginViewController: WKNavigationDelegate {
         let userID = params["user_id"]
         responseUserID = Int(userID ?? "0")!
         tokenString = token!
-       // print("Token is: \(token)")
+        print("Token is: \(token)")
         decisionHandler(.cancel)
     }
 }

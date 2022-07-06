@@ -21,7 +21,7 @@ class Groups: Object, Decodable {
     //    let description: String
     @Persisted var groupID: Int = 0
     @Persisted var groupName: String = ""
-    @Persisted var groupDescription: String = ""
+  //  @Persisted var groupDescription: String = ""
     @Persisted var groupsPhotoData: String = ""
     var groupsPhoto: UIImage = #imageLiteral(resourceName: "13")
     
@@ -32,7 +32,7 @@ class Groups: Object, Decodable {
     enum CodingKeys: String, CodingKey {
         case groupID = "id"
         case groupName = "name"
-        case groupDescription = "description"
+    //    case groupDescription = "description"
         case groupsPhotoData = "photo_100"
     }
     
@@ -42,7 +42,7 @@ class Groups: Object, Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.groupID = try values.decode(Int.self, forKey: .groupID)
         self.groupName = try values.decode(String.self, forKey: .groupName)
-        self.groupDescription = try values.decode(String.self, forKey: .groupDescription)
+     //   self.groupDescription = try values.decode(String.self, forKey: .groupDescription)
         self.groupsPhotoData = try values.decode(String.self, forKey: .groupsPhotoData)
         
     }

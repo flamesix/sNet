@@ -11,6 +11,7 @@ import Alamofire
 
 class WebViewLoginViewController: UIViewController {
     
+    let defaults = UserDefaults.standard
     let session = Session.instance
     let network = NetworkService()
     var friends = [Friends]()
@@ -38,22 +39,19 @@ class WebViewLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        network.getInfoWithURLSession(for: session.userID, info: .groupsList)
-        //
+        let tokenTimeGetted = Int(defaults.integer(forKey: "getTokenTime"))
+        let currentTime = Int(Date().timeIntervalSince1970)
+        
+        if currentTime - tokenTimeGetted < 86400 {
+       
+        let unixtime = Date().timeIntervalSince1970
+        defaults.set(Int(unixtime), forKey: "getTokenTime")
+    
                 webview.load(getTokenURLRequest())
-        //
-        //        network.getInfo(for: 123733, info: .friendList)
-//        network.getInfo(for: 123733, info: .friendList) { [weak self] friendsArray in
-//            self?.friends = friendsArray
-//        }
-        //
-//        print(friends)
-        
-        //        network.getInfo(for: session.userID, info: .photosList)
-        //        network.getInfo(for: session.userID, info: .groupsList)
-        //        network.getInfo(for: session.userID, info: .groupSearch, search: "Behind the mirror")
-        
-//        performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
+        } else {
+            performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
+        }
+
         
     }
     
@@ -83,7 +81,7 @@ class WebViewLoginViewController: UIViewController {
 // MARK: - WKNavigationDelegate
 
 extension WebViewLoginViewController: WKNavigationDelegate {
-    
+        
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse:
                  WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
@@ -106,6 +104,7 @@ extension WebViewLoginViewController: WKNavigationDelegate {
         
         let token = params["access_token"]
         let userID = params["user_id"]
+//        let expiring = params["expires_in"]
         responseUserID = Int(userID ?? "0")!
         tokenString = token!
         print("Token is: \(token)")

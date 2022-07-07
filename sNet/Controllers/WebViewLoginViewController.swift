@@ -41,18 +41,18 @@ class WebViewLoginViewController: UIViewController {
         
         let tokenTimeGetted = Int(defaults.integer(forKey: "getTokenTime"))
         let currentTime = Int(Date().timeIntervalSince1970)
-        
+
         if currentTime - tokenTimeGetted < 86400 {
-       
+
         let unixtime = Date().timeIntervalSince1970
         defaults.set(Int(unixtime), forKey: "getTokenTime")
-    
+
                 webview.load(getTokenURLRequest())
         } else {
-            performSegue(withIdentifier: PropertyKeys.webViewSegue, sender: nil)
+            guard let token = defaults.string(forKey: "token") else { return }
+            tokenString = token
+            //print(tokenString)
         }
-
-        
     }
     
     ///Getting access token
@@ -107,7 +107,8 @@ extension WebViewLoginViewController: WKNavigationDelegate {
 //        let expiring = params["expires_in"]
         responseUserID = Int(userID ?? "0")!
         tokenString = token!
-        print("Token is: \(token)")
+        defaults.set(token!, forKey: "token")
+      //  print("Token is: \(token)")
         decisionHandler(.cancel)
     }
 }

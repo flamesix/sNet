@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginTextField.text = "User"
+        loginTextField.text = "test@gmail.com"
         
         self.setupHideKeyboardOnTap()
         scrollView.registerForKeyboardNotifications()
@@ -32,12 +33,12 @@ class LoginViewController: UIViewController {
               login != "" else {return showLoginAlert(message: "Login is empty")}
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let editScreen = storyboard.instantiateViewController(withIdentifier:
+        let secondLoginViewController = storyboard.instantiateViewController(withIdentifier:
                                                                 PropertyKeys.secondLoginViewController) as! SecondLoginViewController
         // передаем данные
-        editScreen.updatingData = loginTextField.text ?? ""
+        secondLoginViewController.updatingData = loginTextField.text ?? ""
         // переходим к следующему экрану
-        self.navigationController?.pushViewController(editScreen, animated: true)
+        self.navigationController?.pushViewController(secondLoginViewController, animated: true)
         
         //   performSegue(withIdentifier: PropertyKeys.loginSegue, sender: nil)
         

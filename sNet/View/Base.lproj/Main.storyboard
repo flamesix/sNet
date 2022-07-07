@@ -48,10 +48,10 @@
                                                         <color key="textColor" systemColor="systemGray6Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Телефон или почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxo-up-u8E">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxo-up-u8E">
                                                         <rect key="frame" x="0.0" y="44" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-PN-ufW">
                                                         <rect key="frame" x="0.0" y="98" width="334" height="34.333333333333343"/>
@@ -77,8 +77,8 @@
                                         <constraints>
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="centerY" secondItem="ZGE-sP-OxW" secondAttribute="centerY" id="2ID-EB-APX"/>
                                             <constraint firstItem="6eN-ee-x8L" firstAttribute="centerX" secondItem="Yik-C9-mZD" secondAttribute="centerX" id="6Qs-fp-KfN"/>
-                                            <constraint firstAttribute="bottom" secondItem="6eN-ee-x8L" secondAttribute="bottom" constant="20" id="IPK-Kq-dFW"/>
                                             <constraint firstItem="6eN-ee-x8L" firstAttribute="leading" secondItem="ZGE-sP-OxW" secondAttribute="leadingMargin" constant="20" id="M9q-OJ-3al"/>
+                                            <constraint firstAttribute="bottom" secondItem="6eN-ee-x8L" secondAttribute="bottom" constant="20" id="WA3-3v-Ej4"/>
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="leading" secondItem="ZGE-sP-OxW" secondAttribute="leadingMargin" constant="20" id="WuZ-N4-jSP"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ZLj-gY-xDS" secondAttribute="trailing" constant="20" id="XTW-6g-aeC"/>
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="centerX" secondItem="ZGE-sP-OxW" secondAttribute="centerX" id="buo-pI-a07"/>
@@ -1003,7 +1003,7 @@
                                                         <color key="textColor" systemColor="systemGray6Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Телефон или почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kT-rf-CUz">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kT-rf-CUz">
                                                         <rect key="frame" x="0.0" y="44" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1032,6 +1032,9 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="registerButtonPressed:" destination="AyI-F2-hfl" eventType="touchUpInside" id="KGS-6B-v2K"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

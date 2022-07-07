@@ -7,5 +7,8 @@ target 'sNet' do
 pod 'Alamofire'
 pod 'RealmSwift'
 pod 'Kingfisher'
+pod 'FirebaseCore'
+pod 'FirebaseAuth'
+pod 'FirebaseDatabase'
 
 end

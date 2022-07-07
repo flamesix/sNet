@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class GroupsTableViewController: UITableViewController {
     
@@ -18,9 +19,11 @@ class GroupsTableViewController: UITableViewController {
 
     private let netwotkService = NetworkService()
     private var notificationToken: NotificationToken?
+    private var requestHandle: DatabaseHandle?
     
     deinit {
         notificationToken?.invalidate()
+        requestHandle = nil
     }
     
     var groupsData: Results<Groups>?
@@ -74,8 +77,15 @@ class GroupsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             case let .update(_, deletions, insertions, modifications):
                 self?.tableView.performBatchUpdates {
-                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    guard let groupsData = self?.groupsData else {
+                        return
+                    }
+                    self?.groups = Array(groupsData)
+                    
                     self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                    
+                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    
                     self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0)}, with: .automatic)
                 }
                 self?.tableView.reloadData()
@@ -94,14 +104,23 @@ class GroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return groups.count
         return searchedGroups.count
+//        guard let groupsData = groupsData else {
+//            return 0
+//        }
+//
+//        return groupsData.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.groupsAndSearchTableViewCell, for: indexPath) as? GroupsAndSearchTableViewCell else { preconditionFailure("Error") }
-        
+//        guard let groupsData = groupsData else {
+//            return cell
+//        }
+
         // let group = groups[indexPath.row]
         let group = searchedGroups[indexPath.row]
+//        let group = groupsData[indexPath.row]
         cell.updateGroupsTable(with: group)
         
         return cell
@@ -183,6 +202,7 @@ class GroupsTableViewController: UITableViewController {
             if !searchedGroups.contains(where: {$0.groupName == groupToAdd.groupName}) {
                 searchedGroups.append(groupToAdd)
                 tableView.reloadData()
+                saveGroupsAddedToFirebaseDatabase(userID: 800500, group: searchedGroups)
             }
         }
     }
@@ -223,4 +243,24 @@ extension GroupsTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
+}
+
+// MARK: - Realtime DB
+extension GroupsTableViewController {
+    
+    ///Write id's user groups to Realtime DB
+    private func saveGroupsAddedToFirebaseDatabase(userID: Int, group: [Groups]) {
+       
+       // let user = AuthUsers(userID: userID)
+        let group = GroupsAdded(userID: userID, groupsID: group)
+        
+        let data = group.toAnyObject
+        let dbLink = Database.database(url: "https://snet-cd430-default-rtdb.europe-west1.firebasedatabase.app").reference()
+        
+        dbLink.child("Groups/\(userID)").setValue(data)
+        
+        requestHandle = dbLink.child("Groups/\(userID)").observe(DataEventType.value, with: { snapshot in
+            print(snapshot.value)
+        })
+    }
 }

@@ -69,7 +69,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveUserIDsToFirebaseDatabase(userID: 677828392)
+        saveUserIDsToFirebaseDatabase(userID: 111119999222928)
         
         netwotkService.getFiendsInfo(for: 800500, info: .friendList)
         getFriendsDataFromRealm()

@@ -38,6 +38,7 @@
 		5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A84283AAACE00674FBA /* LoginLoadingView.swift */; };
 		5B569A89284271D100674FBA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A88284271D100674FBA /* PhotosViewController.swift */; };
 		5B569A8D2843B8AC00674FBA /* CloudAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */; };
+		5B6912312876077900B7B68B /* GroupsAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6912302876077900B7B68B /* GroupsAdded.swift */; };
 		5B872CB428527658008B84BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B872CB328527658008B84BC /* Session.swift */; };
 		5B964DD42858C44200E94F40 /* WebViewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */; };
 		5BA4220D284BA2D100098A9D /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4220C284BA2D100098A9D /* CustomSegue.swift */; };
@@ -91,6 +92,7 @@
 		5B569A84283AAACE00674FBA /* LoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLoadingView.swift; sourceTree = "<group>"; };
 		5B569A88284271D100674FBA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		5B569A8C2843B8AC00674FBA /* CloudAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationViewController.swift; sourceTree = "<group>"; };
+		5B6912302876077900B7B68B /* GroupsAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsAdded.swift; sourceTree = "<group>"; };
 		5B872CB328527658008B84BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5B964DD32858C44200E94F40 /* WebViewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewLoginViewController.swift; sourceTree = "<group>"; };
 		5BA4220C284BA2D100098A9D /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
@@ -213,6 +215,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		5B69122F2876071900B7B68B /* Firebase Database */ = {
+			isa = PBXGroup;
+			children = (
+				5B543CBD2874A35100104897 /* AuthUsers.swift */,
+				5B6912302876077900B7B68B /* GroupsAdded.swift */,
+			);
+			path = "Firebase Database";
+			sourceTree = "<group>";
+		};
 		5BA42214284BA2EC00098A9D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +263,7 @@
 				5B06970E281D1A1A007C50E8 /* Extensions.swift */,
 				5B069714281E60A1007C50E8 /* PropertyKeys.swift */,
 				5B11C6BB286610280009C611 /* PhotoSizes.swift */,
-				5B543CBD2874A35100104897 /* AuthUsers.swift */,
+				5B69122F2876071900B7B68B /* Firebase Database */,
 				5B11C6BA2861BDB90009C611 /* JSON Responses */,
 				5B473C1F28590CCA00E9DDC8 /* Networking */,
 				5B069740281FEFDA007C50E8 /* Model */,
@@ -420,6 +431,7 @@
 				5B0F2DF9282ECB720081E5E3 /* DrawingControl.swift in Sources */,
 				5B06971C281FC947007C50E8 /* SearchTableViewController.swift in Sources */,
 				5B569A85283AAACE00674FBA /* LoginLoadingView.swift in Sources */,
+				5B6912312876077900B7B68B /* GroupsAdded.swift in Sources */,
 				5BA42218284BCC2700098A9D /* CloudView.swift in Sources */,
 				5B473C45285CDD4200E9DDC8 /* GroupsResponse.swift in Sources */,
 				5BC8FBD9281A688700CC9A70 /* SceneDelegate.swift in Sources */,

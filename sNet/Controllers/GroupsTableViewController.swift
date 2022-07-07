@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class GroupsTableViewController: UITableViewController {
     
@@ -18,9 +19,11 @@ class GroupsTableViewController: UITableViewController {
 
     private let netwotkService = NetworkService()
     private var notificationToken: NotificationToken?
+    private var requestHandle: DatabaseHandle?
     
     deinit {
         notificationToken?.invalidate()
+        requestHandle = nil
     }
     
     var groupsData: Results<Groups>?
@@ -199,6 +202,7 @@ class GroupsTableViewController: UITableViewController {
             if !searchedGroups.contains(where: {$0.groupName == groupToAdd.groupName}) {
                 searchedGroups.append(groupToAdd)
                 tableView.reloadData()
+                saveGroupsAddedToFirebaseDatabase(userID: 800500, group: searchedGroups)
             }
         }
     }
@@ -239,4 +243,24 @@ extension GroupsTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
+}
+
+
+extension GroupsTableViewController {
+    
+    ///Write id's user groups to Realtime DB
+    private func saveGroupsAddedToFirebaseDatabase(userID: Int, group: [Groups]) {
+       
+       // let user = AuthUsers(userID: userID)
+        let group = GroupsAdded(userID: userID, groupsID: group)
+        
+        let data = group.toAnyObject
+        let dbLink = Database.database(url: "https://snet-cd430-default-rtdb.europe-west1.firebasedatabase.app").reference()
+        
+        dbLink.child("Groups/\(userID)").setValue(data)
+        
+        requestHandle = dbLink.child("Groups/\(userID)").observe(DataEventType.value, with: { snapshot in
+            print(snapshot.value)
+        })
+    }
 }

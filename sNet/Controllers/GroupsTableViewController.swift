@@ -245,7 +245,7 @@ extension GroupsTableViewController: UISearchBarDelegate {
     
 }
 
-
+// MARK: - Realtime DB
 extension GroupsTableViewController {
     
     ///Write id's user groups to Realtime DB

@@ -9,6 +9,13 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
+    var news: [News] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    /*
     let news: [News] = [
         News(userPhotoImage: UIImage(named: "g1"),
              userNameLabel: "Dick",
@@ -45,11 +52,14 @@ class NewsTableViewController: UITableViewController {
              ])
         
     ]
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        NetworkService().getNews(info: .newsList) { news in
+            self.news = news
+        }
         
         //  tableView.register(UINib(nibName: PropertyKeys.newsTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.newsTableViewCell)
         
@@ -69,6 +79,7 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //return news.count
         return news.count
     }
     
@@ -76,13 +87,17 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.newsAndPhotoTableViewCell, for: indexPath) as? NewsAndPhotoTableViewCell else { preconditionFailure("Error")}
         
+       // let news = news[indexPath.row]
         let news = news[indexPath.row]
-        cell.updateNews(with: news)
+      //  cell.updateNews(with: news)
+        cell.updateNewsT(with: news)
         
         return cell
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     /*
      // Override to support conditional editing of the table view.

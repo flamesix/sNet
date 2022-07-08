@@ -51,8 +51,9 @@ class WebViewLoginViewController: UIViewController {
         } else {
             guard let token = defaults.string(forKey: "token") else { return }
             tokenString = token
-            //print(tokenString)
+            print(tokenString)
         }
+       
     }
     
     ///Getting access token
@@ -67,7 +68,7 @@ class WebViewLoginViewController: UIViewController {
             URLQueryItem(name: "client_id", value: "8193655"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.131")
         ]
@@ -108,7 +109,7 @@ extension WebViewLoginViewController: WKNavigationDelegate {
         responseUserID = Int(userID ?? "0")!
         tokenString = token!
         defaults.set(token!, forKey: "token")
-      //  print("Token is: \(token)")
+       // print("Token is: \(token)")
         decisionHandler(.cancel)
     }
 }

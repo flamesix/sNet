@@ -14,6 +14,7 @@ enum MethodsAPIVK {
     case photosList
     case groupsList
     case groupSearch
+    case newsList
     
     var method: String {
         switch self {
@@ -25,6 +26,8 @@ enum MethodsAPIVK {
             return "groups.get"
         case .groupSearch:
             return "groups.search"
+        case .newsList:
+            return "newsfeed.get"
         }
     }
     
@@ -38,6 +41,8 @@ enum MethodsAPIVK {
             return "Group List:"
         case .groupSearch:
             return "Searched Groups:"
+        case .newsList:
+            return "News:"
         }
     }
 }
@@ -260,6 +265,29 @@ class NetworkService {
                     print("\(info.description)\(asJSON)")
                     print(url)
                     print(self.session.token)
+                } catch {
+                    print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getNews(info: MethodsAPIVK, completion: @escaping([News]) -> Void) {
+        let url = apiURL + info.method
+        let patameters: Parameters = [
+            "filters": "post",
+            "access_token": session.token,
+            "v": NetworkService.vkAPIVersion
+        ]
+        
+        AF.request(url, method: .get, parameters: patameters).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let news = try JSONDecoder().decode(NewsResponse.self, from: data).items
+                    completion(news)
                 } catch {
                     print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
                 }

@@ -78,18 +78,31 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
     
     
     
-    func updateNews(with news: News) {
-        userPhotoImage.image = news.userPhotoImage
-        userNameLabel.text = news.userNameLabel
-        dateCreatedLabel.text = news.dateCreated.description
-        newsTextLabel.text = news.newsText
-        
-        for (newsImage, newsPhoto) in zip(newsImages, news.newsPhoto) {
-            if let newsPhoto = newsPhoto {
-                newsImage.isHidden = false
-                newsImage.image = newsPhoto.newsPhoto
-            }
-            
-        }
+//    func updateNews(with news: News) {
+//        userPhotoImage.image = news.userPhotoImage
+//        userNameLabel.text = news.userNameLabel
+//        dateCreatedLabel.text = news.dateCreated.description
+//        newsTextLabel.text = news.newsText
+//        
+//        for (newsImage, newsPhoto) in zip(newsImages, news.newsPhoto) {
+//            if let newsPhoto = newsPhoto {
+//                newsImage.isHidden = false
+//                newsImage.image = newsPhoto.newsPhoto
+//            }
+//            
+//        }
+//    }
+    
+    func updateNewsT(with news: News) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM YYYY, HH:mm:ss"
+        userPhotoImage.image = #imageLiteral(resourceName: "SNET.")
+        userNameLabel.text = "TEST__TEST"
+        dateCreatedLabel.text = dateFormatter.string(from: news.newsDate)
+        newsTextLabel.text = news.newsDescription
+        likeButton.setTitle(String(news.likesCount), for: .normal)
+        repostButton.setTitle(String(news.repostsCount), for: .normal)
+        commentButton.setTitle(String(news.commentsCount), for: .normal)
+        counterLabel.text = String(news.viewsCount)
     }
 }

@@ -192,6 +192,8 @@ class NetworkService {
         do {
             let realm = try Realm()
             try realm.write {
+                let oldGroups = realm.objects(Groups.self)
+                realm.delete(oldGroups)
                 realm.add(groups, update: .all)
             }
         } catch {

@@ -77,9 +77,7 @@ class GroupsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             case let .update(_, deletions, insertions, modifications):
                 self?.tableView.performBatchUpdates {
-                    guard let groupsData = self?.groupsData else {
-                        return
-                    }
+                    guard let groupsData = self?.groupsData else { return }
                     self?.groups = Array(groupsData)
                     
                     self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0)}, with: .automatic)

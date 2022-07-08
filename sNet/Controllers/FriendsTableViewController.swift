@@ -84,9 +84,7 @@ class FriendsTableViewController: UITableViewController {
             let realm = try Realm()
             print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
-            //            if let friendsData = friendsData {
-            //                friends = Array(friendsData)
-            //            }
+                       
         } catch {
             print(error)
         }

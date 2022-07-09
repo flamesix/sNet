@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S64-pU-dP2">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="776"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGE-sP-OxW">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="758"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="768"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yik-C9-mZD">
-                                                <rect key="frame" x="160" y="235" width="70" height="70"/>
+                                                <rect key="frame" x="160" y="240" width="70" height="70"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SNET." translatesAutoresizingMaskIntoConstraints="NO" id="LGU-za-aYy">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -40,7 +40,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-gY-xDS">
-                                                <rect key="frame" x="28" y="313" width="334" height="132.33333333333337"/>
+                                                <rect key="frame" x="28" y="318" width="334" height="132.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход в sNet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoK-gU-izK">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="24"/>
@@ -66,7 +66,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eN-ee-x8L">
-                                                <rect key="frame" x="28" y="703.66666666666663" width="334" height="34.333333333333371"/>
+                                                <rect key="frame" x="28" y="495.99999999999994" width="334" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
@@ -78,7 +78,7 @@
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="centerY" secondItem="ZGE-sP-OxW" secondAttribute="centerY" id="2ID-EB-APX"/>
                                             <constraint firstItem="6eN-ee-x8L" firstAttribute="centerX" secondItem="Yik-C9-mZD" secondAttribute="centerX" id="6Qs-fp-KfN"/>
                                             <constraint firstItem="6eN-ee-x8L" firstAttribute="leading" secondItem="ZGE-sP-OxW" secondAttribute="leadingMargin" constant="20" id="M9q-OJ-3al"/>
-                                            <constraint firstAttribute="bottom" secondItem="6eN-ee-x8L" secondAttribute="bottom" constant="20" id="WA3-3v-Ej4"/>
+                                            <constraint firstItem="ZLj-gY-xDS" firstAttribute="bottomMargin" secondItem="6eN-ee-x8L" secondAttribute="bottom" constant="-80" id="WA3-3v-Ej4"/>
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="leading" secondItem="ZGE-sP-OxW" secondAttribute="leadingMargin" constant="20" id="WuZ-N4-jSP"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ZLj-gY-xDS" secondAttribute="trailing" constant="20" id="XTW-6g-aeC"/>
                                             <constraint firstItem="ZLj-gY-xDS" firstAttribute="centerX" secondItem="ZGE-sP-OxW" secondAttribute="centerX" id="buo-pI-a07"/>
@@ -160,7 +160,7 @@
                             <constraint firstItem="S64-pU-dP2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Uao-0K-Eut"/>
                             <constraint firstItem="S64-pU-dP2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y3b-OA-YDE"/>
                             <constraint firstAttribute="bottom" secondItem="ncA-fA-3Pw" secondAttribute="bottom" id="gQ4-7E-bxH"/>
-                            <constraint firstItem="S64-pU-dP2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ouN-HE-u5A"/>
+                            <constraint firstItem="S64-pU-dP2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="10" id="ouN-HE-u5A"/>
                             <constraint firstItem="jkp-z4-SA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y3f-It-5Ir"/>
                         </constraints>
                     </view>
@@ -597,8 +597,8 @@
                         <viewLayoutGuide key="safeArea" id="3kG-3B-Aut"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="m0X-aF-nJD" firstAttribute="trailing" secondItem="3kG-3B-Aut" secondAttribute="trailing" id="I9u-hJ-xk5"/>
-                            <constraint firstItem="m0X-aF-nJD" firstAttribute="leading" secondItem="3kG-3B-Aut" secondAttribute="leading" id="IHl-v8-HSh"/>
+                            <constraint firstItem="m0X-aF-nJD" firstAttribute="trailing" secondItem="hh0-7e-rUT" secondAttribute="trailing" id="I9u-hJ-xk5"/>
+                            <constraint firstItem="m0X-aF-nJD" firstAttribute="leading" secondItem="hh0-7e-rUT" secondAttribute="leading" id="IHl-v8-HSh"/>
                             <constraint firstItem="2pL-HI-1hm" firstAttribute="centerY" secondItem="hh0-7e-rUT" secondAttribute="centerY" id="Vp9-WU-TVx"/>
                             <constraint firstItem="2pL-HI-1hm" firstAttribute="centerX" secondItem="hh0-7e-rUT" secondAttribute="centerX" id="ehU-NA-hqP"/>
                             <constraint firstItem="m0X-aF-nJD" firstAttribute="top" secondItem="hh0-7e-rUT" secondAttribute="top" id="im8-ct-6EH"/>
@@ -1026,7 +1026,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-Wh-00l">
-                                                <rect key="frame" x="28" y="703.66666666666663" width="334" height="34.333333333333371"/>
+                                                <rect key="frame" x="28" y="518" width="334" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
@@ -1044,7 +1044,7 @@
                                             <constraint firstItem="soe-iL-sgV" firstAttribute="leading" secondItem="7kc-oJ-nn7" secondAttribute="leadingMargin" constant="20" id="6j0-47-dLv"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="soe-iL-sgV" secondAttribute="trailing" constant="20" id="BsA-th-jLf"/>
                                             <constraint firstItem="soe-iL-sgV" firstAttribute="top" secondItem="jEq-mN-Zl1" secondAttribute="bottom" constant="8" symbolic="YES" id="IqC-ue-T4q"/>
-                                            <constraint firstAttribute="bottom" secondItem="jk7-Wh-00l" secondAttribute="bottom" constant="20" id="W7y-ST-dh6"/>
+                                            <constraint firstItem="soe-iL-sgV" firstAttribute="bottom" secondItem="jk7-Wh-00l" secondAttribute="bottom" constant="-80" id="W7y-ST-dh6"/>
                                             <constraint firstItem="soe-iL-sgV" firstAttribute="centerY" secondItem="7kc-oJ-nn7" secondAttribute="centerY" id="ucK-e8-Now"/>
                                             <constraint firstItem="jk7-Wh-00l" firstAttribute="centerX" secondItem="jEq-mN-Zl1" secondAttribute="centerX" id="xYW-OT-Xg8"/>
                                         </constraints>

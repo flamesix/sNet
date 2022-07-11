@@ -103,7 +103,8 @@ class NewsTableViewController: UITableViewController {
        // let news = news[indexPath.row]
         let news = news[indexPath.row]
       //  cell.updateNews(with: news)
-        cell.updateNews(with: news)
+        
+        cell.updateNews(with: news, groups: groups)
         
         return cell
     }

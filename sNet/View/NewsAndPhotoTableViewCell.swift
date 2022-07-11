@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsAndPhotoTableViewCell: UITableViewCell {
     
@@ -93,11 +94,21 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
 //        }
 //    }
     
-    func updateNews(with news: News) {
+    func updateNews(with news: News, groups: [Int: Groups]) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMM YYYY, HH:mm:ss"
-        userPhotoImage.image = #imageLiteral(resourceName: "SNET.")
-        userNameLabel.text = "TEST__TEST"
+        var keyForGroup = 0
+       // var keyForFriend = 0
+        if news.sourceID < 0 {
+            keyForGroup = news.sourceID * -1
+        }
+        guard let urlString = groups[keyForGroup]?.groupsPhotoData else { return }
+        guard let groupName = groups[keyForGroup]?.groupName else { return }
+        if let url = URL(string: urlString) {
+            userPhotoImage.kf.setImage(with: url)
+        }
+     //   userPhotoImage.image = #imageLiteral(resourceName: "SNET.")
+        userNameLabel.text = groupName
         dateCreatedLabel.text = dateFormatter.string(from: news.newsDate)
         newsTextLabel.text = news.newsDescription
         likeButton.setTitle(String(news.likesCount), for: .normal)

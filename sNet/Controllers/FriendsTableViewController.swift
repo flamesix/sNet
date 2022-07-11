@@ -30,12 +30,12 @@ class FriendsTableViewController: UITableViewController {
                     friendsDictionary[friendKey] = [friend]
                 }
             }
-
+            
             friendsSectionTitles = [String](friendsDictionary.keys)
             friendsSectionTitles = friendsSectionTitles.sorted(by: { $0 < $1 })
-
+            
             self.tableView.reloadData()
-
+            
         }
     }
     
@@ -69,7 +69,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveUserIDsToFirebaseDatabase(userID: 111119999222928)
+        saveUserIDsToFirebaseDatabase(userID: 800500)
         
         netwotkService.getFiendsInfo(for: 800500, info: .friendList)
         getFriendsDataFromRealm()
@@ -79,14 +79,12 @@ class FriendsTableViewController: UITableViewController {
     ///Get friends from Realm DB
     private func getFriendsDataFromRealm() {
         do {
-//                        var config = Realm.Configuration.defaultConfiguration
-//                        config.deleteRealmIfMigrationNeeded = true
+            //                        var config = Realm.Configuration.defaultConfiguration
+            //                        config.deleteRealmIfMigrationNeeded = true
             let realm = try Realm()
-         print(realm.configuration.fileURL)
+            print(realm.configuration.fileURL)
             friendsData = realm.objects(Friends.self)
-//            if let friendsData = friendsData {
-//                friends = Array(friendsData)
-//            }
+                       
         } catch {
             print(error)
         }
@@ -102,17 +100,18 @@ class FriendsTableViewController: UITableViewController {
                 self?.tableView.reloadData()
             case let .update(_, deletions, insertions, modifications):
                 guard let friendsData = self?.friendsData else { return }
-                                    self?.friends = Array(friendsData)
-//                self?.tableView.performBatchUpdates {
-//                    guard let friendsData = self?.friendsData else { return }
-//                    self?.friends = Array(friendsData)
-//
-//                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
-//
-//                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
-//
-//                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
-//                }
+                
+                self?.friends = Array(friendsData)
+                //                self?.tableView.performBatchUpdates {
+                //                    guard let friendsData = self?.friendsData else { return }
+                //                    self?.friends = Array(friendsData)
+                //
+                //                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0) }, with: .automatic)
+                //
+                //                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                //
+                //                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: self?.friendsSectionTitles.firstIndex(of: String(friendsData[$0].lastName.prefix(1))) ?? 0)}, with: .automatic)
+                //                }
                 self?.tableView.reloadData()
             case .error(let error):
                 print(error)
@@ -226,7 +225,7 @@ class FriendsTableViewController: UITableViewController {
                 
                 //  let friendName = friend.name
                 let friendName = friend.firstName
-                collectionVC.friends.append(friend)
+               // collectionVC.friends.append(friend)
                 //                collectionVC.photos = friend.photos
                 collectionVC.title = "\(friendName)'s photos"
                 collectionVC.friendID = friend.userID

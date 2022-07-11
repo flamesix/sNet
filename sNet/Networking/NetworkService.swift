@@ -14,6 +14,7 @@ enum MethodsAPIVK {
     case photosList
     case groupsList
     case groupSearch
+    case newsList
     
     var method: String {
         switch self {
@@ -25,6 +26,8 @@ enum MethodsAPIVK {
             return "groups.get"
         case .groupSearch:
             return "groups.search"
+        case .newsList:
+            return "newsfeed.get"
         }
     }
     
@@ -38,6 +41,8 @@ enum MethodsAPIVK {
             return "Group List:"
         case .groupSearch:
             return "Searched Groups:"
+        case .newsList:
+            return "News:"
         }
     }
 }
@@ -189,6 +194,8 @@ class NetworkService {
         do {
             let realm = try Realm()
             try realm.write {
+                let oldGroups = realm.objects(Groups.self)
+                realm.delete(oldGroups)
                 realm.add(groups, update: .all)
             }
         } catch {
@@ -262,6 +269,35 @@ class NetworkService {
                     print("\(info.description)\(asJSON)")
                     print(url)
                     print(self.session.token)
+                } catch {
+                    print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getNews(info: MethodsAPIVK, completion: @escaping(_ news: [News], _ groups: [Int: Groups], _ friends: [Int: Friends]) -> Void) {
+        let url = apiURL + info.method
+        let patameters: Parameters = [
+            "filters": "post",
+            "access_token": session.token,
+            "v": NetworkService.vkAPIVersion
+        ]
+        
+        AF.request(url, method: .get, parameters: patameters).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
+                    let results = try decoder.decode(NewsResponse.self, from: data)
+                    
+                    let news = results.items
+                    let groups = results.groups
+                    let friends = results.profiles
+                    completion(news, groups, friends)
                 } catch {
                     print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
                 }

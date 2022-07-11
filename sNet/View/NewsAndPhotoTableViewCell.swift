@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsAndPhotoTableViewCell: UITableViewCell {
     
@@ -78,18 +79,41 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
     
     
     
-    func updateNews(with news: News) {
-        userPhotoImage.image = news.userPhotoImage
-        userNameLabel.text = news.userNameLabel
-        dateCreatedLabel.text = news.dateCreated.description
-        newsTextLabel.text = news.newsText
-        
-        for (newsImage, newsPhoto) in zip(newsImages, news.newsPhoto) {
-            if let newsPhoto = newsPhoto {
-                newsImage.isHidden = false
-                newsImage.image = newsPhoto.newsPhoto
-            }
-            
+//    func updateNews(with news: News) {
+//        userPhotoImage.image = news.userPhotoImage
+//        userNameLabel.text = news.userNameLabel
+//        dateCreatedLabel.text = news.dateCreated.description
+//        newsTextLabel.text = news.newsText
+//        
+//        for (newsImage, newsPhoto) in zip(newsImages, news.newsPhoto) {
+//            if let newsPhoto = newsPhoto {
+//                newsImage.isHidden = false
+//                newsImage.image = newsPhoto.newsPhoto
+//            }
+//            
+//        }
+//    }
+    
+    func updateNews(with news: News, groups: [Int: Groups]) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM YYYY, HH:mm:ss"
+        var keyForGroup = 0
+       // var keyForFriend = 0
+        if news.sourceID < 0 {
+            keyForGroup = news.sourceID * -1
         }
+        guard let urlString = groups[keyForGroup]?.groupsPhotoData else { return }
+        guard let groupName = groups[keyForGroup]?.groupName else { return }
+        if let url = URL(string: urlString) {
+            userPhotoImage.kf.setImage(with: url)
+        }
+     //   userPhotoImage.image = #imageLiteral(resourceName: "SNET.")
+        userNameLabel.text = groupName
+        dateCreatedLabel.text = dateFormatter.string(from: news.newsDate)
+        newsTextLabel.text = news.newsDescription
+        likeButton.setTitle(String(news.likesCount), for: .normal)
+        repostButton.setTitle(String(news.repostsCount), for: .normal)
+        commentButton.setTitle(String(news.commentsCount), for: .normal)
+        counterLabel.text = String(news.viewsCount)
     }
 }

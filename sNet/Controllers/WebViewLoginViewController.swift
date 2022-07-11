@@ -42,7 +42,7 @@ class WebViewLoginViewController: UIViewController {
         let tokenTimeGetted = Int(defaults.integer(forKey: "getTokenTime"))
         let currentTime = Int(Date().timeIntervalSince1970)
 
-        if currentTime - tokenTimeGetted < 86400 {
+        if currentTime - tokenTimeGetted > 86400 {
 
         let unixtime = Date().timeIntervalSince1970
         defaults.set(Int(unixtime), forKey: "getTokenTime")
@@ -51,9 +51,9 @@ class WebViewLoginViewController: UIViewController {
         } else {
             guard let token = defaults.string(forKey: "token") else { return }
             tokenString = token
-            print(tokenString)
+            print("TOKEN IS NOT EXPIRED YET \(tokenString)")
         }
-       
+
     }
     
     ///Getting access token

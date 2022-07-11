@@ -24,6 +24,7 @@ class SecondLoginViewController: UIViewController {
         super.viewDidLoad()
         
         passwordTextField.setRightButton(systemName: "eye.fill")
+        passwordTextField.autocorrectionType = .no
         self.setupHideKeyboardOnTap()
         scrollView.registerForKeyboardNotifications()
         updateLoginTextField(with: updatingData)

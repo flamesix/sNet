@@ -276,7 +276,7 @@ class NetworkService {
         }
     }
     
-    func getNews(info: MethodsAPIVK, completion: @escaping([News]) -> Void) {
+    func getNews(info: MethodsAPIVK, completion: @escaping(_ news: [News], _ groups: [Int: Groups], _ friends: [Int: Friends]) -> Void) {
         let url = apiURL + info.method
         let patameters: Parameters = [
             "filters": "post",
@@ -289,7 +289,9 @@ class NetworkService {
             case .success(let data):
                 do {
                     let news = try JSONDecoder().decode(NewsResponse.self, from: data).items
-                    completion(news)
+                    let groups = try JSONDecoder().decode(NewsResponse.self, from: data).groups
+                    let friends = try JSONDecoder().decode(NewsResponse.self, from: data).profiles
+                    completion(news, groups, friends)
                 } catch {
                     print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")
                 }

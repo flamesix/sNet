@@ -216,7 +216,6 @@ extension GroupsTableViewController: UISearchBarDelegate {
             searchedGroups = groups.filter { $0.groupName.localizedCaseInsensitiveContains(searchText) }
         }
         tableView.reloadData()
-        // MARK: - SomeComments
         
     }
     

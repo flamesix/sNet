@@ -225,7 +225,7 @@ class FriendsTableViewController: UITableViewController {
                 
                 //  let friendName = friend.name
                 let friendName = friend.firstName
-                collectionVC.friends.append(friend)
+               // collectionVC.friends.append(friend)
                 //                collectionVC.photos = friend.photos
                 collectionVC.title = "\(friendName)'s photos"
                 collectionVC.friendID = friend.userID

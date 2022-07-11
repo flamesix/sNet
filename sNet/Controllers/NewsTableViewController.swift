@@ -15,6 +15,17 @@ class NewsTableViewController: UITableViewController {
         }
     }
     
+    var groups: [Int: Groups] = [:] {
+        didSet {
+            print(groups)
+        }
+    }
+    var friends: [Int: Friends] = [:] {
+        didSet {
+            print(friends)
+        }
+    }
+    
     /*
     let news: [News] = [
         News(userPhotoImage: UIImage(named: "g1"),
@@ -57,8 +68,10 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService().getNews(info: .newsList) { news in
+        NetworkService().getNews(info: .newsList) { news, groups, friends in
             self.news = news
+            self.friends = friends
+            self.groups = groups
         }
         
         //  tableView.register(UINib(nibName: PropertyKeys.newsTableViewCell, bundle: nil), forCellReuseIdentifier: PropertyKeys.newsTableViewCell)
@@ -90,7 +103,7 @@ class NewsTableViewController: UITableViewController {
        // let news = news[indexPath.row]
         let news = news[indexPath.row]
       //  cell.updateNews(with: news)
-        cell.updateNewsT(with: news)
+        cell.updateNews(with: news)
         
         return cell
     }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
+//я собираю фотки по размерам в словарь а затем в зависимости от контроллера показываю их в разном качетсве
 class Photos: Object, Decodable {
     @Persisted var photoDescription: String = " "
     @Persisted var likesCount: Int = 0

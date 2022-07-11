@@ -93,7 +93,7 @@ class NewsAndPhotoTableViewCell: UITableViewCell {
 //        }
 //    }
     
-    func updateNewsT(with news: News) {
+    func updateNews(with news: News) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMM YYYY, HH:mm:ss"
         userPhotoImage.image = #imageLiteral(resourceName: "SNET.")

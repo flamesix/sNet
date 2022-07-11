@@ -20,7 +20,7 @@ class CollectionViewController: UICollectionViewController {
     }
     
     var friendID: Int = 0
-    var friends: [Friends] = []
+  //  var friends: [Friends] = [] // от страого проекта остался
     var photos: [PhotosOfFriend] = []
     var photosNetwork: [Photos] = [] {
         didSet {

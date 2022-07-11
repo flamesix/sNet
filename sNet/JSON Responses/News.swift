@@ -15,6 +15,7 @@ class News: Decodable {
     var likesCount: Int = 0
     var repostsCount: Int = 0
     var viewsCount: Int = 0
+    var sourceID: Int = 0
     
     enum CodingKeys: String, CodingKey {
         case newsDescription = "text"
@@ -23,6 +24,7 @@ class News: Decodable {
         case likes
         case reposts
         case views
+        case sourceID = "source_id"
     }
     
     enum LikesKeys: String, CodingKey {
@@ -48,6 +50,7 @@ class News: Decodable {
         self.repostsCount = try repostsValue.decode(Int.self, forKey: .repostsCount)
         let viewsValue = try container.nestedContainer(keyedBy: ViewsCount.self, forKey: .views)
         self.viewsCount = try viewsValue.decode(Int.self, forKey: .viewsCount)
+        self.sourceID = try container.decode(Int.self, forKey: .sourceID)
     }
 }
 

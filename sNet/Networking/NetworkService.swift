@@ -288,9 +288,13 @@ class NetworkService {
             switch response.result {
             case .success(let data):
                 do {
-                    let news = try JSONDecoder().decode(NewsResponse.self, from: data).items
-                    let groups = try JSONDecoder().decode(NewsResponse.self, from: data).groups
-                    let friends = try JSONDecoder().decode(NewsResponse.self, from: data).profiles
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
+                    let results = try decoder.decode(NewsResponse.self, from: data)
+                    
+                    let news = results.items
+                    let groups = results.groups
+                    let friends = results.profiles
                     completion(news, groups, friends)
                 } catch {
                     print("Error while decoding response: from: \(String(data: data, encoding: .utf8) ?? "")")

@@ -38,9 +38,11 @@ class News: Decodable {
     enum ViewsCount: String, CodingKey {
         case viewsCount = "count"
     }
+
     
     convenience required init(from decoder: Decoder) throws {
         self.init()
+        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.newsDescription = try container.decode(String.self, forKey: .newsDescription)
         self.newsDate = try container.decode(Date.self, forKey: .newsDate)

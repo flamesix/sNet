@@ -11,6 +11,9 @@ class NewsTableViewController: UITableViewController {
     
     var news: [News] = [] {
         didSet {
+            for new in news {
+                print(new.newsDate)
+            }
             tableView.reloadData()
         }
     }
